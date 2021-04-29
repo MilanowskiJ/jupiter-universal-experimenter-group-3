@@ -52,7 +52,7 @@ public class UI {
             String[] inputStr;
             Experiment output;
 
-            System.out.println("Please Enter an Experiment Type: Sample Only (s), Reagent-Based (r), or Complex (c)\n>");
+            System.out.print("Please Enter an Experiment Type: Sample Only (s), Reagent-Based (r), or Complex (c)\n>");
             try{
                 inputStr = reader.readLine().split(" ");
                 if(inputStr[0].toUpperCase().equals("S")) {createSampleOnly(reader);}
@@ -60,12 +60,10 @@ public class UI {
                 else if (inputStr[0].toUpperCase().equals("C")) {createComplex(reader);}
             } catch (IOException e) {return;}
 
-            System.out.println("Made Experiment " + this.params[1]);
+            System.out.println("Experiment Doable. \nMade Experiment " + this.params[1]);
         }
 
         /*
-            (sample is just what to sample, how much, and where,
-
             reagent is the quantity of each reagent, time to wait, and what detail
             about sample it’s applied to, and measurements to take,
 
@@ -74,26 +72,78 @@ public class UI {
          */
 
         private void createSampleOnly(BufferedReader reader) throws IOException{
-            String inputStr;
+            String whatToSample;
+            String howMuchToSample;
+            String whereToSample;
+            String[] inputStr;
 
-            System.out.println("Please Enter Experiment Specification: What to Sample\n>");
-            inputStr = reader.readLine();
+            while(true) {
+                System.out.print("Please Enter Experiment Specification: What to Sample\n>");
+                whatToSample = reader.readLine();
 
-            System.out.println("Please Enter Experiment Specification: How Much to Sample\n>");
-            inputStr = reader.readLine();
+                System.out.print("Please Enter Experiment Specification: How Much to Sample\n>");
+                howMuchToSample = reader.readLine();
 
-            System.out.println("Please Enter Experiment Specification: Where to Sample\n>");
-            inputStr = reader.readLine();
+                System.out.print("Please Enter Experiment Specification: Where to Sample\n>");
+                whereToSample = reader.readLine();
+
+                System.out.println("Experiment Specification Entered:\nWhat to Sample: " + whatToSample + "\nHow Much to Sample: " + howMuchToSample + "\nWhere to Sample: " + whereToSample);
+                System.out.print("Validate? (v)\n>");
+                inputStr = reader.readLine().split(" ");
+                if (inputStr[0].toUpperCase().equals("V")){
+                    break;
+                }
+            }
         }
 
         private void createReagentBased(BufferedReader reader) throws IOException{
-            System.out.println("Please Enter Experiment Specifications: What to Sample, How Much to Sample, Where to Sample\n>");
+            String whatToSample;
+            String howMuchToSample;
+            String whereToSample;
             String[] inputStr;
-            inputStr = reader.readLine().split(" ");
+
+            while(true) {
+                System.out.print("Please Enter Experiment Specification: What to Sample\n>");
+                whatToSample = reader.readLine();
+
+                System.out.print("Please Enter Experiment Specification: How Much to Sample\n>");
+                howMuchToSample = reader.readLine();
+
+                System.out.print("Please Enter Experiment Specification: Where to Sample\n>");
+                whereToSample = reader.readLine();
+
+                System.out.println("Experiment Specification Entered:\nWhat to Sample: " + whatToSample + "\nHow Much to Sample: " + howMuchToSample + "\nWhere to Sample: " + whereToSample);
+                System.out.print("Validate? (v)\n>");
+                inputStr = reader.readLine().split(" ");
+                if (inputStr[0].toUpperCase().equals("V")){
+                    break;
+                }
+            }
         }
 
         private void createComplex(BufferedReader reader) throws IOException{
+            String whatToSample;
+            String howMuchToSample;
+            String whereToSample;
+            String[] inputStr;
 
+            while(true) {
+                System.out.print("Please Enter Experiment Specification: What to Sample\n>");
+                whatToSample = reader.readLine();
+
+                System.out.print("Please Enter Experiment Specification: How Much to Sample\n>");
+                howMuchToSample = reader.readLine();
+
+                System.out.print("Please Enter Experiment Specification: Where to Sample\n>");
+                whereToSample = reader.readLine();
+
+                System.out.println("Experiment Specification Entered:\nWhat to Sample: " + whatToSample + "\nHow Much to Sample: " + howMuchToSample + "\nWhere to Sample: " + whereToSample);
+                System.out.print("Validate? (v)\n>");
+                inputStr = reader.readLine().split(" ");
+                if (inputStr[0].toUpperCase().equals("V")){
+                    break;
+                }
+            }
         }
 
         public boolean setParams(String[] newParams){
