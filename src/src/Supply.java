@@ -47,6 +47,11 @@ public class Supply implements DatabaseModel{
 	public String getUnit() {return unit;}
 
 	@Override
+	public String getQuery() {
+		return "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
+	}
+
+	@Override
 	public String addQuery() {
 			return String.format("INSERT INTO Supplies (Name, QuantityAvailable, QuantityOriginally, Type, Unit) VALUES ('%s', %d, %d, '%s', '%s');",
 					this.getName(),

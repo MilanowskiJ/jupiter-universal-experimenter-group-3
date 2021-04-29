@@ -22,6 +22,9 @@ public class LinkerManager {
 
     public LinkerManager() {
         String supplyGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
+        String capabilityGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
+        String experimentGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
+        String commandGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
 
         supplyLinker = new GenericLinker<>(connectionUrl,
                 supplyGetQuery,
@@ -30,6 +33,7 @@ public class LinkerManager {
                         result.getInt("QuantityOriginally"),
                         result.getString("Type"),
                         result.getString("Unit"))));
+
     }
 
     public List<Supply> getSupplyModels() {return supplyLinker.getModels();}

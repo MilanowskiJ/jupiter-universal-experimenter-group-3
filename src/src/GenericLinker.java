@@ -93,8 +93,4 @@ public class GenericLinker<T extends DatabaseModel> implements DatabaseLinker<T>
     public interface ResultManager<G>{
         G processResult(ResultSet result) throws SQLException;
     }
-
-    public interface ModelManager<G>{
-        String processModel(G model);
-    }
 }

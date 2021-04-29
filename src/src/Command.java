@@ -3,6 +3,11 @@ import java.sql.SQLException;
 
 public class Command implements DatabaseModel{
     @Override
+    public String getQuery() {
+        return null;
+    }
+
+    @Override
     public String addQuery() {
         return null;
     }
