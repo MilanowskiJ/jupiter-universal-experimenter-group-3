@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Locale;
 
 import static java.lang.System.exit;
 
@@ -47,7 +48,52 @@ public class UI {
         String[] params;
 
         public void execute(){
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String[] inputStr;
+            Experiment output;
+
+            System.out.println("Please Enter an Experiment Type: Sample Only (s), Reagent-Based (r), or Complex (c)\n>");
+            try{
+                inputStr = reader.readLine().split(" ");
+                if(inputStr[0].toUpperCase().equals("S")) {createSampleOnly(reader);}
+                else if (inputStr[0].toUpperCase().equals("R")) {createReagentBased(reader);}
+                else if (inputStr[0].toUpperCase().equals("C")) {createComplex(reader);}
+            } catch (IOException e) {return;}
+
             System.out.println("Made Experiment " + this.params[1]);
+        }
+
+        /*
+            (sample is just what to sample, how much, and where,
+
+            reagent is the quantity of each reagent, time to wait, and what detail
+            about sample it’s applied to, and measurements to take,
+
+            complex is a manually entered set of commands of
+            the form {verb, quantity, supply item, target}
+         */
+
+        private void createSampleOnly(BufferedReader reader) throws IOException{
+            String inputStr;
+
+            System.out.println("Please Enter Experiment Specification: What to Sample\n>");
+            inputStr = reader.readLine();
+
+            System.out.println("Please Enter Experiment Specification: How Much to Sample\n>");
+            inputStr = reader.readLine();
+
+            System.out.println("Please Enter Experiment Specification: Where to Sample\n>");
+            inputStr = reader.readLine();
+        }
+
+        private void createReagentBased(BufferedReader reader) throws IOException{
+            System.out.println("Please Enter Experiment Specifications: What to Sample, How Much to Sample, Where to Sample\n>");
+            String[] inputStr;
+            inputStr = reader.readLine().split(" ");
+        }
+
+        private void createComplex(BufferedReader reader) throws IOException{
+
         }
 
         public boolean setParams(String[] newParams){

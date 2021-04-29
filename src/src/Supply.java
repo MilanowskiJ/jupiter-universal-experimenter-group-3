@@ -38,10 +38,10 @@ public class Supply {
 		}
 	}
 	
-	private int getQuantityAvailable() {return quantityAvailable;}
-	private int getQuantityOriginal() {return quantityOriginal;}
-	private String getName() {return name;}
-	private String getType() {return type;}
-	private String getUnit() {return unit;}
+	public int getQuantityAvailable() {return quantityAvailable;}
+	public int getQuantityOriginal() {return quantityOriginal;}
+	public String getName() {return name;}
+	public String getType() {return type;}
+	public String getUnit() {return unit;}
 	
 }
