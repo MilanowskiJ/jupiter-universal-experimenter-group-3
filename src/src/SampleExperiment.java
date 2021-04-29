@@ -5,7 +5,7 @@ public class SampleExperiment extends Experiment {
 	private int amount;
 	private String where; //??????
 	
-	public SampleExperiment(String Name,String priority, String ExperimentID, String complete, String Description, String target, int amount, String where) {
+	public SampleExperiment(String Name,String priority, String ExperimentID, String complete, String Description) {
 		super(Name, priority, ExperimentID, complete, Description);
 	}
 	
@@ -15,4 +15,5 @@ public class SampleExperiment extends Experiment {
 	public int getAmount() {return this.amount;}
 	public String getWhere() {return where;}
 	public void setWhere(String where) {this.where = where;}
+	
 }
