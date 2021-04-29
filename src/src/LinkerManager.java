@@ -1,5 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class LinkerManager {
@@ -9,7 +11,7 @@ public class LinkerManager {
     private GenericLinker<Command> commandLinker;
 
     //@TODO: fill connectionUrl fields here
-    private String connectionUrl =
+    private final String connectionUrl =
             "jdbc:sqlserver://yourserver.database.windows.net:1433;"
                     + "database=TODO;"
                     + "user=yourusername@yourserver;"
@@ -27,34 +29,26 @@ public class LinkerManager {
                         result.getInt("QuantityAvailable"),
                         result.getInt("QuantityOriginally"),
                         result.getString("Type"),
-                        result.getString("Unit"))),
-                (model -> {
-                    return String.format("INSERT INTO Supplies (Name, QuantityAvailable, QuantityOriginally, Type, Unit) VALUES ('%s', %d, %d, '%s', '%s');",
-                            model.getName(),
-                            model.getQuantityAvailable(),
-                            model.getQuantityOriginal(),
-                            model.getType(),
-                            model.getUnit());
-                }));
+                        result.getString("Unit"))));
     }
 
     public List<Supply> getSupplyModels() {return supplyLinker.getModels();}
     public boolean addSupply(Supply model) {return supplyLinker.add(model);}
     public boolean updateSupply(Supply model) {return supplyLinker.update(model);}
-    public boolean deleteSupply(int id) {return supplyLinker.delete(id);}
+    public boolean deleteSupply(Supply model) {return supplyLinker.delete(model);}
 
     public List<Capability> getCapabilityModels() {return capabilityLinker.getModels();}
     public boolean addCapability(Capability model) {return capabilityLinker.add(model);}
     public boolean updateCapability(Capability model) {return capabilityLinker.update(model);}
-    public boolean deleteCapability(int id) {return capabilityLinker.delete(id);}
+    public boolean deleteCapability(Capability model) {return capabilityLinker.delete(model);}
 
     public List<Experiment> getExperimentModels() {return experimentLinker.getModels();}
     public boolean addExperiment(Experiment model) {return experimentLinker.add(model);}
     public boolean updateExperiment(Experiment model) {return experimentLinker.update(model);}
-    public boolean deleteExperiment(int id) {return experimentLinker.delete(id);}
+    public boolean deleteExperiment(Experiment model) {return experimentLinker.delete(model);}
 
     public List<Command> getCommandModels() {return commandLinker.getModels();}
     public boolean addCommand(Command model) {return commandLinker.add(model);}
     public boolean updateCommand(Command model) {return commandLinker.update(model);}
-    public boolean deleteCommand(int id) {return commandLinker.delete(id);}
+    public boolean deleteCommand(Command model) {return commandLinker.delete(model);}
 }

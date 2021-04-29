@@ -1,5 +1,7 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class Supply {
+public class Supply implements DatabaseModel{
 
 //	if we find a way to use an enum while keeping things decoupled, that'd be great
 //	public enum Type {
@@ -43,5 +45,28 @@ public class Supply {
 	public String getName() {return name;}
 	public String getType() {return type;}
 	public String getUnit() {return unit;}
-	
+
+	@Override
+	public String addQuery() {
+			return String.format("INSERT INTO Supplies (Name, QuantityAvailable, QuantityOriginally, Type, Unit) VALUES ('%s', %d, %d, '%s', '%s');",
+					this.getName(),
+					this.getQuantityAvailable(),
+					this.getQuantityOriginal(),
+					this.getType(),
+					this.getUnit());
+	}
+
+	@Override
+	public String updateQuery() {
+		return null;
+	}
+
+	@Override
+	public String deleteQuery() {
+		return null;
+	}
+
+	@Override
+	public void processResult(ResultSet result) throws SQLException {
+	}
 }

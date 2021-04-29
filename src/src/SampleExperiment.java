@@ -1,3 +1,5 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class SampleExperiment extends Experiment {
 	
@@ -15,5 +17,23 @@ public class SampleExperiment extends Experiment {
 	public int getAmount() {return this.amount;}
 	public String getWhere() {return where;}
 	public void setWhere(String where) {this.where = where;}
-	
+
+	@Override
+	public String addQuery() {
+		return null;
+	}
+
+	@Override
+	public String updateQuery() {
+		return null;
+	}
+
+	@Override
+	public String deleteQuery() {
+		return null;
+	}
+
+	@Override
+	public void processResult(ResultSet result) throws SQLException {
+	}
 }

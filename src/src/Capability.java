@@ -1,5 +1,7 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class Capability {
+public class Capability implements DatabaseModel{
 	private String ID;
 	private String type;
 	private String name;
@@ -22,5 +24,24 @@ public class Capability {
 	
 	public boolean isOperational() {
 		return (this.status.compareTo("Operational") == 0);
+	}
+
+	@Override
+	public String addQuery() {
+		return null;
+	}
+
+	@Override
+	public String updateQuery() {
+		return null;
+	}
+
+	@Override
+	public String deleteQuery() {
+		return null;
+	}
+
+	@Override
+	public void processResult(ResultSet result) throws SQLException {
 	}
 }

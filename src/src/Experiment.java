@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Experiment {
+public abstract class Experiment implements DatabaseModel{
 	
 	private String Name;
 	private String priority;

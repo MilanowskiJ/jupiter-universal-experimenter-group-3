@@ -1,5 +1,7 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class Sample {
+public class Sample{
 	private String sampleID;
 	private String name;
 	private int amount;

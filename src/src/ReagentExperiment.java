@@ -1,3 +1,5 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ReagentExperiment extends Experiment {
 	
@@ -14,4 +16,22 @@ public class ReagentExperiment extends Experiment {
 	private void setAmount(int amount) {this.amount = amount;}
 	private void setSampleID(String sampleID) {this.sampleID = sampleID;}
 
+	@Override
+	public String addQuery() {
+		return null;
+	}
+
+	@Override
+	public String updateQuery() {
+		return null;
+	}
+
+	@Override
+	public String deleteQuery() {
+		return null;
+	}
+
+	@Override
+	public void processResult(ResultSet result) throws SQLException {
+	}
 }
