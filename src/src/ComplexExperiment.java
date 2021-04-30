@@ -9,6 +9,11 @@ public class ComplexExperiment extends Experiment {
 	}
 
 	@Override
+	public String getQuery() {
+		return null;
+	}
+
+	@Override
 	public String addQuery() {
 		return null;
 	}

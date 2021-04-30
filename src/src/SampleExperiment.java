@@ -19,6 +19,11 @@ public class SampleExperiment extends Experiment {
 	public void setWhere(String where) {this.where = where;}
 
 	@Override
+	public String getQuery() {
+		return null;
+	}
+
+	@Override
 	public String addQuery() {
 		return null;
 	}

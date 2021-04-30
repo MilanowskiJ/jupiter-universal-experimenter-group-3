@@ -17,6 +17,11 @@ public class ReagentExperiment extends Experiment {
 	private void setSampleID(String sampleID) {this.sampleID = sampleID;}
 
 	@Override
+	public String getQuery() {
+		return null;
+	}
+
+	@Override
 	public String addQuery() {
 		return null;
 	}
