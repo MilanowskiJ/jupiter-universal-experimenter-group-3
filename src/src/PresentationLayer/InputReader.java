@@ -6,10 +6,9 @@ import java.io.InputStreamReader;
 
 public class InputReader {
     BufferedReader reader;
-    String commandList = "\nmakeSampleExperiment" +
+    String commandList = "\nmakeSampleExperiment\n" +
             " makeReagentExperiment\n" +
             "makeComplexExperiment\n"+
-            "runExperiment\n"+
             " exit\n";
 
     public InputReader(){
