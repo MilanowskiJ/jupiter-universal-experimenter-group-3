@@ -9,6 +9,8 @@ public class InputReader {
     String commandList = "\nmakeSampleExperiment\n" +
             " makeReagentExperiment\n" +
             "makeComplexExperiment\n"+
+            "processReagentExperiment\n"+
+            "processSampleExperiment\n"+
             " exit\n";
 
     public InputReader(){
@@ -23,7 +25,8 @@ public class InputReader {
         if(inputStr[0].equals("makeReagentExperiment")) output = new MakeReagentExperiment();
         else if(inputStr[0].equals("makeSampleExperiment")) output = new MakeSampleExperiment();
         else if(inputStr[0].equals("makeComplexExperiment")) output = new MakeComplexExperiment();
-            //else if(inputStr[0].equals("runExperiment")) output = new RunExperiment();
+        else if(inputStr[0].equals("processReagentExperiment")) output = new ProcessReagentExperiment();
+        else if(inputStr[0].equals("processSampleExperiment")) output = new ProcessSampleExperiment();
         else if(inputStr[0].equals("exit")) output = new ExitConsole();
         else
         {
