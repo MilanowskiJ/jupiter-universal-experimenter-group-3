@@ -1,22 +1,25 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 import org.json.simple.parser.JSONParser;
 
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 public class CommunicationSubsystem extends Thread {
 	private ServerSocket serverSocket;
 	private int port;
 	boolean running = false;
+	private ArrayList<Observer> observers;
+	private ArrayList<JSONObject> files;
 	
 	public CommunicationSubsystem(int port) {
 		this.port = port;
+		observers = new ArrayList<Observer>();
 	}
 	
 	public void stopServer() {
@@ -67,7 +70,8 @@ public class CommunicationSubsystem extends Thread {
             JSONObject report = (JSONObject) parser.parse(line);
             
             System.out.println("file received: " + report.toString());
-            
+            this.files.add(report);
+            notifyAllObservers();
             // Close our connection
             in.close();
             socket.close();
@@ -80,6 +84,13 @@ public class CommunicationSubsystem extends Thread {
         }
 	}
 	
+	private void notifyAllObservers() {
+		// TODO Auto-generated method stub
+		for (Observer obs : observers) {
+			obs.update();
+		}
+	}
+
 	public static void main(String[] args) {
 		int port = 1024;
 		CommunicationSubsystem server = new CommunicationSubsystem(port);
@@ -95,5 +106,14 @@ public class CommunicationSubsystem extends Thread {
         }
 
         server.stopServer();
+	}
+
+	public void attach(CommunicationObserver communicationObserver) {
+		// TODO Auto-generated method stub
+		this.observers.add(communicationObserver);
+	}
+	
+	public ArrayList<JSONObject> getFiles() {
+		return this.files;
 	}
 }
