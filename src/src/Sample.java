@@ -14,5 +14,5 @@ public class Sample{
 	
 	public String getSampleID() {return sampleID;}
 	public String getName() {return name;}
-	public int amount() {return amount;}
+	public int getAmount() {return amount;}
 }

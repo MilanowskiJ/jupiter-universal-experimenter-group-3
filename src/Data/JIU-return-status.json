@@ -1,0 +1,48 @@
+{"return-status": {
+
+  "inventory": [
+    {"liquid O2": 200},
+    {"H2": 150},
+    {"test tube": 300},
+    {"caps": 410},
+    {"Butane": 100},
+    {"Benzene": 150},
+    {"Chloric acid": 100},
+    {"Nitric acid": 100},
+    {"Ethyl alcohol": 100},
+    {"Millon's": 150},
+    {"Ammonia": 150},
+    {"sealed flask": 50},
+    {"Methane": 500}
+    ],
+
+  "capabilities": [
+    {"O2-2": "operational"},
+    {"O2-1": "operational"},
+    {"Arm-1": "operational"},
+    {"Arm-2": "operational"},
+    {"C-1": "operational"},
+    {"H1": "operational"},
+    {"M-1": "operational"},
+    {"M-2": "operational"},
+    {"E1": "operational"},
+    {"E2": "operational"},
+    {"T1": "operational"},
+    {"T2": "operational"},
+    {"T3": "operational"},
+    {"T4": "operational"},
+    {"B1": "operational"},
+    {"H1": "operational"},
+    {"H2": "operational"},
+    {"PH-1": "operational"},
+    {"HPGC-1": "operational"},
+    {"Arm-3": "operational"}
+    ],
+
+  "experiment_status": [
+    {"E3": "success"},
+    {"E1": "failed"}
+    ]
+
+}
+}
