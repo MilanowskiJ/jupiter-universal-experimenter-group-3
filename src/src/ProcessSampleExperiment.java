@@ -1,13 +1,15 @@
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.*;
 
-public class ProcessSampleExperiment implements Cmd{
-    @Override
-    public ArrayList<String> execute(BufferedReader reader) throws IOException {
+public class ProcessSampleExperiment implements UIProcess {
+
+    public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         System.out.println("Select sample-based experiment to process:");
         System.out.println("Fetching valid experiments...");
         Set<String> experiments = this.printValidSampleExperiments();
@@ -16,13 +18,13 @@ public class ProcessSampleExperiment implements Cmd{
         while(true){
             experiment = reader.readLine();
             if(experiments.contains(experiment))break;
-            else if(experiment.equals("X")) return null;
+            else if(experiment.equals("X")) return;
             else System.out.print(experiment+" is not a valid experiment, please select one from the list or create a new one (or enter 'X' to cance)");
         }
 
-        //replace this with the actual running
-        System.out.println("Processing...");
-        return new ArrayList<String>(Arrays.asList(experiment));
+        List<String> params = new ArrayList<>(Arrays.asList(experiment));
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("process sample", params);
+        queue.add(newProcess);
     }
     private Set<String> printValidSampleExperiments(){
         //This should call the database and add all the strings to this set
@@ -39,7 +41,6 @@ public class ProcessSampleExperiment implements Cmd{
 
     }
 
-    @Override
     public String getType() {
         return "process sample";
     }

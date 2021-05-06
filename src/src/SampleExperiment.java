@@ -1,3 +1,4 @@
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -7,7 +8,7 @@ import java.sql.SQLException;
 public class SampleExperiment extends Experiment {
 	
 	private String target;
-	private int amount;
+	private String amount;
 	private String where; //??????
 	
 	public SampleExperiment(String Name,String priority, String ExperimentID, String complete, String Description) {
@@ -16,8 +17,8 @@ public class SampleExperiment extends Experiment {
 	
 	public void setTarget(String target) {this.target = target;}
 	public String getTarget( ) {return target;}
-	public void setAmount(int amount) {this.amount = amount;}
-	public int getAmount() {return this.amount;}
+	public void setAmount(String amount) {this.amount = amount;}
+	public String getAmount() {return this.amount;}
 	public String getWhere() {return where;}
 	public void setWhere(String where) {this.where = where;}
 

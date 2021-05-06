@@ -21,6 +21,7 @@ public class CommunicationSubsystem extends Thread {
 	public CommunicationSubsystem(int port) {
 		this.port = port;
 		observers = new ArrayList<Observer>();
+		this.files = new ArrayList<JSONObject>();
 	}
 	
 	public void stopServer() {
@@ -44,7 +45,7 @@ public class CommunicationSubsystem extends Thread {
 		running = true;
 		while(running) {
 			try {
-				System.out.println("Listening for a connection");
+//				System.out.println("Listening for a connection");
 				
 				Socket socket = serverSocket.accept();
 				
@@ -57,16 +58,16 @@ public class CommunicationSubsystem extends Thread {
 
 	private void handleMessages(Socket socket) {
 		// TODO Auto-generated method stub
-		System.out.println("Connection recieved");
+//		System.out.println("Connection recieved");
 		try
         {
-            System.out.println( "Received a connection" );
+//            System.out.println( "Received a connection" );
 
             // Get input and output streams
             BufferedReader in = new BufferedReader( new InputStreamReader( socket.getInputStream() ) );
 
             // Write out our header to the client
-            System.out.println( "listening for Json file" );
+//            System.out.println( "listening for Json file" );
             // Echo lines back to the client until the client closes the connection or we receive an empty line
             String line = in.readLine();
 			JSONObject report = null;
@@ -75,14 +76,14 @@ public class CommunicationSubsystem extends Thread {
 			}catch (JSONException err){
 			}
             
-            System.out.println("file received: " + report.toString());
+//            System.out.println("file received: " + report.toString());
             this.files.add(report);
             notifyAllObservers();
             // Close our connection
             in.close();
             socket.close();
 
-            System.out.println( "Connection closed" );
+//            System.out.println( "Connection closed" );
         }
         catch( Exception e )
         {
