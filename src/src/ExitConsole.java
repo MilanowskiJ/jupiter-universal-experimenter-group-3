@@ -1,19 +1,15 @@
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Queue;
 
+public class ExitConsole implements UIProcess {
 
-import static java.lang.System.exit;
-
-public class ExitConsole implements Cmd {
-
-    public ArrayList<String> execute(BufferedReader reader) throws IOException {
-        exit(0);
-        return null;
+    public void execute(BufferedReader reader, Queue<PresentationLayer.BusinessProcessContainer> queue) throws IOException {
+        PresentationLayer.BusinessProcessContainer newProcess = new PresentationLayer.BusinessProcessContainer("exit", null);
+        queue.add(newProcess);
+        return;
     }
 
-    @Override
-    public String getType() {
-        return "exit console";
-    }
+
+
 }

@@ -23,24 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92e59a44-d956-4b3a-b361-167af510a322" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComplexExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Experiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ExitConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ExitConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JUMPSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JUMPSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MakeComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeComplexExperiment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MakeReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeReagentExperiment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MakeSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeSampleExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ExitConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/UIProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProcessReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessReagentExperiment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProcessSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessSampleExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReagentExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UIProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/UIProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SampleExperiment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +96,7 @@
       </method>
     </configuration>
     <configuration name="UI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="PresentationLayer.UI" />
+      <option name="MAIN_CLASS_NAME" value="UI" />
       <module name="jupiter-universal-experimenter-group-3" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -141,7 +135,7 @@
       <workItem from="1620277081274" duration="244000" />
       <workItem from="1620277414021" duration="5793000" />
       <workItem from="1620286946627" duration="8000" />
-      <workItem from="1620287405944" duration="351000" />
+      <workItem from="1620287405944" duration="818000" />
     </task>
     <servers />
   </component>
@@ -165,10 +159,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1620287673143" />
+    <state x="551" y="302" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1620287963330">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="551" y="302" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1620287963330" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1620279953104">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1620279953104" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620288224922">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1620288224922" />
     <state x="933" y="170" key="FileChooserDialogImpl" timestamp="1620287199978">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

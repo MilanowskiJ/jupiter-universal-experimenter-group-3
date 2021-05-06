@@ -1,39 +1,32 @@
+import PresentationLayer.BusinessProcessContainer;
+
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class JUMPSystem {
 
 
     public static void main(String[] args) throws IOException {
-        Cmd nextCmd;
+        UIProcess nextUIProcess;
         InputReader console = new InputReader();
+        Queue<BusinessProcessContainer> queue = new LinkedList<>();
         while(true){
-            nextCmd = console.getNextCommand();
-            String[] cmdInfo = nextCmd.getType().split(" ");
+            nextUIProcess = console.getNextCommand();
+            nextUIProcess.execute(console.reader, queue);
 
-            if(cmdInfo[0].equals("make")){
-                List<String> makeParams = nextCmd.execute(console.reader); //get the list of params to process
-                if(makeParams == null) continue;
-
-                Experiment newExperiment = ExperimentMaker.makeExperiment(makeParams, cmdInfo[1]);
-                if(newExperiment == null) System.out.println("Failed to create experiment");
-                else System.out.print(newExperiment.toString());
+            BusinessProcessContainer nextBusinessProcess = queue.poll();
+            String[] typeInfo = nextBusinessProcess.getType().split(" ");
+            if(typeInfo[0].equals("make")){
+                //Experiment newExperiment = ExperimentCreator.makeExperiment(typeInfo[1], nextBusinessProcess.getParams());
+                //pass new experiment to the database
             }
-
-            else if(cmdInfo[0].equals("process")){
-                List<String> toProcess = nextCmd.execute(console.reader); //get the name of the string to process
-
-                if(toProcess == null) continue;
-                //pass to experiment processor
-
-                String processedString = ExperimentProcessor.processExperiment(toProcess.get(0), cmdInfo[1]);
-                System.out.println(processedString);
-            } else{
-                System.out.println("other");
-                nextCmd.execute(console.reader) ;
+            else if(typeInfo[0].equals("process")){
+                //insert process logic here, nextBusinessProcess.getParams().get(0) has the experiment ID to process
             }
-
-            //nextCmd.execute(console.reader);
+            else continue;
+        }
         }
     }
-}
+
