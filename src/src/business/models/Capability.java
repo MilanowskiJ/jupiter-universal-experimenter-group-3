@@ -33,22 +33,33 @@ public class Capability implements DatabaseModel {
 
 	@Override
 	public String getQuery() {
-		return null;
+		return "SELECT ID, Name, Type, Description, Status from Capabilities";
 	}
 
 	@Override
 	public String addQuery() {
-		return null;
+		return String.format("INSERT INTO Capabilities (ID, Name, Type, Description, Status) VALUES ('%s', '%s', '%s', '%s','%s');",
+				this.getID(),
+				this.getName(),
+				this.getType(),
+				this.getDescription(),
+				this.getStatus());
 	}
 
 	@Override
 	public String updateQuery() {
-		return null;
+		return String.format("UPDATE Capabilities SET Name = '%s', Type = '%s', Description = '%s', Status = '%s' WHERE ID = '%s';",
+				this.getName(),
+				this.getType(),
+				this.getDescription(),
+				this.getStatus(),
+				this.getID());
 	}
 
 	@Override
 	public String deleteQuery() {
-		return null;
+		return String.format("DELETE FROM Capabilities WHERE ID = '%s';",
+				this.getID());
 	}
 
 	@Override

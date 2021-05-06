@@ -18,22 +18,29 @@ public class Command implements DatabaseModel {
 
     @Override
     public String getQuery() {
-        return null;
+        return "SELECT CommandID, CommandName, Params, from Commands";
     }
 
     @Override
     public String addQuery() {
-        return null;
+        return String.format("INSERT INTO Commands (CommandID, CommandName, Params) VALUES ('%s', '%s', '%s')",
+                this.ID,
+                this.name,
+                this.parameters);
     }
 
     @Override
     public String updateQuery() {
-        return null;
+        return String.format("UPDATE Commands SET CommandName = '%s', Params = '%s' WHERE CommandID = '%s';",
+                this.name,
+                this.parameters,
+                this.ID);
     }
 
     @Override
     public String deleteQuery() {
-        return null;
+        return String.format("DELETE FROM Commands WHERE CommandID = '%s';",
+                this.ID);
     }
 
     @Override
