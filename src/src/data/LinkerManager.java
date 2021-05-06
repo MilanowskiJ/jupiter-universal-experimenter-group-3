@@ -1,6 +1,7 @@
 package data;
 
 import business.models.*;
+import sun.awt.image.ImageWatched;
 
 import java.util.Map;
 
@@ -99,5 +100,9 @@ public class LinkerManager {
             update(models.get(key));
         }
         return true;
+    }
+
+    public static LinkerManager getInstance(){
+        return null;
     }
 }
