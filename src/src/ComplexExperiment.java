@@ -45,7 +45,6 @@ public class ComplexExperiment extends Experiment {
 	public void processResult(ResultSet result) throws SQLException {
 	}
 
-	@Override
 	public JSONObject process() {
 		return null;
 	}

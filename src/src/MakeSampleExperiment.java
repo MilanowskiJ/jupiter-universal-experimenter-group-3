@@ -1,3 +1,6 @@
+import PresentationLayer.BusinessProcessContainer;
+import PresentationLayer.UIProcess;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +14,6 @@ public class MakeSampleExperiment implements UIProcess {
     String whereToSample;
     String experimentID;
 
-    @Override
     public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         boolean exited = false;
 
@@ -50,7 +52,6 @@ public class MakeSampleExperiment implements UIProcess {
         queue.add(newProcess);
     }
 
-    @Override
     public String getType() {
         return "make sample";
     }

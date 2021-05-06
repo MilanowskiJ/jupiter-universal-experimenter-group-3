@@ -1,3 +1,6 @@
+import PresentationLayer.BusinessProcessContainer;
+import PresentationLayer.UIProcess;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +15,6 @@ public class MakeReagentExperiment implements UIProcess {
     String measurementsToTake;
     String experimentID;
 
-    @Override
     public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         String[] inputStr;
         boolean exited = false;
@@ -58,7 +60,6 @@ public class MakeReagentExperiment implements UIProcess {
             queue.add(newProcess);
     }
 
-    @Override
     public String getType() {
         return "make reagent";
     }

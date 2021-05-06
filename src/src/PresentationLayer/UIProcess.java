@@ -6,5 +6,5 @@ import java.util.Queue;
 
 public interface UIProcess {
     // public void execute();
-    public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException;
+    public void execute(BufferedReader reader, Queue<PresentationLayer.BusinessProcessContainer> queue) throws IOException;
 }

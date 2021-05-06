@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-<<<<<<< HEAD
 public abstract class Experiment implements DatabaseModel{
 
 	protected String Name;
@@ -10,11 +9,11 @@ public abstract class Experiment implements DatabaseModel{
 	protected String Description;
 	
 	public Experiment(String Name, String priority, String ExperimentID, String complete, String Description) {
-		this.name = Name;
+		this.Name = Name;
 		this.priority = priority;
-		this.experimentID = ExperimentID;
+		this.ExperimentID = ExperimentID;
 		this.complete = complete;
-		this.description = Description;
+		this.Description = Description;
 	}
 
 	abstract public void validate();

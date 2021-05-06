@@ -1,3 +1,6 @@
+import PresentationLayer.BusinessProcessContainer;
+import PresentationLayer.UIProcess;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +16,6 @@ public class MakeComplexExperiment implements UIProcess {
     String target;
 
     @Override
-
     public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         boolean exited = false;
 
@@ -52,7 +54,6 @@ public class MakeComplexExperiment implements UIProcess {
         queue.add(newProcess);
     }
 
-    @Override
     public String getType() {
         return "make complex";
 

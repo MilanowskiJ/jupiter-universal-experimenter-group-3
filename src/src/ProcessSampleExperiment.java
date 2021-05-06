@@ -1,3 +1,6 @@
+import PresentationLayer.BusinessProcessContainer;
+import PresentationLayer.UIProcess;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,7 +10,7 @@ import java.util.Set;
 import java.util.*;
 
 public class ProcessSampleExperiment implements UIProcess {
-    @Override
+
     public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         System.out.println("Select sample-based experiment to process:");
         System.out.println("Fetching valid experiments...");
@@ -40,7 +43,6 @@ public class ProcessSampleExperiment implements UIProcess {
 
     }
 
-    @Override
     public String getType() {
         return "process sample";
     }
