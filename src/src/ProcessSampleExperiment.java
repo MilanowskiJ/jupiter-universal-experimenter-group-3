@@ -1,14 +1,13 @@
-package PresentationLayer;
-
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class ProcessSampleExperiment implements Cmd{
     @Override
-    public boolean execute(BufferedReader reader) throws IOException {
+    public ArrayList<String> execute(BufferedReader reader) throws IOException {
         System.out.println("Select sample-based experiment to process:");
         System.out.println("Fetching valid experiments...");
         Set<String> experiments = this.printValidSampleExperiments();
@@ -17,15 +16,13 @@ public class ProcessSampleExperiment implements Cmd{
         while(true){
             experiment = reader.readLine();
             if(experiments.contains(experiment))break;
-            else if(experiment.equals("X")) return true;
+            else if(experiment.equals("X")) return null;
             else System.out.print(experiment+" is not a valid experiment, please select one from the list or create a new one (or enter 'X' to cance)");
         }
 
         //replace this with the actual running
-        System.out.println("Running...");
-        System.out.println("Completed "+experiment);
-
-        return false;
+        System.out.println("Processing...");
+        return new ArrayList<String>(Arrays.asList(experiment));
     }
     private Set<String> printValidSampleExperiments(){
         //This should call the database and add all the strings to this set
@@ -40,5 +37,10 @@ public class ProcessSampleExperiment implements Cmd{
         }
         return output;
 
+    }
+
+    @Override
+    public String getType() {
+        return "process sample";
     }
 }

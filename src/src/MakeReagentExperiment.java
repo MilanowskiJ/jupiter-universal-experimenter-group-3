@@ -1,7 +1,7 @@
-package PresentationLayer;
-
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MakeReagentExperiment implements Cmd{
     String reagent;
@@ -11,9 +11,11 @@ public class MakeReagentExperiment implements Cmd{
     String experimentID;
 
     @Override
-    public boolean execute(BufferedReader reader) throws IOException {
+    public ArrayList<String> execute(BufferedReader reader) throws IOException {
         String[] inputStr;
         boolean exited = false;
+        ArrayList<String> output = new ArrayList<>();
+
         while(true) {
             System.out.println("Creating new reagent-based experiment...");
             System.out.print("Please Enter Experiment Specification: ExperimentID\n>");
@@ -44,7 +46,16 @@ public class MakeReagentExperiment implements Cmd{
             }
         }
         if(exited) System.out.println("Experiment Doable. \nMade Experiment " + experimentID);
-        else System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
-        return exited;
+        else {
+            System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
+            return null;
+        }
+        output.addAll(Arrays.asList(reagent, sampleToApplyTo, reagentQuantity, measurementsToTake, experimentID));
+        return output;
+    }
+
+    @Override
+    public String getType() {
+        return "make reagent";
     }
 }

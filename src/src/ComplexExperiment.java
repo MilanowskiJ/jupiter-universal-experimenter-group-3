@@ -11,6 +11,11 @@ public class ComplexExperiment extends Experiment {
 	}
 
 	@Override
+	public void validate() {
+
+	}
+
+	@Override
 	public String getQuery() {
 		return null;
 	}
