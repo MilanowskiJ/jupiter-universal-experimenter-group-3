@@ -54,8 +54,8 @@ public class ReagentExperiment extends Experiment {
 	@Override
 	public JSONObject process() {
 		JSONObject processedJSON = new JSONObject();
-		processedJSON.put("experiment_id", super.ExperimentID);
-		processedJSON.put("experiment_name", super.Name);
+		processedJSON.put("experiment_id", super.experimentID);
+		processedJSON.put("experiment_name", super.name);
 		processedJSON.put("experiment_type", "Reagent");
 
 		JSONArray commandArray = new JSONArray();

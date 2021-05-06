@@ -5,7 +5,7 @@ public class ExperimentCreator {
 
     }
     public Experiment makeNewExperiment(String type, List<String> params){
-        if(type.equals("simple")) return makeSampleExperiment(params);
+        if(type.equals("sample")) return makeSampleExperiment(params);
         else if(type.equals("complex")) return makeComplexExperiment(params);
         else if(type.equals("reagent")) return makeReagentExperiment(params);
         else return null;
