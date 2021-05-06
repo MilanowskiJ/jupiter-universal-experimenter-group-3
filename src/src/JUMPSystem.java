@@ -10,6 +10,7 @@ public class JUMPSystem {
 
     public static void main(String[] args) throws IOException {
         CommunicationSubsystem CS = new CommunicationSubsystem(1024);
+        CS.startServer();
         CommunicationObserver obs = new CommunicationObserver(CS);
         UIProcess nextUIProcess;
         InputReader console = new InputReader();
@@ -19,7 +20,7 @@ public class JUMPSystem {
         while(true){
             while (obs.hasNext()) {
                 JSONObject report = obs.next();
-                System.out.println("Report received");
+                System.out.println("Report received: " + report.toString());
             }
 
             nextUIProcess = console.getNextCommand();
