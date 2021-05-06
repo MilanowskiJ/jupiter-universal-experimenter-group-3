@@ -1,5 +1,6 @@
-package business;
+package business.models;
 
+import business.models.Experiment;
 import org.json.JSONObject;
 
 import java.sql.ResultSet;
@@ -27,7 +28,7 @@ public class ComplexExperiment extends Experiment {
 
 	@Override
 	public String getQuery() {
-		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.Experiment";
+		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.models.Experiment";
 	}
 
 	@Override

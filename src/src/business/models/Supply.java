@@ -1,6 +1,6 @@
-package business;
+package business.models;
 
-import business.DatabaseModel;
+import business.models.DatabaseModel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,6 +1,6 @@
-package business;
+package business.models;
 
-import business.Processable;
+import business.models.Processable;
 import org.json.JSONObject;
 
 import java.util.List;

@@ -1,6 +1,7 @@
 package business;
 
-import business.Capability;
+import business.models.Capability;
+import business.models.Supply;
 
 import java.util.List;
 import java.util.Map;

@@ -1,7 +1,9 @@
 package business;
 
-import business.ComplexExperiment;
-import business.Experiment;
+import business.models.ComplexExperiment;
+import business.models.Experiment;
+import business.models.ReagentExperiment;
+import business.models.SampleExperiment;
 
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class ExperimentCreator {
         String whereToSample = params.get(2);
         String howMuchToSample = params.get(1);
         String whatToSample = params.get(0);
-        SampleExperiment output = new SampleExperiment("business.Experiment "+experimentID, "M", experimentID, "F", "N/A");
+        SampleExperiment output = new SampleExperiment("business.models.Experiment "+experimentID, "M", experimentID, "F", "N/A");
 
         output.setWhere(whereToSample);
         output.setAmount(howMuchToSample);
@@ -35,7 +37,7 @@ public class ExperimentCreator {
         String reagentQuantity = params.get(2);
         String sampleToApplyTo = params.get(1);
         String reagent = params.get(0);
-        ReagentExperiment output = new ReagentExperiment("business.Experiment " + experimentID, "M", experimentID, "F", "N/A");
+        ReagentExperiment output = new ReagentExperiment("business.models.Experiment " + experimentID, "M", experimentID, "F", "N/A");
         output.setAmount(reagentQuantity);
         output.setReagent(reagent);
         output.setSampleID(sampleToApplyTo);
@@ -50,7 +52,7 @@ public class ExperimentCreator {
         String quantity = params.get(2);
         String whatToDo = params.get(1);
         String experimentID = params.get(0);
-        ComplexExperiment output = new ComplexExperiment("business.Experiment " + experimentID, "M", experimentID, "F", "N/A");
+        ComplexExperiment output = new ComplexExperiment("business.models.Experiment " + experimentID, "M", experimentID, "F", "N/A");
 
         output.setQuantity(quantity);
         output.setTarget(target);

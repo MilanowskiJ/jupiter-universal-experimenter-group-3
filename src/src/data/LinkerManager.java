@@ -1,7 +1,6 @@
 package data;
 
-import business.*;
-import data.GenericLinker;
+import business.models.*;
 
 import java.util.Map;
 
@@ -23,7 +22,7 @@ public class LinkerManager {
 
     public LinkerManager() {
         String supplyGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
-        String experimentGetQuery = "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.Experiment";
+        String experimentGetQuery = "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.models.Experiment";
         String capabilityGetQuery = "SELECT ID, Name, Type, Description, Status from Capabilities";
         String commandGetQuery = "SELECT CommandID, CommandName, Params, from Commands";
 

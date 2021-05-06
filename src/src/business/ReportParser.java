@@ -1,8 +1,8 @@
 package business;
 
-import business.Capability;
-import business.Experiment;
-import business.Supply;
+import business.models.Capability;
+import business.models.Experiment;
+import business.models.Supply;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

@@ -1,6 +1,6 @@
-package business;
+package business.models;
 
-import business.Experiment;
+import business.models.Experiment;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -27,7 +27,7 @@ public class ReagentExperiment extends Experiment {
 
 	@Override
 	public String getQuery() {
-		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.Experiment";
+		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.models.Experiment";
 	}
 
 	@Override

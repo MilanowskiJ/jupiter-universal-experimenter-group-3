@@ -1,4 +1,4 @@
-package business;
+package business.models;
 
 import org.json.JSONObject;
 

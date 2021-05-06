@@ -1,6 +1,8 @@
 package business;
 
-import business.*;
+import business.models.Capability;
+import business.models.Experiment;
+import business.models.Supply;
 import data.CommunicationSubsystem;
 import data.LinkerManager;
 import org.json.JSONObject;
@@ -25,7 +27,7 @@ public class JUMPSystem {
         UIProcess nextUIProcess;
         InputReader console = new InputReader();
 
-        //business.Command Execution
+        //business.models.Command Execution
         Queue<BusinessProcessContainer> queue = new LinkedList<>();
         ExperimentCreator experimentCreator = new ExperimentCreator();
         ExperimentChecker experimentChecker = new ExperimentChecker();

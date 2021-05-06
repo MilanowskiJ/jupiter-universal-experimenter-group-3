@@ -1,6 +1,6 @@
-package business;
+package business.models;
 
-import business.Experiment;
+import business.models.Experiment;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -28,7 +28,7 @@ public class SampleExperiment extends Experiment {
 
 	@Override
 	public String getQuery() {
-		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.Experiment";
+		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.models.Experiment";
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class SampleExperiment extends Experiment {
 		JSONObject processedJSON = new JSONObject();
 		processedJSON.put("experiment_id", super.experimentID);
 		processedJSON.put("experiment_name", super.name);
-		processedJSON.put("experiment_type", "business.Sample");
+		processedJSON.put("experiment_type", "business.models.Sample");
 
 		JSONArray commandArray = new JSONArray();
 

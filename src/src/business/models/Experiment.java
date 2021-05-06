@@ -1,7 +1,4 @@
-package business;
-
-import business.Capability;
-import business.DatabaseModel;
+package business.models;
 
 import java.util.ArrayList;
 

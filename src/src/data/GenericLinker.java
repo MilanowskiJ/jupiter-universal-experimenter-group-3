@@ -1,7 +1,6 @@
 package data;
 
-import business.DatabaseModel;
-import data.DatabaseLinker;
+import business.models.DatabaseModel;
 
 import java.sql.*;
 import java.util.HashMap;
