@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 
-public abstract class Experiment implements DatabaseModel{
+public abstract class Experiment implements DatabaseModel, Processable{
 	
-	private String Name;
-	private String priority;
-	private String ExperimentID;
-	private String complete;
-	private String Description;
+	protected String name;
+	protected String priority;
+	protected String experimentID;
+	protected String complete;
+	protected String description;
 	
 	public Experiment(String Name, String priority, String ExperimentID, String complete, String Description) {
-		this.Name = Name;
+		this.name = Name;
 		this.priority = priority;
-		this.ExperimentID = ExperimentID;
+		this.experimentID = ExperimentID;
 		this.complete = complete;
-		this.Description = Description;
+		this.description = Description;
 	}
 		
 	public void validate() {
