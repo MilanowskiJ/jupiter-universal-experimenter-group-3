@@ -23,20 +23,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92e59a44-d956-4b3a-b361-167af510a322" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jupiter-universal-experimenter-group-3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cmd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExitConsole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExperimentMaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ExperimentProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BusinessProcessContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessProcessContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComplexExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ExperimentCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ExperimentCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Experiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JUMPSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JUMPSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MakeComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeComplexExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MakeReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeReagentExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MakeSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeSampleExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/BusinessProcessContainer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ExitConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/ExitConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/InputReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/MakeComplexExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/MakeReagentExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/MakeSampleExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ProcessReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/ProcessReagentExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ProcessSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/ProcessSampleExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InputReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeComplexExperiment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeReagentExperiment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeSampleExperiment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ProcessReagentExperiment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ProcessSampleExperiment.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PresentationLayer/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/UIProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/UIProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/UIProcess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProcessReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessReagentExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProcessSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessSampleExperiment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReagentExperiment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SampleExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIProcess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +128,53 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
