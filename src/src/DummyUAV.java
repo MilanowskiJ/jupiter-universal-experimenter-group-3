@@ -5,6 +5,8 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.json.JSONObject;
 
@@ -19,13 +21,8 @@ public class DummyUAV {
 			System.out.println(ip.toString());
 			Socket socket = new Socket(ip,1024);
 			OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8);
-			
-			JSONParser jsonParser = new JSONParser();
-			
-			FileReader reader = new FileReader(filepath);
-			Object obj;
-			obj = jsonParser.parse(reader);
-			JSONObject returnStatus = (JSONObject) obj;
+
+			JSONObject returnStatus = new JSONObject(new String(Files.readAllBytes(Paths.get(filepath))));
 			out.write(returnStatus.toString());
 		
 			out.close();
@@ -33,10 +30,7 @@ public class DummyUAV {
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}catch (IOException e) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
