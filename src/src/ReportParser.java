@@ -19,7 +19,7 @@ public class ReportParser {
     private static void updateCapabilities(JSONArray capabilitiesJSON){
         for(int i = 0; i < capabilitiesJSON.length(); i++){
             JSONObject temp = capabilitiesJSON.getJSONObject(i);
-            temp.get
+            temp
         }
     }
 
