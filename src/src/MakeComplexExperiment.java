@@ -2,8 +2,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Queue;
 
-public class MakeComplexExperiment implements Cmd{
+public class MakeComplexExperiment implements UIProcess {
     String experimentID;
     String whatToDo;
     String quantity;
@@ -11,7 +13,8 @@ public class MakeComplexExperiment implements Cmd{
     String target;
 
     @Override
-    public ArrayList<String> execute(BufferedReader reader) throws IOException {
+
+    public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         boolean exited = false;
 
         String[] inputStr;
@@ -41,15 +44,18 @@ public class MakeComplexExperiment implements Cmd{
         if(exited) System.out.println("Experiment Doable. \nMade Experiment " + experimentID);
         else {
             System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
-            return null;
+            return;
         }
-        output.addAll(Arrays.asList(experimentID, whatToDo, quantity, supplyItem, target));
-        return output;
+
+        List<String> params = new ArrayList<>(Arrays.asList(experimentID, whatToDo, quantity, supplyItem, target));
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("make complex", params);
+        queue.add(newProcess);
     }
 
     @Override
     public String getType() {
         return "make complex";
+
     }
 
 

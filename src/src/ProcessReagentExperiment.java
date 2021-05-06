@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.*;
 
-public class ProcessReagentExperiment implements Cmd{
+public class ProcessReagentExperiment implements UIProcess {
     String sampleID;
 
     @Override
-    public ArrayList<String> execute(BufferedReader reader) throws IOException {
+    public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         System.out.println("Select reagent-based experiment to process:");
         System.out.println("Fetching valid experiments...");
         Set<String> experiments = this.printValidReagentExperiments();
@@ -19,18 +20,14 @@ public class ProcessReagentExperiment implements Cmd{
         while(true){
             experiment = reader.readLine();
             if(experiments.contains(experiment))break;
-            else if(experiment.equals("X")) return null;
+            else if(experiment.equals("X")) return;
             else System.out.print(experiment+" is not a valid experiment, please select one from the list or enter 'X' to cancel");
         }
 
-        //pass this to the experiment processor
-        System.out.println("Processing...");
-        return new ArrayList<String>(Arrays.asList(experiment));
-    }
 
-    @Override
-    public String getType() {
-        return "process reagent";
+        List<String> params = new ArrayList<>(Arrays.asList(experiment));
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("process reagent", params);
+        queue.add(newProcess);
     }
 
     private Set<String> printValidReagentExperiments(){

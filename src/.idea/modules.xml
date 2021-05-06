@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/jupiter-universal-experimenter-group-3.iml" filepath="$PROJECT_DIR$/jupiter-universal-experimenter-group-3.iml" />
+=======
+>>>>>>> 828457b795d738667a3f0443e8ceddb4423f4aa0
       <module fileurl="file://$PROJECT_DIR$/.idea/src.iml" filepath="$PROJECT_DIR$/.idea/src.iml" />
     </modules>
   </component>

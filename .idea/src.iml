@@ -4,10 +4,6 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-<<<<<<< HEAD
-=======
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
->>>>>>> 828457b795d738667a3f0443e8ceddb4423f4aa0
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

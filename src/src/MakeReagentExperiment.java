@@ -2,8 +2,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Queue;
 
-public class MakeReagentExperiment implements Cmd{
+public class MakeReagentExperiment implements UIProcess {
     String reagent;
     String sampleToApplyTo;
     String reagentQuantity;
@@ -11,7 +13,7 @@ public class MakeReagentExperiment implements Cmd{
     String experimentID;
 
     @Override
-    public ArrayList<String> execute(BufferedReader reader) throws IOException {
+    public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         String[] inputStr;
         boolean exited = false;
         ArrayList<String> output = new ArrayList<>();
@@ -48,10 +50,12 @@ public class MakeReagentExperiment implements Cmd{
         if(exited) System.out.println("Experiment Doable. \nMade Experiment " + experimentID);
         else {
             System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
-            return null;
+            return;
         }
-        output.addAll(Arrays.asList(reagent, sampleToApplyTo, reagentQuantity, measurementsToTake, experimentID));
-        return output;
+
+            List<String> params = new ArrayList<>(Arrays.asList(reagent, sampleToApplyTo, reagentQuantity, measurementsToTake, experimentID));
+            BusinessProcessContainer newProcess = new BusinessProcessContainer("make reagent", params);
+            queue.add(newProcess);
     }
 
     @Override
