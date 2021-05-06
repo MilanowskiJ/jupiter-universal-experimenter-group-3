@@ -6,6 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Stack;
 
 import org.json.JSONException;
 
@@ -16,12 +17,12 @@ public class CommunicationSubsystem extends Thread {
 	private int port;
 	boolean running = false;
 	private ArrayList<Observer> observers;
-	private ArrayList<JSONObject> files;
+	private Stack<JSONObject> files;
 	
 	public CommunicationSubsystem(int port) {
 		this.port = port;
 		observers = new ArrayList<Observer>();
-		this.files = new ArrayList<JSONObject>();
+		this.files = new Stack<JSONObject>();
 	}
 	
 	public void stopServer() {
@@ -120,7 +121,7 @@ public class CommunicationSubsystem extends Thread {
 		this.observers.add(communicationObserver);
 	}
 	
-	public ArrayList<JSONObject> getFiles() {
+	public Stack<JSONObject> getFiles() {
 		return this.files;
 	}
 }

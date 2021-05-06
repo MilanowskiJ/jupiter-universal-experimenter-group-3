@@ -1,28 +1,74 @@
 import java.util.List;
+import java.util.Map;
 
 public class ExperimentChecker {
-
+    private Map<String, Capability> capabilityMap;
+    private Map<String, Supply> supplyMap;
 
     public ExperimentChecker(){
+        capabilityMap = null;
+        supplyMap = null;
+    }
 
+    public void updateCheckState(Map<String, Capability> capabilityMap, Map<String, Supply> supplyMap){
+        this.capabilityMap = capabilityMap;
+        this.supplyMap = supplyMap;
     }
 
     public boolean checkSampleExperiment(){
-        //Just return if status is "Operational" for all of these (in database)
         //check Arm-1
+        if(capabilityMap.get("Arm-1") == null)
+            return false;
+        if(capabilityMap.get("Arm-1").getStatus().equals("Failed"))
+            return false;
+
         //check Arm-2
-        //check Arm-3
+        if(capabilityMap.get("Arm-2") == null)
+            return false;
+        if(capabilityMap.get("Arm-2").getStatus().equals("Failed"))
+            return false;
+
         //check test tube available quantity
+        if(supplyMap.get("test tube") == null)
+            return false;
+        if(supplyMap.get("test tube").getQuantityAvailable() < 1)
+            return false;
+
         //check ejector
-        return false;
+        if(capabilityMap.get("E1") == null)
+            return false;
+        if(capabilityMap.get("E1").getStatus().equals("Failed"))
+            return false;
+
+        return true;
     }
 
     public boolean checkReagentExperiment(String reagent, String sample, String reagentQuantity){
         //check Arm-2
+        if(capabilityMap.get("Arm-2") == null)
+            return false;
+        if(capabilityMap.get("Arm-2").getStatus().equals("Failed"))
+            return false;
+
         //check pipet
+        if(capabilityMap.get("T3") == null)
+            return false;
+        if(capabilityMap.get("T3").getStatus().equals("Failed"))
+            return false;
+
         //check reagent quantity
+        if(supplyMap.get(reagent) == null)
+            return false;
+        if(supplyMap.get(reagent).getQuantityAvailable() < Integer.parseInt(reagentQuantity))
+            return false;
+
         //check sample quantity
-        return false;
+        if(supplyMap.get(sample) == null)
+            return false;
+        if(supplyMap.get(sample).getQuantityAvailable() < 1)
+            return false;
+
+        return true;
     }
 
     public boolean checkComplexExperiment(String supplyItem, String supplyQuantity, String sample){
