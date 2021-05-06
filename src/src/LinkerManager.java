@@ -13,19 +13,19 @@ public class LinkerManager {
 
     //@TODO: fill connectionUrl fields here
     private final String connectionUrl =
-            "jdbc:sqlserver://yourserver.database.windows.net:1433;"
-                    + "database=TODO;"
-                    + "user=yourusername@yourserver;"
-                    + "password=yourpassword;"
+            "jdbc:sqlserver://titan.csse.rose-hulman.edu;"
+                    + "database=374Team3;"
+                    + "user=morrisjj;"
+                    + "password=Password!@#;"
                     + "encrypt=true;"
                     + "trustServerCertificate=false;"
                     + "loginTimeout=30;";
 
     public LinkerManager() {
         String supplyGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
-        String capabilityGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
-        String experimentGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
-        String commandGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
+        String experimentGetQuery = "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from Experiment";
+        String capabilityGetQuery = "SELECT ID, Name, Type, Description, Status from Capabilities";
+        String commandGetQuery = "SELECT CommandID, CommandName, Params, from Commands";
 
         supplyLinker = new GenericLinker<>(connectionUrl,
                 supplyGetQuery,
@@ -42,6 +42,20 @@ public class LinkerManager {
                         result.getString("Name"),
                         result.getString("Description"),
                         result.getString("Status"))));
+
+        experimentLinker = new GenericLinker<Experiment>(connectionUrl,
+                experimentGetQuery,
+                (result -> new SampleExperiment(result.getString("ExperimentName"),
+                        result.getString("Priority"),
+                        result.getString("ExperimentID"),
+                        result.getString("Complete"),
+                        result.getString("Description"))));
+
+        commandLinker = new GenericLinker<>(connectionUrl,
+                commandGetQuery,
+                (result -> new Command(result.getString("CommandID"),
+                        result.getString("CommandName"),
+                        result.getString("Params"))));
     }
 
     public Map<String, Supply> getSupplyModels() {return supplyLinker.getModels();}
