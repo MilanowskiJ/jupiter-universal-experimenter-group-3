@@ -2,15 +2,19 @@ package PresentationLayer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Queue;
 
-public class MakeSampleExperiment implements Cmd{
+public class MakeSampleExperiment implements UIProcess {
     String whatToSample;
     String howMuchToSample;
     String whereToSample;
     String experimentID;
 
     @Override
-    public boolean execute(BufferedReader reader) throws IOException {
+    public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         boolean exited = false;
 
         String[] inputStr;
@@ -39,7 +43,10 @@ public class MakeSampleExperiment implements Cmd{
         }
         if(exited) System.out.println("Experiment Doable. \nMade Experiment " + experimentID);
         else System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
-        return exited;
+
+        List<String> params = new ArrayList<>(Arrays.asList(whatToSample, howMuchToSample, whereToSample, experimentID));
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("make sample", params);
+        queue.add(newProcess);
     }
 }
 

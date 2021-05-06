@@ -23,9 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92e59a44-d956-4b3a-b361-167af510a322" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComplexExperiment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ExperimentCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ExperimentCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JUMPSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JUMPSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ExitConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/ExitConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PresentationLayer/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/InputReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/MakeComplexExperiment.java" afterDir="false" />
@@ -133,7 +133,7 @@
       <workItem from="1620276798421" duration="55000" />
       <workItem from="1620276879931" duration="178000" />
       <workItem from="1620277081274" duration="244000" />
-      <workItem from="1620277414021" duration="5142000" />
+      <workItem from="1620277414021" duration="5793000" />
     </task>
     <servers />
   </component>

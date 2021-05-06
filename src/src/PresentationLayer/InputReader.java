@@ -17,10 +17,10 @@ public class InputReader {
         reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public Cmd getNextCommand() throws IOException {
+    public UIProcess getNextCommand() throws IOException {
         System.out.print(">");
         String[] inputStr = reader.readLine().split(" ");
-        Cmd output = null;
+        UIProcess output = null;
 
         if(inputStr[0].equals("makeReagentExperiment")) output = new MakeReagentExperiment();
         else if(inputStr[0].equals("makeSampleExperiment")) output = new MakeSampleExperiment();

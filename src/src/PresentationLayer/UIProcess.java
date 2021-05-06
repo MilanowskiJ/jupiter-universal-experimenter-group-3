@@ -2,8 +2,9 @@ package PresentationLayer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Queue;
 
-public interface  Cmd{
+public interface UIProcess {
     // public void execute();
-    public boolean execute(BufferedReader reader) throws IOException;
+    public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException;
 }

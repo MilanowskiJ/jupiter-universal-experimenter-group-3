@@ -1,11 +1,8 @@
 package PresentationLayer;
 
-import PresentationLayer.InputReader;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-
-import static java.lang.System.exit;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class UI {
 
@@ -44,11 +41,23 @@ public class UI {
 
 
     public static void main(String[] args) throws IOException {
-        Cmd nextCmd;
+        UIProcess nextUIProcess;
         InputReader console = new InputReader();
+        Queue<BusinessProcessContainer> queue = new LinkedList<>();
         while(true){
-            nextCmd = console.getNextCommand();
-            nextCmd.execute(console.reader);
+            nextUIProcess = console.getNextCommand();
+            nextUIProcess.execute(console.reader, queue);
+
+            BusinessProcessContainer nextBusinessProcess = queue.poll();
+            String[] typeInfo = nextBusinessProcess.getType().split(" ");
+            if(typeInfo[0].equals("make")){
+                //Experiment newExperiment = ExperimentCreator.makeExperiment(typeInfo[1], nextBusinessProcess.getParams());
+                //pass new experiment to the database
+            }
+            else if(typeInfo[0].equals("process")){
+                //insert process logic here, nextBusinessProcess.getParams().get(0) has the experiment ID to process
+            }
+            else continue;
         }
     } 
 

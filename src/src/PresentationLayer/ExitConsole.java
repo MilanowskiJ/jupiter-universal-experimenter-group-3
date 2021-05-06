@@ -2,14 +2,16 @@ package PresentationLayer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Queue;
 
 import static java.lang.System.exit;
 
-public class ExitConsole implements Cmd {
+public class ExitConsole implements UIProcess {
 
-    public boolean execute(BufferedReader reader) throws IOException {
-        exit(0);
-        return true;
+    public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("exit", null);
+        queue.add(newProcess);
+        return;
     }
 
 
