@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92e59a44-d956-4b3a-b361-167af510a322" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/ComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComplexExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ExperimentCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ExperimentCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JUMPSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JUMPSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ExitConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/ExitConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/InputReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/MakeComplexExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/MakeReagentExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/MakeSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/MakeSampleExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ProcessReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/ProcessReagentExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ProcessSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/ProcessSampleExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/UIProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/UIProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReagentExperiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SampleExperiment.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1rpTKI5usCxoYbzRnPamIfU7s3o" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager" selected="Application.JUMPSystem">
+    <configuration name="JUMPSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JUMPSystem" />
+      <module name="jupiter-universal-experimenter-group-3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PresentationLayer.UI" />
+      <module name="jupiter-universal-experimenter-group-3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.JUMPSystem" />
+        <item itemvalue="Application.UI" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92e59a44-d956-4b3a-b361-167af510a322" name="Default Changelist" comment="" />
+      <created>1619671968938</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619671968938</updated>
+      <workItem from="1619671970221" duration="131000" />
+      <workItem from="1619672142827" duration="1558000" />
+      <workItem from="1619739113350" duration="6058000" />
+      <workItem from="1619878660429" duration="3759000" />
+      <workItem from="1620046263922" duration="3260000" />
+      <workItem from="1620242009416" duration="598000" />
+      <workItem from="1620265731519" duration="309000" />
+      <workItem from="1620266211977" duration="7513000" />
+      <workItem from="1620276798421" duration="55000" />
+      <workItem from="1620276879931" duration="178000" />
+      <workItem from="1620277081274" duration="244000" />
+      <workItem from="1620277414021" duration="5142000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1620271390823">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1620271390823" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1620279953104">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1620279953104" />
+    <state x="933" y="170" key="FileChooserDialogImpl" timestamp="1620277233015">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="933" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1620277233015" />
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom" timestamp="1620276671943">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620276671943" />
+    <state width="1493" height="218" key="GridCell.Tab.0.center" timestamp="1620276671942">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="218" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1620276671942" />
+    <state width="1493" height="218" key="GridCell.Tab.0.left" timestamp="1620276671942">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="218" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1620276671942" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right" timestamp="1620276671942">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="218" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1620276671942" />
+    <state x="475" y="114" key="RollbackChangesDialog" timestamp="1620280551380">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="475" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1620280551380" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1620277511982">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1620277511982" />
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1619819386797">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1619819386797" />
+  </component>
+</project>
