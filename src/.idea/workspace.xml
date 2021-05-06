@@ -23,37 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92e59a44-d956-4b3a-b361-167af510a322" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/src.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ExperimentCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Processable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/src.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BusinessProcessContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BusinessProcessContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComplexExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Experiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InputReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MakeComplexExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeComplexExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MakeReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeReagentExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MakeSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MakeSampleExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/ExitConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/ExitConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PresentationLayer/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PresentationLayer/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProcessReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessReagentExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProcessSampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessSampleExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReagentExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReagentExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SampleExperiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SampleExperiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Supply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Supply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UIProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="JupyterTrust" id="97120e73-063e-4552-b610-0fec369447da" />
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -113,70 +90,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.JUMPSystem" />
-        <item itemvalue="Application.UI" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -198,6 +111,7 @@
       <workItem from="1620276879931" duration="178000" />
       <workItem from="1620277081274" duration="244000" />
       <workItem from="1620277414021" duration="5793000" />
+      <workItem from="1620286946627" duration="8000" />
     </task>
     <servers />
   </component>
@@ -249,10 +163,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="475" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1620280551380" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1620277511982">
+    <state x="249" y="0" key="SettingsEditor" timestamp="1620286908820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1620277511982" />
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1620286908820" />
     <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1619819386797">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
