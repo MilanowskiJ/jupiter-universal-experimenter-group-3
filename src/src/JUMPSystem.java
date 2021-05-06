@@ -16,7 +16,8 @@ public class JUMPSystem {
                 if(makeParams == null) continue;
 
                 Experiment newExperiment = ExperimentMaker.makeExperiment(makeParams, cmdInfo[1]);
-
+                if(newExperiment == null) System.out.println("Failed to create experiment");
+                else System.out.print(newExperiment.toString());
             }
 
             else if(cmdInfo[0].equals("process")){
@@ -26,8 +27,9 @@ public class JUMPSystem {
                 //pass to experiment processor
 
                 String processedString = ExperimentProcessor.processExperiment(toProcess.get(0), cmdInfo[1]);
-
+                System.out.println(processedString);
             } else{
+                System.out.println("other");
                 nextCmd.execute(console.reader) ;
             }
 

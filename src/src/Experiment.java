@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public abstract class Experiment implements DatabaseModel{
-	
-	private String Name;
-	private String priority;
-	private String ExperimentID;
-	private String complete;
-	private String Description;
+
+	protected String Name;
+	protected String priority;
+	protected String ExperimentID;
+	protected String complete;
+	protected String Description;
 	
 	public Experiment(String Name, String priority, String ExperimentID, String complete, String Description) {
 		this.Name = Name;
