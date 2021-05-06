@@ -16,6 +16,7 @@ public class JUMPSystem {
         InputReader console = new InputReader();
         Queue<BusinessProcessContainer> queue = new LinkedList<>();
         ExperimentCreator experimentCreator = new ExperimentCreator();
+        ExperimentChecker experimentChecker = new ExperimentChecker();
 
         while(true){
             while (obs.hasNext()) {
@@ -29,13 +30,11 @@ public class JUMPSystem {
             BusinessProcessContainer nextBusinessProcess = queue.poll();
             String[] typeInfo = nextBusinessProcess.getType().split(" ");
             if(typeInfo[0].equals("make")){
-                System.out.println("Params are: " + nextBusinessProcess.getParams().toString());
-                System.out.println("And type info is: " + typeInfo[1]);
 
                 Experiment newExperiment = experimentCreator.makeNewExperiment(typeInfo[1], nextBusinessProcess.getParams());
                 if(newExperiment == null) System.out.println("Failed to create new experiment");
-                System.out.println(newExperiment.toString());
-                //pass new experiment to the database
+
+                boolean isValid = experimentChecker.checkExperiment(typeInfo[1], nextBusinessProcess.getParams());
             }
             else if(typeInfo[0].equals("process")){
                 //insert process logic here, nextBusinessProcess.getParams().get(0) has the experiment ID to process

@@ -16,6 +16,7 @@ public class ReagentExperiment extends Experiment {
 
 	}
 
+
 	public void setReagent(String reagent) {this.reagent = reagent;}
 	public void setAmount(String amount) {this.amount = amount;}
 	public void setSampleID(String sampleID) {this.sampleID = sampleID;}

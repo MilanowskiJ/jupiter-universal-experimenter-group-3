@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class ExperimentChecker {
 
 
@@ -15,7 +17,7 @@ public class ExperimentChecker {
         return false;
     }
 
-    public boolean checkReagentExperiment(String reagent, String sample){
+    public boolean checkReagentExperiment(String reagent, String sample, String reagentQuantity){
         //check Arm-2
         //check pipet
         //check reagent quantity
@@ -26,10 +28,18 @@ public class ExperimentChecker {
     public boolean checkComplexExperiment(String supplyItem, String supplyQuantity, String sample){
         //check summplyItem quantity
         //check sample quantity
-        //check based on verb?
+        //check based on verb? maybe just hold the L on that and focus on functionality
 
         return false;
     }
 
+
+    public boolean checkExperiment(String type, List<String> params) {
+        if(type.equals("complex"))return checkComplexExperiment(params.get(3), params.get(2), params.get(4));
+        else if(type.equals("sample")) return checkSampleExperiment();
+        else if(type.equals("reagent")) return checkReagentExperiment(params.get(0), params.get(1), params.get(2));
+        else return false;
+
+    }
 
 }

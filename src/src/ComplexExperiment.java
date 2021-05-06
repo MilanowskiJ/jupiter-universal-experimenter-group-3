@@ -12,6 +12,8 @@ public class ComplexExperiment extends Experiment {
 		super(Name, priority, ExperimentID, complete, Description);
 		// TODO Auto-generated constructor stub
 	}
+
+
 	public void setTarget(String target){this.target = target;}
 	public void setSupplyItem(String supplyItem){this.supplyItem = supplyItem;}
 	public void setQuantity(String quantity){this.quantity = quantity;}
