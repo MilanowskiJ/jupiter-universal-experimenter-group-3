@@ -7,7 +7,7 @@ public class Capability implements DatabaseModel{
 	private String name;
 	private String description;
 	private String status;
-	
+
 	public Capability(String ID, String type, String name, String description, String status) {
 		this.ID = ID;
 		this.type = type;
@@ -15,16 +15,17 @@ public class Capability implements DatabaseModel{
 		this.description = description;
 		this.status = status;
 	}
-	
+
 	public String getID() {return this.ID;}
+
 	public String getType() {return this.type;}
 	public String getName() {return this.name;}
 	public String getDescription() {return this.description;}
 	public String getStatus() {return this.status;}
-	
 	public boolean isOperational() {
 		return (this.status.compareTo("Operational") == 0);
 	}
+	public void setStatus(String status) { this.status = status; }
 
 	@Override
 	public String getQuery() {
