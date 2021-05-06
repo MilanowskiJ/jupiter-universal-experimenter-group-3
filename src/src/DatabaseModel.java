@@ -6,5 +6,6 @@ public interface DatabaseModel {
     String addQuery();
     String updateQuery();
     String deleteQuery();
+    String getDatabaseID();
     void processResult(ResultSet result) throws SQLException;
 }

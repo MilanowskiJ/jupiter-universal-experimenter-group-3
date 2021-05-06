@@ -1,21 +1,18 @@
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SampleExperiment extends Experiment {
-
+	
 	private String target;
 	private String amount;
 	private String where; //??????
 	
 	public SampleExperiment(String Name,String priority, String ExperimentID, String complete, String Description) {
 		super(Name, priority, ExperimentID, complete, Description);
-	}
-
-	public SampleExperiment(String whatToSample, String howMuchToSample, String whereToSample, String experimentID){
-		super(experimentID, "M", experimentID, "F", "N/A");
-		this.target = whatToSample;
-		this.amount = howMuchToSample;
-		this.where = whereToSample;
 	}
 	
 	public void setTarget(String target) {this.target = target;}
@@ -46,16 +43,38 @@ public class SampleExperiment extends Experiment {
 	}
 
 	@Override
+	public String getDatabaseID() {
+		return super.name;
+	}
+
+	@Override
 	public void processResult(ResultSet result) throws SQLException {
 	}
 
 	@Override
-	public void validate() {
+	public JSONObject process() {
+		JSONObject processedJSON = new JSONObject();
+		processedJSON.put("experiment_id", super.experimentID);
+		processedJSON.put("experiment_name", super.name);
+		processedJSON.put("experiment_type", "Sample");
 
-	}
+		JSONArray commandArray = new JSONArray();
 
-	@Override
-	public String toString() {
-		return this.target + this.amount + this.where + super.ExperimentID;
+		JSONObject collectCommand = new JSONObject();
+		collectCommand.put("command", "C19");
+		commandArray.put(collectCommand);
+
+		JSONObject collectDataCommand = new JSONObject();
+		collectDataCommand.put("command", "C16");
+		collectDataCommand.put("param", "HGPC-1");
+		commandArray.put(collectDataCommand);
+
+		JSONObject ejectCommand = new JSONObject();
+		ejectCommand.put("command", "C5");
+		commandArray.put(ejectCommand);
+
+		processedJSON.put("experiment_commands", commandArray);
+
+		return processedJSON;
 	}
 }

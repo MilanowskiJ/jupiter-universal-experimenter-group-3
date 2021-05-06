@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ public class CommunicationSubsystem extends Thread {
 	public void startServer() {
 		try {
 			serverSocket = new ServerSocket(port);
+			InetAddress ip = InetAddress.getLocalHost();
+			System.out.println(ip.toString());
 			this.start();
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -1,4 +1,4 @@
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,6 +39,11 @@ public class ComplexExperiment extends Experiment {
 	@Override
 	public String deleteQuery() {
 		return null;
+	}
+
+	@Override
+	public String getDatabaseID() {
+		return super.name;
 	}
 
 	@Override
