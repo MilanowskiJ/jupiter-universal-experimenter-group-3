@@ -1,0 +1,482 @@
+@startuml
+
+title __JUPITER-UNIVERSAL-EXPERIMENTER-GROUP-3's Class Diagram__\n
+
+  namespace business {
+      namespace models {
+        class business.models.Capability {
+            - ID : String
+            - description : String
+            - name : String
+            - status : String
+            - type : String
+            + Capability()
+            + addQuery()
+            + deleteQuery()
+            + getDatabaseID()
+            + getDescription()
+            + getID()
+            + getName()
+            + getQuery()
+            + getStatus()
+            + getType()
+            + isOperational()
+            + processResult()
+            + setStatus()
+            + updateQuery()
+        }
+      }
+    }
+
+
+    namespace business {
+      namespace models {
+        class business.models.Command {
+            - ID : String
+            - name : String
+            - parameters : String
+            + Command()
+            + addQuery()
+            + deleteQuery()
+            + getDatabaseID()
+            + getQuery()
+            + processResult()
+            + updateQuery()
+        }
+      }
+    }
+
+
+    namespace business {
+      namespace models {
+        class business.models.ComplexExperiment {
+            - quantity : String
+            - supplyItem : String
+            - target : String
+            - whatToDo : String
+            + ComplexExperiment()
+            + addQuery()
+            + deleteQuery()
+            + getDatabaseID()
+            + getQuery()
+            + process()
+            + processResult()
+            + setQuantity()
+            + setSupplyItem()
+            + setTarget()
+            + setWhatToDo()
+            + updateQuery()
+            + validate()
+        }
+      }
+    }
+
+
+    namespace business {
+      namespace models {
+        interface business.models.DatabaseModel {
+            {abstract} + addQuery()
+            {abstract} + deleteQuery()
+            {abstract} + getDatabaseID()
+            {abstract} + getQuery()
+            {abstract} + processResult()
+            {abstract} + updateQuery()
+        }
+      }
+    }
+
+
+    namespace business {
+      namespace models {
+        abstract class business.models.Experiment {
+            # complete : String
+            # description : String
+            # experimentID : String
+            # name : String
+            # priority : String
+            + Experiment()
+            + getComplete()
+            + getDescription()
+            + getExperimentID()
+            + getPriority()
+            + isDoable()
+            + setComplete()
+            + setDescription()
+            + setExperimentID()
+            + setPriority()
+            + validate()
+        }
+      }
+    }
+
+
+    namespace business {
+      namespace models {
+        class business.models.Payload {
+            ~ payloadObjects : List<JSONObject>
+            + process()
+        }
+      }
+    }
+
+
+    namespace business {
+      namespace models {
+        interface business.models.Processable {
+            {abstract} + process()
+        }
+      }
+    }
+
+
+    namespace business {
+      namespace models {
+        class business.models.ReagentExperiment {
+            - amount : String
+            - measurementsToTake : String
+            - reagent : String
+            - sampleID : String
+            + ReagentExperiment()
+            + addQuery()
+            + deleteQuery()
+            + getDatabaseID()
+            + getQuery()
+            + process()
+            + processResult()
+            + setAmount()
+            + setMeasurements()
+            + setReagent()
+            + setSampleID()
+            + updateQuery()
+        }
+      }
+    }
+
+
+    namespace business {
+      namespace models {
+        class business.models.SampleExperiment {
+            - amount : String
+            - target : String
+            - where : String
+            + SampleExperiment()
+            + addQuery()
+            + deleteQuery()
+            + getAmount()
+            + getDatabaseID()
+            + getQuery()
+            + getTarget()
+            + getWhere()
+            + process()
+            + processResult()
+            + setAmount()
+            + setTarget()
+            + setWhere()
+            + updateQuery()
+        }
+      }
+    }
+
+
+    namespace business {
+      namespace models {
+        class business.models.Supply {
+            - name : String
+            - quantityAvailable : int
+            - quantityOriginal : int
+            - type : String
+            - unit : String
+            + Supply()
+            + addQuery()
+            + deleteQuery()
+            + getDatabaseID()
+            + getName()
+            + getQuantityAvailable()
+            + getQuantityOriginal()
+            + getQuery()
+            + getType()
+            + getUnit()
+            + processResult()
+            + setName()
+            + setQuantityAvailable()
+            + setQuantityOriginal()
+            + setType()
+            + setUnit()
+            + updateQuery()
+            - checkEnough()
+            - reduceQuantityAvailable()
+        }
+      }
+    }
+
+    namespace business {
+        class business.BusinessProcessContainer {
+            - params : List<String>
+            - type : String
+            + BusinessProcessContainer()
+            + getParams()
+            + getType()
+        }
+      }
+
+
+      namespace business {
+        class business.CommunicationObserver {
+            - files : Stack<JSONObject>
+            + CommunicationObserver()
+            + hasNext()
+            + next()
+            + update()
+        }
+      }
+
+
+      namespace business {
+        class business.ExperimentChecker {
+            - capabilityMap : Map<String, Capability>
+            - supplyMap : Map<String, Supply>
+            + ExperimentChecker()
+            + checkComplexExperiment()
+            + checkExperiment()
+            + checkReagentExperiment()
+            + checkSampleExperiment()
+            + updateCheckState()
+        }
+      }
+
+
+      namespace business {
+        class business.ExperimentCreator {
+            + ExperimentCreator()
+            + makeComplexExperiment()
+            + makeNewExperiment()
+            + makeReagentExperiment()
+            + makeSampleExperiment()
+        }
+      }
+
+
+      namespace business {
+        class business.JUMPSystem {
+            {static} + main()
+        }
+      }
+
+
+      namespace business {
+        abstract class business.Observer {
+            {abstract} + update()
+        }
+      }
+
+
+      namespace business {
+        class business.ReportParser {
+            {static} + parseReport()
+            {static} - decideExperiment()
+            {static} - updateCapabilities()
+            {static} - updateExperimentStatus()
+            {static} - updateInventory()
+        }
+      }
+
+      namespace data {
+          class data.CommunicationSubsystem {
+              ~ running : boolean
+              - files : Stack<JSONObject>
+              - observers : ArrayList<Observer>
+              - port : int
+              - serverSocket : ServerSocket
+              + CommunicationSubsystem()
+              + attach()
+              + getFiles()
+              {static} + main()
+              + run()
+              + startServer()
+              + stopServer()
+              - handleMessages()
+              - notifyAllObservers()
+          }
+        }
+
+
+        namespace data {
+          interface data.DatabaseLinker {
+              {abstract} + add()
+              {abstract} + delete()
+              {abstract} + getModels()
+              {abstract} + update()
+          }
+        }
+
+
+        namespace data {
+          class data.DummyUAV {
+              {static} - filepath : String
+              {static} + main()
+          }
+        }
+
+
+        namespace data {
+          class data.GenericLinker {
+              ~ connectionUrl : String
+              ~ modelGetQuery : String
+              ~ modelResult : ResultManager<T>
+              + GenericLinker()
+              + add()
+              + delete()
+              + getModels()
+              + update()
+          }
+        }
+
+
+        namespace data {
+          class data.LinkerManager {
+              - capabilityLinker : GenericLinker<Capability>
+              - commandLinker : GenericLinker<Command>
+              - connectionUrl : String
+              - experimentLinker : GenericLinker<Experiment>
+              - supplyLinker : GenericLinker<Supply>
+              + LinkerManager()
+              + add()
+              + add()
+              + add()
+              + add()
+              + delete()
+              + delete()
+              + delete()
+              + delete()
+              + getCapabilityModels()
+              + getCommandModels()
+              + getExperimentModels()
+              + getSupplyModels()
+              + update()
+              + update()
+              + update()
+              + update()
+              + updateCapabilityGroup()
+              + updateCommandGroup()
+              + updateExperimentGroup()
+              + updateSupplyGroup()
+          }
+        }
+    namespace presentation {
+        class presentation.ExitConsole {
+            + execute()
+        }
+      }
+
+
+  namespace presentation {
+    class presentation.InputReader {
+        + reader : BufferedReader
+        ~ commandList : String
+        + InputReader()
+        + getNextCommand()
+    }
+  }
+
+
+  namespace presentation {
+    class presentation.MakeComplexExperiment {
+        ~ experimentID : String
+        ~ quantity : String
+        ~ supplyItem : String
+        ~ target : String
+        ~ whatToDo : String
+        + execute()
+        + getType()
+    }
+  }
+
+
+  namespace presentation {
+    class presentation.MakeReagentExperiment {
+        ~ experimentID : String
+        ~ measurementsToTake : String
+        ~ reagent : String
+        ~ reagentQuantity : String
+        ~ sampleToApplyTo : String
+        + execute()
+        + getType()
+    }
+  }
+
+
+  namespace presentation {
+    class presentation.MakeSampleExperiment {
+        ~ experimentID : String
+        ~ howMuchToSample : String
+        ~ whatToSample : String
+        ~ whereToSample : String
+        + execute()
+        + getType()
+    }
+  }
+
+
+  namespace presentation {
+    class presentation.ProcessReagentExperiment {
+        ~ sampleID : String
+        + execute()
+        - printValidReagentExperiments()
+    }
+  }
+
+
+  namespace presentation {
+    class presentation.ProcessSampleExperiment {
+        + execute()
+        + getType()
+        - printValidSampleExperiments()
+    }
+  }
+
+
+  namespace presentation {
+    interface presentation.UIProcess {
+        {abstract} + execute()
+    }
+  }
+  
+
+  business.CommunicationObserver -up-|> business.Observer
+  business.Observer o-- data.CommunicationSubsystem : CS
+  business.models.Capability .up.|> business.models.DatabaseModel
+  business.models.Command .up.|> business.models.DatabaseModel
+  business.models.ComplexExperiment -up-|> business.models.Experiment
+  business.models.Experiment .up.|> business.models.DatabaseModel
+  business.models.Experiment .up.|> business.models.Processable
+  business.models.Payload .up.|> business.models.Processable
+  business.models.ReagentExperiment -up-|> business.models.Experiment
+  business.models.SampleExperiment -up-|> business.models.Experiment
+  business.models.Supply .up.|> business.models.DatabaseModel
+  data.GenericLinker .up.|> data.DatabaseLinker
+  presentation.ExitConsole .up.|> presentation.UIProcess
+  presentation.MakeComplexExperiment .up.|> presentation.UIProcess
+  presentation.MakeReagentExperiment .up.|> presentation.UIProcess
+  presentation.MakeSampleExperiment .up.|> presentation.UIProcess
+  presentation.ProcessReagentExperiment .up.|> presentation.UIProcess
+  presentation.ProcessSampleExperiment .up.|> presentation.UIProcess
+  business.JUMPSystem --> presentation.InputReader
+  business.JUMPSystem --> data.CommunicationSubsystem
+  business.JUMPSystem --> business.Observer
+  business.JUMPSystem --> presentation.UIProcess
+  business.JUMPSystem --> business.BusinessProcessContainer
+  business.JUMPSystem --> business.ExperimentCreator
+  business.JUMPSystem --> business.ExperimentChecker
+  business.JUMPSystem --> data.LinkerManager
+  business.JUMPSystem --> business.ReportParser
+  business.JUMPSystem --> business.models.Experiment
+  data.LinkerManager --> data.DatabaseLinker
+  business.ExperimentCreator --> business.models.Experiment
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

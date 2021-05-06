@@ -1,0 +1,246 @@
+@startuml
+
+title __MODELS's Class Diagram__\n
+
+  namespace business {
+    namespace models {
+      class business.models.Capability {
+          - ID : String
+          - description : String
+          - name : String
+          - status : String
+          - type : String
+          + Capability()
+          + addQuery()
+          + deleteQuery()
+          + getDatabaseID()
+          + getDescription()
+          + getID()
+          + getName()
+          + getQuery()
+          + getStatus()
+          + getType()
+          + isOperational()
+          + processResult()
+          + setStatus()
+          + updateQuery()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      class business.models.Command {
+          - ID : String
+          - name : String
+          - parameters : String
+          + Command()
+          + addQuery()
+          + deleteQuery()
+          + getDatabaseID()
+          + getQuery()
+          + processResult()
+          + updateQuery()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      class business.models.ComplexExperiment {
+          - quantity : String
+          - supplyItem : String
+          - target : String
+          - whatToDo : String
+          + ComplexExperiment()
+          + addQuery()
+          + deleteQuery()
+          + getDatabaseID()
+          + getQuery()
+          + process()
+          + processResult()
+          + setQuantity()
+          + setSupplyItem()
+          + setTarget()
+          + setWhatToDo()
+          + updateQuery()
+          + validate()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      interface business.models.DatabaseModel {
+          {abstract} + addQuery()
+          {abstract} + deleteQuery()
+          {abstract} + getDatabaseID()
+          {abstract} + getQuery()
+          {abstract} + processResult()
+          {abstract} + updateQuery()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      abstract class business.models.Experiment {
+          # complete : String
+          # description : String
+          # experimentID : String
+          # name : String
+          # priority : String
+          + Experiment()
+          + getComplete()
+          + getDescription()
+          + getExperimentID()
+          + getPriority()
+          + isDoable()
+          + setComplete()
+          + setDescription()
+          + setExperimentID()
+          + setPriority()
+          + validate()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      class business.models.Payload {
+          ~ payloadObjects : List<JSONObject>
+          + process()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      interface business.models.Processable {
+          {abstract} + process()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      class business.models.ReagentExperiment {
+          - amount : String
+          - measurementsToTake : String
+          - reagent : String
+          - sampleID : String
+          + ReagentExperiment()
+          + addQuery()
+          + deleteQuery()
+          + getDatabaseID()
+          + getQuery()
+          + process()
+          + processResult()
+          + setAmount()
+          + setMeasurements()
+          + setReagent()
+          + setSampleID()
+          + updateQuery()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      class business.models.Sample {
+          - amount : int
+          - name : String
+          - sampleID : String
+          + Sample()
+          + getAmount()
+          + getName()
+          + getSampleID()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      class business.models.SampleExperiment {
+          - amount : String
+          - target : String
+          - where : String
+          + SampleExperiment()
+          + addQuery()
+          + deleteQuery()
+          + getAmount()
+          + getDatabaseID()
+          + getQuery()
+          + getTarget()
+          + getWhere()
+          + process()
+          + processResult()
+          + setAmount()
+          + setTarget()
+          + setWhere()
+          + updateQuery()
+      }
+    }
+  }
+  
+
+  namespace business {
+    namespace models {
+      class business.models.Supply {
+          - name : String
+          - quantityAvailable : int
+          - quantityOriginal : int
+          - type : String
+          - unit : String
+          + Supply()
+          + addQuery()
+          + deleteQuery()
+          + getDatabaseID()
+          + getName()
+          + getQuantityAvailable()
+          + getQuantityOriginal()
+          + getQuery()
+          + getType()
+          + getUnit()
+          + processResult()
+          + setName()
+          + setQuantityAvailable()
+          + setQuantityOriginal()
+          + setType()
+          + setUnit()
+          + updateQuery()
+          - checkEnough()
+          - reduceQuantityAvailable()
+      }
+    }
+  }
+  
+
+  business.models.Capability .up.|> business.models.DatabaseModel
+  business.models.Command .up.|> business.models.DatabaseModel
+  business.models.ComplexExperiment -up-|> business.models.Experiment
+  business.models.Experiment .up.|> business.models.DatabaseModel
+  business.models.Experiment .up.|> business.models.Processable
+  business.models.Payload .up.|> business.models.Processable
+  business.models.ReagentExperiment -up-|> business.models.Experiment
+  business.models.SampleExperiment -up-|> business.models.Experiment
+  business.models.Supply .up.|> business.models.DatabaseModel
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
