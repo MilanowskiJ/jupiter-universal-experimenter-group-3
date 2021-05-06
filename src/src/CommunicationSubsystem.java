@@ -7,9 +7,9 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import org.json.simple.parser.JSONParser;
+import org.json.JSONException;
 
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
 
 public class CommunicationSubsystem extends Thread {
 	private ServerSocket serverSocket;
@@ -69,8 +69,11 @@ public class CommunicationSubsystem extends Thread {
             System.out.println( "listening for Json file" );
             // Echo lines back to the client until the client closes the connection or we receive an empty line
             String line = in.readLine();
-            JSONParser parser = new JSONParser();
-            JSONObject report = (JSONObject) parser.parse(line);
+			JSONObject report = null;
+			try {
+				report = new JSONObject(line);
+			}catch (JSONException err){
+			}
             
             System.out.println("file received: " + report.toString());
             this.files.add(report);

@@ -6,9 +6,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.json.JSONObject;
 
 public class DummyUAV {
 	
@@ -29,8 +27,6 @@ public class DummyUAV {
 			obj = jsonParser.parse(reader);
 			JSONObject returnStatus = (JSONObject) obj;
 			out.write(returnStatus.toString());
-			
-		
 		
 			out.close();
 			socket.close();
