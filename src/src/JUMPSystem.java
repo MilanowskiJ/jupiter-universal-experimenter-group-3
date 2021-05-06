@@ -1,13 +1,20 @@
+import org.json.simple.JSONObject;
+
 import java.io.IOException;
 import java.util.List;
 
 public class JUMPSystem {
-
-
     public static void main(String[] args) throws IOException {
+        CommunicationSubsystem CS = new CommunicationSubsystem(1024);
+        CommunicationObserver obs = new CommunicationObserver(CS);
         Cmd nextCmd;
         InputReader console = new InputReader();
+        CS.startServer();
         while(true){
+            while (obs.hasNext()) {
+                JSONObject report = obs.next();
+                System.out.println("Report received");
+            }
             nextCmd = console.getNextCommand();
             String[] cmdInfo = nextCmd.getType().split(" ");
 
