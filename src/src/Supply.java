@@ -63,7 +63,12 @@ public class Supply implements DatabaseModel{
 
 	@Override
 	public String updateQuery() {
-		return null;
+		return String.format("INSERT INTO Supplies (Name, QuantityAvailable, QuantityOriginally, Type, Unit) VALUES ('%s', %d, %d, '%s', '%s');",
+				this.getName(),
+				this.getQuantityAvailable(),
+				this.getQuantityOriginal(),
+				this.getType(),
+				this.getUnit());
 	}
 
 	@Override

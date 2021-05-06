@@ -1,3 +1,5 @@
+import org.json.simple.JSONObject;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -35,5 +37,10 @@ public class ComplexExperiment extends Experiment {
 
 	@Override
 	public void processResult(ResultSet result) throws SQLException {
+	}
+
+	@Override
+	public JSONObject process() {
+		return null;
 	}
 }

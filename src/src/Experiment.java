@@ -1,22 +1,24 @@
 import java.util.ArrayList;
 
-public abstract class Experiment implements DatabaseModel{
-
-	protected String Name;
+public abstract class Experiment implements DatabaseModel, Processable{
+	
+	protected String name;
 	protected String priority;
-	protected String ExperimentID;
+	protected String experimentID;
 	protected String complete;
-	protected String Description;
+	protected String description;
 	
 	public Experiment(String Name, String priority, String ExperimentID, String complete, String Description) {
-		this.Name = Name;
+		this.name = Name;
 		this.priority = priority;
-		this.ExperimentID = ExperimentID;
+		this.experimentID = ExperimentID;
 		this.complete = complete;
-		this.Description = Description;
+		this.description = Description;
 	}
-
-	abstract public void validate();
+		
+	public void validate() {
+		
+	}
 	
 	public boolean isDoable(ArrayList<Capability> capabilities, ArrayList<Supply> supplies) {
 		return false;
