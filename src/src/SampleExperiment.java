@@ -41,4 +41,9 @@ public class SampleExperiment extends Experiment {
 	@Override
 	public void processResult(ResultSet result) throws SQLException {
 	}
+
+	@Override
+	public void validate() {
+
+	}
 }

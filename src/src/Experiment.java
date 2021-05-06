@@ -15,10 +15,8 @@ public abstract class Experiment implements DatabaseModel{
 		this.complete = complete;
 		this.Description = Description;
 	}
-		
-	public void validate() {
-		
-	}
+
+	abstract public void validate();
 	
 	public boolean isDoable(ArrayList<Capability> capabilities, ArrayList<Supply> supplies) {
 		return false;
