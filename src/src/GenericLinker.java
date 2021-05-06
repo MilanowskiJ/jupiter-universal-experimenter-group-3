@@ -1,6 +1,8 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GenericLinker<T extends DatabaseModel> implements DatabaseLinker<T>{
     String connectionUrl;
@@ -16,8 +18,8 @@ public class GenericLinker<T extends DatabaseModel> implements DatabaseLinker<T>
     }
 
     @Override
-    public List<T> getModels() {
-        ArrayList<T> modelList = new ArrayList<>();
+    public Map<String, T> getModels() {
+        HashMap<String, T> modelList = new HashMap<>();
         ResultSet results;
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
@@ -26,7 +28,8 @@ public class GenericLinker<T extends DatabaseModel> implements DatabaseLinker<T>
             results = statement.executeQuery(modelGetQuery);
 
             while (results.next()) {
-                modelList.add(modelResult.processResult(results));
+                T temp = modelResult.processResult(results);
+                modelList.put(temp.getDatabaseID(), temp);
             }
         }
         catch (SQLException e) {

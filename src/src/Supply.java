@@ -78,6 +78,11 @@ public class Supply implements DatabaseModel{
 	}
 
 	@Override
+	public String getDatabaseID() {
+		return name;
+	}
+
+	@Override
 	public void processResult(ResultSet result) throws SQLException {
 	}
 }

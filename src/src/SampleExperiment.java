@@ -1,5 +1,5 @@
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,6 +42,11 @@ public class SampleExperiment extends Experiment {
 	}
 
 	@Override
+	public String getDatabaseID() {
+		return super.name;
+	}
+
+	@Override
 	public void processResult(ResultSet result) throws SQLException {
 	}
 
@@ -56,16 +61,16 @@ public class SampleExperiment extends Experiment {
 
 		JSONObject collectCommand = new JSONObject();
 		collectCommand.put("command", "C19");
-		commandArray.add(collectCommand);
+		commandArray.put(collectCommand);
 
 		JSONObject collectDataCommand = new JSONObject();
 		collectDataCommand.put("command", "C16");
 		collectDataCommand.put("param", "HGPC-1");
-		commandArray.add(collectDataCommand);
+		commandArray.put(collectDataCommand);
 
 		JSONObject ejectCommand = new JSONObject();
 		ejectCommand.put("command", "C5");
-		commandArray.add(ejectCommand);
+		commandArray.put(ejectCommand);
 
 		processedJSON.put("experiment_commands", commandArray);
 

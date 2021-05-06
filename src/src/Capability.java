@@ -47,6 +47,11 @@ public class Capability implements DatabaseModel{
 	}
 
 	@Override
+	public String getDatabaseID() {
+		return ID;
+	}
+
+	@Override
 	public void processResult(ResultSet result) throws SQLException {
 	}
 }
