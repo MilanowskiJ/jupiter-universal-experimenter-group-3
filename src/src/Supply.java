@@ -53,16 +53,6 @@ public class Supply implements DatabaseModel{
 
 	@Override
 	public String addQuery() {
-			return String.format("INSERT INTO Supplies (Name, QuantityAvailable, QuantityOriginally, Type, Unit) VALUES ('%s', %d, %d, '%s', '%s');",
-					this.getName(),
-					this.getQuantityAvailable(),
-					this.getQuantityOriginal(),
-					this.getType(),
-					this.getUnit());
-	}
-
-	@Override
-	public String updateQuery() {
 		return String.format("INSERT INTO Supplies (Name, QuantityAvailable, QuantityOriginally, Type, Unit) VALUES ('%s', %d, %d, '%s', '%s');",
 				this.getName(),
 				this.getQuantityAvailable(),
@@ -72,8 +62,19 @@ public class Supply implements DatabaseModel{
 	}
 
 	@Override
+	public String updateQuery() {
+		return String.format("UPDATE Supplies SET QuantityAvailable = %d, QuantityOriginally = %d, Type = '%s', Unit = '%s' WHERE Name = '%s';",
+				this.getQuantityAvailable(),
+				this.getQuantityOriginal(),
+				this.getType(),
+				this.getUnit(),
+				this.getName());
+	}
+
+	@Override
 	public String deleteQuery() {
-		return null;
+		return String.format("DELETE FROM Supplies WHERE Name = '%s';",
+				this.getName());
 	}
 
 	@Override

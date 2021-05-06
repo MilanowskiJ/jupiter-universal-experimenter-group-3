@@ -34,25 +34,32 @@ public class LinkerManager {
                         result.getString("Type"),
                         result.getString("Unit"))));
 
+        capabilityLinker = new GenericLinker<>(connectionUrl,
+                capabilityGetQuery,
+                (result -> new Capability(result.getString("ID"),
+                        result.getString("Type"),
+                        result.getString("Name"),
+                        result.getString("Description"),
+                        result.getString("Status"))));
     }
 
     public List<Supply> getSupplyModels() {return supplyLinker.getModels();}
-    public boolean addSupply(Supply model) {return supplyLinker.add(model);}
-    public boolean updateSupply(Supply model) {return supplyLinker.update(model);}
-    public boolean deleteSupply(Supply model) {return supplyLinker.delete(model);}
+    public boolean add(Supply model) {return supplyLinker.add(model);}
+    public boolean update(Supply model) {return supplyLinker.update(model);}
+    public boolean delete(Supply model) {return supplyLinker.delete(model);}
 
     public List<Capability> getCapabilityModels() {return capabilityLinker.getModels();}
-    public boolean addCapability(Capability model) {return capabilityLinker.add(model);}
-    public boolean updateCapability(Capability model) {return capabilityLinker.update(model);}
-    public boolean deleteCapability(Capability model) {return capabilityLinker.delete(model);}
+    public boolean add(Capability model) {return capabilityLinker.add(model);}
+    public boolean update(Capability model) {return capabilityLinker.update(model);}
+    public boolean delete(Capability model) {return capabilityLinker.delete(model);}
 
     public List<Experiment> getExperimentModels() {return experimentLinker.getModels();}
-    public boolean addExperiment(Experiment model) {return experimentLinker.add(model);}
-    public boolean updateExperiment(Experiment model) {return experimentLinker.update(model);}
-    public boolean deleteExperiment(Experiment model) {return experimentLinker.delete(model);}
+    public boolean add(Experiment model) {return experimentLinker.add(model);}
+    public boolean update(Experiment model) {return experimentLinker.update(model);}
+    public boolean delete(Experiment model) {return experimentLinker.delete(model);}
 
     public List<Command> getCommandModels() {return commandLinker.getModels();}
-    public boolean addCommand(Command model) {return commandLinker.add(model);}
-    public boolean updateCommand(Command model) {return commandLinker.update(model);}
-    public boolean deleteCommand(Command model) {return commandLinker.delete(model);}
+    public boolean add(Command model) {return commandLinker.add(model);}
+    public boolean update(Command model) {return commandLinker.update(model);}
+    public boolean delete(Command model) {return commandLinker.delete(model);}
 }
