@@ -45,17 +45,15 @@ public class JUMPSystem {
             capabilities = linkerManager.getCapabilityModels();
             experiments = linkerManager.getExperimentModels();
 
-            /*
             while (obs.hasNext()) {
                 JSONObject report = obs.next();
                 ReportParser.parseReport(report, inventory, capabilities, experiments);
                 System.out.println("Report received: " + report.toString());
             }
-             */
 
             linkerManager.updateSupplyGroup(inventory);
             linkerManager.updateCapabilityGroup(capabilities);
-            //linkerManager.updateExperimentGroup(experiments);
+            linkerManager.updateExperimentGroup(experiments);
             experimentChecker.updateCheckState(capabilities, inventory);
 
             nextUIProcess = console.getNextCommand();
@@ -75,8 +73,7 @@ public class JUMPSystem {
                 JSONObject processedExperiment = experiments.get(nextBusinessProcess.getParams().get(0)).process();
                 Payload payload = new Payload();
                 payload.add(processedExperiment);
-                payload.process();
-
+                CS.addPayload(payload.process());
             }
             else continue;
         }

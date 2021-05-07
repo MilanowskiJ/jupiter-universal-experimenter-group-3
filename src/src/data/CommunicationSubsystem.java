@@ -11,6 +11,7 @@ import java.util.Stack;
 
 import business.CommunicationObserver;
 import business.Observer;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -126,11 +127,34 @@ public class CommunicationSubsystem extends Thread {
 	}
 
 	public synchronized void addPayload(JSONObject payload) {
-		this.payloads.add(payload);
+		files.add(processPayload(payload));
 	}
 
 	public synchronized void sendPayloads() {
 
+	}
+
+	private synchronized JSONObject processPayload(JSONObject payload){
+		JSONObject returnStatus = new JSONObject();
+		JSONObject returnStatusBody = new JSONObject();
+		JSONArray inventoryArray = new JSONArray();
+		JSONArray capabilitiesArray = new JSONArray();
+		JSONArray experimentStatusArray = new JSONArray();
+
+		JSONObject temp = payload.getJSONObject("payload");
+		for (String currentExperiment : temp.keySet()){
+			JSONObject newObject = new JSONObject();
+			String experimentID = temp.getJSONObject(currentExperiment).getString("experiment_id");
+			newObject.put(experimentID, "success");
+		}
+
+		returnStatusBody.put("inventory", inventoryArray);
+		returnStatusBody.put("capabilities", capabilitiesArray);
+		returnStatusBody.put("experiment_status", experimentStatusArray);
+
+		returnStatus.put("return-status", returnStatus);
+
+		return returnStatus;
 	}
 	
 	public Stack<JSONObject> getFiles() {
