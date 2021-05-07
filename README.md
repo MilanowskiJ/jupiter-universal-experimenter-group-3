@@ -51,6 +51,6 @@ Implementing the strategy pattern in this way keeps this portion of our system o
 
   
 ## Observer Pattern Satisfaction
-This system uses the observer design pattern to handle communication with the (simulated) UAV.  
+This system uses the observer design pattern to handle communication with the (simulated) UAV. The CommunicationSubsystem simulates receiving messages from the UAV by running a server asynchronously from the jumps system. The observers watch the CommunicationSubsystem and whenever it receives a JSON file from the dummyUAV, it notifies the Observer which grab all received JSON files from the Comm system and store them. Then the JumpsSystem may look at the observer whenever is required and get all of the sent JSON files to update the database. The observer pattern is beneficial here because the communication subststem is running asynchronously from the rest of the system, so the jumps system should not stop to check the subsystem. Instead it can simply ask the observer for whenever it has new reports. It can also be expanded with new types of observers for when the need arises.
 
 
