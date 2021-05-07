@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class ReagentExperiment extends Experiment {
 	
 	private String reagent;
-	private String amount;
+	private int amount;
 	private String sampleID;
 	private String measurementsToTake;
 
@@ -19,9 +19,14 @@ public class ReagentExperiment extends Experiment {
 
 	}
 
+	@Override
+	public String getType() {
+		return "Reagent";
+	}
+
 
 	public void setReagent(String reagent) {this.reagent = reagent;}
-	public void setAmount(String amount) {this.amount = amount;}
+	public void setAmount(int amount) {this.amount = amount;}
 	public void setSampleID(String sampleID) {this.sampleID = sampleID;}
 	public void setMeasurements(String measurements) {this.measurementsToTake = measurements;}
 
@@ -38,7 +43,7 @@ public class ReagentExperiment extends Experiment {
 				super.getPriority(),
 				super.getComplete(),
 				super.getExperimentID(),
-				"Sample",
+				"Reagent",
 				super.getDescription(),
 				super.getExperimentID(),
 				this.reagent,
@@ -48,7 +53,19 @@ public class ReagentExperiment extends Experiment {
 
 	@Override
 	public String updateQuery() {
-		return null;
+		return String.format("UPDATE Experiment SET ExperimentName = '%s', Priority = '%s', " +
+						"Complete = '%s', ExperimentType = '%s', Description = '%s' WHERE ExperimentID = '%s';" +
+						"UPDATE ReagentExperiment SET Reagent = '%s', Amount = '%s', SampleId = '%s' WHERE ExperimentID = '%s'",
+				super.name,
+				super.priority,
+				super.complete,
+				"Reagent",
+				super.description,
+				super.experimentID,
+				this.reagent,
+				this.amount,
+				this.sampleID,
+				this.experimentID);
 	}
 
 	@Override
@@ -58,7 +75,7 @@ public class ReagentExperiment extends Experiment {
 
 	@Override
 	public String getDatabaseID() {
-		return super.name;
+		return super.experimentID;
 	}
 
 

@@ -18,6 +18,7 @@ public abstract class Experiment implements DatabaseModel, Processable {
 		this.description = Description;
 	}
 
+	public abstract String getType();
 	public String getName() { return name; }
 	public String getPriority() { return priority; }
 	public void setPriority(String priority) { this.priority = priority; }

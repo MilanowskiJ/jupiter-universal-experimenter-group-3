@@ -6,6 +6,8 @@ import java.util.Map;
 
 public class LinkerManager {
 
+    private static LinkerManager single_instance = null;
+
     private GenericLinker<Supply> supplyLinker;
     private GenericLinker<Capability> capabilityLinker;
     private GenericLinker<Experiment> experimentLinker;
@@ -20,7 +22,6 @@ public class LinkerManager {
 
     public LinkerManager() {
         String supplyGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
-        //experiment table joined with sampleexperiment table and reagent experiment table. Use leftjoin
         String experimentGetQuery = "SELECT  Experiment.ExperimentName, Experiment.Priority, Experiment.Complete, Experiment.ExperimentID, Experiment.ExperimentType, Experiment.Description,\n" +
                 "ReagentExperiment.Reagent, ReagentExperiment.Amount, ReagentExperiment.SampleId, SampleExperiment.Target, SampleExperiment.Location, SampleExperiment.Amount AS sampleAmount\n" +
                 "FROM Experiment LEFT JOIN SampleExperiment \n" +
@@ -47,11 +48,38 @@ public class LinkerManager {
 
         experimentLinker = new GenericLinker<Experiment>(connectionUrl,
                 experimentGetQuery,
-                (result -> new SampleExperiment(result.getString("ExperimentName"),
-                        result.getString("Priority"),
-                        result.getString("ExperimentID"),
-                        result.getString("Complete"),
-                        result.getString("Description"))));
+                (result -> {
+                    switch (result.getString("ExperimentType")){
+                        case "Sample":
+                            SampleExperiment tempSample = new SampleExperiment(result.getString("ExperimentName"),
+                                    result.getString("Priority"),
+                                    result.getString("ExperimentID"),
+                                    result.getString("Complete"),
+                                    result.getString("Description"));
+                            tempSample.setTarget(result.getString("Target"));
+                            tempSample.setAmount(result.getInt("Amount"));
+                            tempSample.setWhere(result.getString("Location"));
+                            return tempSample;
+                        case "Reagent":
+                            ReagentExperiment tempReagent = new ReagentExperiment(result.getString("ExperimentName"),
+                                    result.getString("Priority"),
+                                    result.getString("ExperimentID"),
+                                    result.getString("Complete"),
+                                    result.getString("Description"));
+                            tempReagent.setReagent(result.getString("Reagent"));
+                            tempReagent.setAmount(result.getInt("Amount"));
+                            tempReagent.setSampleID(result.getString("SampleId"));
+                            return tempReagent;
+                        case "Complex":
+                            ComplexExperiment tempComplex = new ComplexExperiment(result.getString("ExperimentName"),
+                                    result.getString("Priority"),
+                                    result.getString("ExperimentID"),
+                                    result.getString("Complete"),
+                                    result.getString("Description"));
+                            return tempComplex;
+                        default: return null;
+                    }}
+                ));
 
         commandLinker = new GenericLinker<>(connectionUrl,
                 commandGetQuery,
@@ -104,7 +132,10 @@ public class LinkerManager {
         return true;
     }
 
-    public static LinkerManager getInstance(){
-        return null;
+    public static synchronized LinkerManager getInstance(){
+        if (single_instance == null)
+            single_instance = new LinkerManager();
+
+        return single_instance;
     }
 }

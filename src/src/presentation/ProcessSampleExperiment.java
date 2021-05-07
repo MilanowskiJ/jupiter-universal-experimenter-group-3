@@ -1,6 +1,8 @@
 package presentation;
 
 import business.BusinessProcessContainer;
+import business.models.Experiment;
+import data.LinkerManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,15 +33,14 @@ public class ProcessSampleExperiment implements UIProcess {
     }
     private Set<String> printValidSampleExperiments(){
         //This should call the database and add all the strings to this set
+        Map<String, Experiment> models = LinkerManager.getInstance().getExperimentModels();
+
         Set<String> output = new HashSet<>();
-        output.add("sampleExp1");
-        output.add("sampleExp2");
-        output.add("sampleExp3");
-        output.add("sampleExp4");
-        output.add("sampleExp5");
-        for(String experiment : output){
-            System.out.println(experiment);
+        for(String experiment : models.keySet()){
+            System.out.println(models.get(experiment).getExperimentID() + ": " + models.get(experiment).getType());
+            output.add(experiment);
         }
+
         return output;
 
     }

@@ -10,19 +10,23 @@ import java.sql.SQLException;
 public class SampleExperiment extends Experiment {
 	
 	private String target;
-	private String amount;
+	private int amount;
 	private String where; //??????
 	
 	public SampleExperiment(String Name,String priority, String ExperimentID, String complete, String Description) {
 		super(Name, priority, ExperimentID, complete, Description);
 	}
 
+	@Override
+	public String getType() {
+		return "Sample";
+	}
 
 
 	public void setTarget(String target) {this.target = target;}
 	public String getTarget( ) {return target;}
-	public void setAmount(String amount) {this.amount = amount;}
-	public String getAmount() {return this.amount;}
+	public void setAmount(int amount) {this.amount = amount;}
+	public int getAmount() {return this.amount;}
 	public String getWhere() {return where;}
 	public void setWhere(String where) {this.where = where;}
 
@@ -49,7 +53,19 @@ public class SampleExperiment extends Experiment {
 
 	@Override
 	public String updateQuery() {
-		return null;
+		return String.format("UPDATE Experiment SET ExperimentName = '%s', Priority = '%s', " +
+						"Complete = '%s', ExperimentType = '%s', Description = '%s' WHERE ExperimentID = '%s';" +
+						"UPDATE SampleExperiment SET Target = '%s', Amount = '%s', Location = '%s' WHERE ExperimentID = '%s'",
+				super.name,
+				super.priority,
+				super.complete,
+				"Sample",
+				super.description,
+				super.experimentID,
+				this.target,
+				this.amount,
+				this.where,
+				super.experimentID);
 	}
 
 	@Override
@@ -59,7 +75,7 @@ public class SampleExperiment extends Experiment {
 
 	@Override
 	public String getDatabaseID() {
-		return super.name;
+		return super.experimentID;
 	}
 
 	@Override
@@ -71,7 +87,7 @@ public class SampleExperiment extends Experiment {
 		JSONObject processedJSON = new JSONObject();
 		processedJSON.put("experiment_id", super.experimentID);
 		processedJSON.put("experiment_name", super.name);
-		processedJSON.put("experiment_type", "business.models.Sample");
+		processedJSON.put("experiment_type", "Sample");
 
 		JSONArray commandArray = new JSONArray();
 

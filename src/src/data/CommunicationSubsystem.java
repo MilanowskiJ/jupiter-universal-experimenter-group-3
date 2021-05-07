@@ -146,13 +146,14 @@ public class CommunicationSubsystem extends Thread {
 			JSONObject newObject = new JSONObject();
 			String experimentID = temp.getJSONObject(currentExperiment).getString("experiment_id");
 			newObject.put(experimentID, "success");
+			experimentStatusArray.put(newObject);
 		}
 
 		returnStatusBody.put("inventory", inventoryArray);
 		returnStatusBody.put("capabilities", capabilitiesArray);
 		returnStatusBody.put("experiment_status", experimentStatusArray);
 
-		returnStatus.put("return-status", returnStatus);
+		returnStatus.put("return-status", returnStatusBody);
 
 		return returnStatus;
 	}

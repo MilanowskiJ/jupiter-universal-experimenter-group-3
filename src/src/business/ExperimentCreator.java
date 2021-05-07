@@ -26,7 +26,7 @@ public class ExperimentCreator {
         SampleExperiment output = new SampleExperiment("Experiment"+experimentID, "M", experimentID, "F", "N/A");
 
         output.setWhere(whereToSample);
-        output.setAmount(howMuchToSample);
+        output.setAmount(Integer.parseInt(howMuchToSample));
         output.setTarget(whatToSample);
         return output;
     }
@@ -38,7 +38,7 @@ public class ExperimentCreator {
         String sampleToApplyTo = params.get(1);
         String reagent = params.get(0);
         ReagentExperiment output = new ReagentExperiment("E" + experimentID, "M", experimentID, "F", "N/A");
-        output.setAmount(reagentQuantity);
+        output.setAmount(Integer.parseInt(reagentQuantity));
         output.setReagent(reagent);
         output.setSampleID(sampleToApplyTo);
         output.setMeasurements(measurementsToTake);

@@ -20,6 +20,7 @@ public class Payload implements Processable {
         JSONObject payloadGrouper = new JSONObject();
 
         for(int i = 0; i < payloadObjects.size(); i++){
+            System.out.println("Object Added to Payload");
             JSONObject current = payloadObjects.get(i);
             payloadGrouper.put("experiment" + i, current);
         }

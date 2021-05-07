@@ -34,7 +34,7 @@ public class JUMPSystem {
         ExperimentChecker experimentChecker = new ExperimentChecker();
 
         //Database Management
-        LinkerManager linkerManager = new LinkerManager();
+        LinkerManager linkerManager = LinkerManager.getInstance();
         Map<String, Supply> inventory;
         Map<String, Capability> capabilities;
         Map<String, Experiment> experiments;

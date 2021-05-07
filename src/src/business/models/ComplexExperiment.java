@@ -16,6 +16,11 @@ public class ComplexExperiment extends Experiment {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String getType() {
+		return "Complex";
+	}
+
 
 	public void setTarget(String target){this.target = target;}
 	public void setSupplyItem(String supplyItem){this.supplyItem = supplyItem;}
@@ -28,7 +33,7 @@ public class ComplexExperiment extends Experiment {
 
 	@Override
 	public String getQuery() {
-		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.models.Experiment";
+		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from Experiment";
 	}
 
 	@Override
@@ -38,7 +43,14 @@ public class ComplexExperiment extends Experiment {
 
 	@Override
 	public String updateQuery() {
-		return null;
+		return String.format("UPDATE Experiment SET ExperimentName = '%s', Priority = '%s', " +
+						"Complete = '%s', ExperimentType = '%s', Description = '%s' WHERE ExperimentID = '%s';",
+				super.name,
+				super.priority,
+				super.complete,
+				"Complex",
+				super.description,
+				super.experimentID);
 	}
 
 	@Override
@@ -48,7 +60,7 @@ public class ComplexExperiment extends Experiment {
 
 	@Override
 	public String getDatabaseID() {
-		return super.name;
+		return super.experimentID;
 	}
 
 	@Override
