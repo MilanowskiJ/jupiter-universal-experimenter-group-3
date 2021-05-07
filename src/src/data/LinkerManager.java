@@ -1,11 +1,11 @@
 package data;
 
 import business.models.*;
-import sun.awt.image.ImageWatched;
 
 import java.util.Map;
 
 public class LinkerManager {
+
     private GenericLinker<Supply> supplyLinker;
     private GenericLinker<Capability> capabilityLinker;
     private GenericLinker<Experiment> experimentLinker;
@@ -13,17 +13,14 @@ public class LinkerManager {
 
     //@TODO: fill connectionUrl fields here
     private final String connectionUrl =
-            "jdbc:sqlserver://titan.csse.rose-hulman.edu;"
-                    + "database=374Team3;"
+            "jdbc:sqlserver://titan.csse.rose-hulman.edu:1433;"
+                    + "databaseName=374Team3;"
                     + "user=morrisjj;"
-                    + "password=Password!@#;"
-                    + "encrypt=true;"
-                    + "trustServerCertificate=false;"
-                    + "loginTimeout=30;";
+                    + "password=Password!@#";
 
     public LinkerManager() {
         String supplyGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
-        String experimentGetQuery = "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.models.Experiment";
+        String experimentGetQuery = "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from Experiment";
         String capabilityGetQuery = "SELECT ID, Name, Type, Description, Status from Capabilities";
         String commandGetQuery = "SELECT CommandID, CommandName, Params, from Commands";
 

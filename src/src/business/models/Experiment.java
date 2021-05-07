@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public abstract class Experiment implements DatabaseModel, Processable {
 
 	protected String name;
-
 	protected String priority;
 	protected String experimentID;
 	protected String complete;
@@ -19,6 +18,7 @@ public abstract class Experiment implements DatabaseModel, Processable {
 		this.description = Description;
 	}
 
+	public String getName() { return name; }
 	public String getPriority() { return priority; }
 	public void setPriority(String priority) { this.priority = priority; }
 	public String getExperimentID() { return experimentID; }

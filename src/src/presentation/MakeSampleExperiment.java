@@ -22,19 +22,19 @@ public class MakeSampleExperiment implements UIProcess {
         ArrayList<String> output = new ArrayList<>();
         while(true) {
             System.out.println("Creating new sample-based experiment...");
-            System.out.print("Please Enter business.models.Experiment Specification: ExperimentID\n>");
+            System.out.print("Please Enter Experiment Specification: ExperimentID\n>");
             experimentID = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: What to business.models.Sample\n>");
+            System.out.print("Please Enter Experiment Specification: What to Sample\n>");
             whatToSample = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: How Much to business.models.Sample\n>");
+            System.out.print("Please Enter Experiment Specification: How Much to Sample\n>");
             howMuchToSample = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: Where to business.models.Sample\n>");
+            System.out.print("Please Enter Experiment Specification: Where to Sample\n>");
             whereToSample = reader.readLine();
 
-            System.out.println("business.models.Experiment Specification Entered:\n ExperimentID: " + experimentID + "\nWhat to business.models.Sample: " + whatToSample + "\nHow Much to business.models.Sample: " + howMuchToSample + "\nWhere to business.models.Sample: " + whereToSample);
+            System.out.println("Experiment Specification Entered:\n ExperimentID: " + experimentID + "\nWhat to Sample: " + whatToSample + "\nHow Much to business.models.Sample: " + howMuchToSample + "\nWhere to business.models.Sample: " + whereToSample);
             System.out.print("Validate? (v)\n>");
             inputStr = reader.readLine().split(" ");
             if (inputStr[0].toUpperCase().equals("V")){
@@ -42,9 +42,9 @@ public class MakeSampleExperiment implements UIProcess {
                 break;
             }
         }
-        if(exited) System.out.println("business.models.Experiment Doable. \nMade business.models.Experiment " + experimentID);
+        if(exited) System.out.println("Experiment Doable. \nMade Experiment " + experimentID);
         else {
-            System.out.println("business.models.Experiment " + experimentID + " was not validated, cancelling creation.");
+            System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
             return;
         }
 

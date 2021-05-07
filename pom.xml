@@ -3,6 +3,13 @@
   <groupId>jupiter-universal-experimenter-group-3</groupId>
   <artifactId>jupiter-universal-experimenter-group-3</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <repositories>
+    <repository>
+      <id>one_bus_repo</id>
+      <name>OneBus Repository</name>
+      <url>http://nexus.onebusaway.org/nexus/content/repositories/public/</url>
+    </repository>
+  </repositories>
   <build>
     <sourceDirectory>src/src</sourceDirectory>
     <resources>
@@ -29,6 +36,12 @@
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
       <version>20210307</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc4 -->
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>sqljdbc4</artifactId>
+      <version>4.2</version>
     </dependency>
   </dependencies>
 </project>

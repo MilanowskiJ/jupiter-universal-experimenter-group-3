@@ -2,6 +2,7 @@ package business;
 
 import business.models.Capability;
 import business.models.Experiment;
+import business.models.Payload;
 import business.models.Supply;
 import data.CommunicationSubsystem;
 import data.LinkerManager;
@@ -44,15 +45,17 @@ public class JUMPSystem {
             capabilities = linkerManager.getCapabilityModels();
             experiments = linkerManager.getExperimentModels();
 
+            /*
             while (obs.hasNext()) {
                 JSONObject report = obs.next();
                 ReportParser.parseReport(report, inventory, capabilities, experiments);
                 System.out.println("Report received: " + report.toString());
             }
+             */
 
             linkerManager.updateSupplyGroup(inventory);
             linkerManager.updateCapabilityGroup(capabilities);
-            linkerManager.updateExperimentGroup(experiments);
+            //linkerManager.updateExperimentGroup(experiments);
             experimentChecker.updateCheckState(capabilities, inventory);
 
             nextUIProcess = console.getNextCommand();
@@ -66,9 +69,14 @@ public class JUMPSystem {
                 if(newExperiment == null) System.out.println("Failed to create new experiment");
 
                 boolean isValid = experimentChecker.checkExperiment(typeInfo[1], nextBusinessProcess.getParams());
+                linkerManager.add(newExperiment);
             }
             else if(typeInfo[0].equals("process")){
-                //insert process logic here, nextBusinessProcess.getParams().get(0) has the experiment ID to process
+                JSONObject processedExperiment = experiments.get(nextBusinessProcess.getParams().get(0)).process();
+                Payload payload = new Payload();
+                payload.add(processedExperiment);
+                payload.process();
+
             }
             else continue;
         }

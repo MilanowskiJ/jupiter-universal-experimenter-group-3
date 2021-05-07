@@ -28,12 +28,23 @@ public class SampleExperiment extends Experiment {
 
 	@Override
 	public String getQuery() {
-		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from business.models.Experiment";
+		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from Experiment";
 	}
 
 	@Override
 	public String addQuery() {
-		return null;
+		return String.format("INSERT INTO Experiment (ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description) VALUES ('%s', '%s', '%s', '%s', '%s', '%s');" +
+						"INSERT INTO SampleExperiment (ExperimentID, Target, Amount, Location) VALUES ('%s', '%s', '%s', '%s')",
+				super.getName(),
+				super.getPriority(),
+				super.getComplete(),
+				super.getExperimentID(),
+				"Sample",
+				super.getDescription(),
+				super.getExperimentID(),
+				this.target,
+				this.amount,
+				this.where);
 	}
 
 	@Override

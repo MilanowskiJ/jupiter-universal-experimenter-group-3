@@ -27,6 +27,7 @@ public class GenericLinker<T extends DatabaseModel> implements DatabaseLinker<T>
         try (Connection connection = DriverManager.getConnection(connectionUrl);
                 Statement statement = connection.createStatement()) {
 
+
             results = statement.executeQuery(modelGetQuery);
 
             while (results.next()) {
@@ -47,7 +48,6 @@ public class GenericLinker<T extends DatabaseModel> implements DatabaseLinker<T>
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              PreparedStatement preparedStatement = connection.prepareStatement(model.addQuery())) {
-
             preparedStatement.execute();
         }
 
@@ -65,7 +65,6 @@ public class GenericLinker<T extends DatabaseModel> implements DatabaseLinker<T>
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              PreparedStatement preparedStatement = connection.prepareStatement(model.updateQuery())) {
-
             preparedStatement.executeUpdate();
         }
 

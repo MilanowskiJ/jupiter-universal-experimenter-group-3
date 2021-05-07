@@ -32,7 +32,18 @@ public class ReagentExperiment extends Experiment {
 
 	@Override
 	public String addQuery() {
-		return null;
+		return String.format("INSERT INTO Experiment (ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description) VALUES ('%s', '%s', '%s', '%s', '%s', '%s');" +
+						"INSERT INTO ReagentExperiment (ExperimentID, Reagent, Amount, SampleId) VALUES ('%s', '%s', '%s', '%s')",
+				super.getName(),
+				super.getPriority(),
+				super.getComplete(),
+				super.getExperimentID(),
+				"Sample",
+				super.getDescription(),
+				super.getExperimentID(),
+				this.reagent,
+				this.amount,
+				this.sampleID);
 	}
 
 	@Override

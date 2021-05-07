@@ -12,7 +12,6 @@ import java.util.Stack;
 import business.CommunicationObserver;
 import business.Observer;
 import org.json.JSONException;
-
 import org.json.JSONObject;
 
 public class CommunicationSubsystem extends Thread {
