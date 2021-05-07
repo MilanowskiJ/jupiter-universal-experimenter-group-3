@@ -20,11 +20,13 @@ public class CommunicationSubsystem extends Thread {
 	boolean running = false;
 	private ArrayList<Observer> observers;
 	private Stack<JSONObject> files;
+	private ArrayList<JSONObject> payloads;
 	
 	public CommunicationSubsystem(int port) {
 		this.port = port;
 		observers = new ArrayList<Observer>();
 		this.files = new Stack<JSONObject>();
+		this.payloads = new ArrayList<JSONObject>();
 	}
 	
 	public void stopServer() {
@@ -121,6 +123,14 @@ public class CommunicationSubsystem extends Thread {
 	public void attach(CommunicationObserver communicationObserver) {
 		// TODO Auto-generated method stub
 		this.observers.add(communicationObserver);
+	}
+
+	public synchronized void addPayload(JSONObject payload) {
+		this.payloads.add(payload);
+	}
+
+	public synchronized void sendPayloads() {
+
 	}
 	
 	public Stack<JSONObject> getFiles() {
