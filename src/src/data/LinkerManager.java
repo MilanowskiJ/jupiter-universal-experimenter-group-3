@@ -20,6 +20,7 @@ public class LinkerManager {
 
     public LinkerManager() {
         String supplyGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
+        //experiment table joined with sampleexperiment table and reagent experiment table. Use leftjoin
         String experimentGetQuery = "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from Experiment";
         String capabilityGetQuery = "SELECT ID, Name, Type, Description, Status from Capabilities";
         String commandGetQuery = "SELECT CommandID, CommandName, Params, from Commands";
