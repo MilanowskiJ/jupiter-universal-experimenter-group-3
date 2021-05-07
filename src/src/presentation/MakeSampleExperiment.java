@@ -42,7 +42,7 @@ public class MakeSampleExperiment implements UIProcess {
                 break;
             }
         }
-        if(exited) System.out.println("Experiment Doable. \nMade Experiment " + experimentID);
+        if(exited) System.out.println("Experiment "+experimentID+" validated.");
         else {
             System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
             return;

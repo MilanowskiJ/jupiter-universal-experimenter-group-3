@@ -77,11 +77,14 @@ public class ExperimentChecker {
     }
 
     public boolean checkComplexExperiment(String supplyItem, String supplyQuantity, String sample){
-        //check summplyItem quantity
-        //check sample quantity
-        //check based on verb? maybe just hold the L on that and focus on functionality
+        if(supplyMap.get(supplyItem) == null)
+            return false;
+        if(supplyMap.get(supplyItem).getQuantityAvailable() < Integer.parseInt(supplyQuantity))
+            return false;
+        if(supplyMap.get(sample) == null)
+            return false;
 
-        return false;
+        return true;
     }
 
 

@@ -23,25 +23,25 @@ public class MakeReagentExperiment implements UIProcess {
 
         while(true) {
             System.out.println("Creating new reagent-based experiment...");
-            System.out.print("Please Enter business.models.Experiment Specification: ExperimentID\n>");
+            System.out.print("Please Enter Experiment Specification: ExperimentID\n>");
             experimentID = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: Reagent to apply\n>");
+            System.out.print("Please Enter Experiment Specification: Reagent to apply\n>");
             reagent = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: Quantity of reagent to apply\n>");
+            System.out.print("Please Enter Experiment Specification: Quantity of reagent to apply\n>");
             reagentQuantity = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: business.models.Sample to apply reagent to\n>");
+            System.out.print("Please Enter Experiment Specification: Sample to apply reagent to\n>");
             sampleToApplyTo = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: measurementsToTake (seperate multiple measurements using a comma)\n>");
+            System.out.print("Please Enter Experiment Specification: measurementsToTake (seperate multiple measurements using a comma)\n>");
             measurementsToTake = reader.readLine();
 
-            System.out.println("business.models.Experiment Specification Entered:\n ExperimentID: " + experimentID +
+            System.out.println("Experiment Specification Entered:\n ExperimentID: " + experimentID +
                     "\nReagent to apply: " + reagent +
                     "\nQuantity of reagent: " + reagentQuantity +
-                    "\nbusiness.models.Sample to apply reagent to: " + sampleToApplyTo +
+                    "\nSample to apply reagent to: " + sampleToApplyTo +
                     "\nMeasurements to take:" + measurementsToTake);
             System.out.print("Validate? (v)\n>");
             inputStr = reader.readLine().split(" ");
@@ -50,9 +50,9 @@ public class MakeReagentExperiment implements UIProcess {
                 break;
             }
         }
-        if(exited) System.out.println("business.models.Experiment Doable. \nMade business.models.Experiment " + experimentID);
+        if(exited) System.out.println("Experiment "+experimentID+" validated.");
         else {
-            System.out.println("business.models.Experiment " + experimentID + " was not validated, cancelling creation.");
+            System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
             return;
         }
 

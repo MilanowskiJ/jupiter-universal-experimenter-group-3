@@ -24,7 +24,10 @@ public class ProcessSampleExperiment implements UIProcess {
             experiment = reader.readLine();
             if(experiments.contains(experiment))break;
             else if(experiment.equals("X")) return;
-            else System.out.print(experiment+" is not a valid experiment, please select one from the list or create a new one (or enter 'X' to cance)");
+            else {
+                System.out.println(experiment+" is not a valid experiment, please select one from the list or enter 'X' to cancel");
+                System.out.print(">");
+            }
         }
 
         List<String> params = new ArrayList<>(Arrays.asList(experiment));

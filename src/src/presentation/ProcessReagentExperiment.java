@@ -26,7 +26,10 @@ public class ProcessReagentExperiment implements UIProcess {
             experiment = reader.readLine();
             if(experiments.contains(experiment))break;
             else if(experiment.equals("X")) return;
-            else System.out.print(experiment+" is not a valid experiment, please select one from the list or enter 'X' to cancel");
+            else {
+                System.out.println(experiment+" is not a valid experiment, please select one from the list or enter 'X' to cancel");
+                System.out.print(">");
+            }
         }
 
 

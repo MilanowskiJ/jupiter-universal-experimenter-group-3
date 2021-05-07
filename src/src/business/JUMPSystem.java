@@ -67,6 +67,8 @@ public class JUMPSystem {
                 if(newExperiment == null) System.out.println("Failed to create new experiment");
 
                 boolean isValid = experimentChecker.checkExperiment(typeInfo[1], nextBusinessProcess.getParams());
+                if(isValid) System.out.println("Experiment doable!");
+                else System.out.println("Experiment impossible with current system state");
                 linkerManager.add(newExperiment);
             }
             else if(typeInfo[0].equals("process")){

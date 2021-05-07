@@ -21,22 +21,26 @@ public class MakeComplexExperiment implements UIProcess {
         boolean exited = false;
 
         String[] inputStr;
-        ArrayList<String> output = new ArrayList<>();
         while(true) {
+
+
             System.out.println("Creating new complex experiment...");
-            System.out.print("Please Enter business.models.Experiment Specification: What to do (verb)\n>");
+            System.out.print("Please Enter Experiment Specification: ExperimentID\n>");
+            experimentID = reader.readLine();
+
+            System.out.print("Please Enter Experiment Specification: What to do (verb)\n>");
             whatToDo = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: Quantity\n>");
+            System.out.print("Please Enter Experiment Specification: Quantity\n>");
             quantity = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: business.models.Supply Item \n>");
+            System.out.print("Please Enter Experiment Specification: Supply Item \n>");
             supplyItem = reader.readLine();
 
-            System.out.print("Please Enter business.models.Experiment Specification: Target \n>");
+            System.out.print("Please Enter Experiment Specification: Target \n>");
             target = reader.readLine();
 
-            System.out.println("business.models.Experiment Specification Entered:\nWhat to do: " + whatToDo + "\nQuantity: " + quantity + "\nbusiness.models.Supply item: " + supplyItem + "\nTarget: " + target);
+            System.out.println("Experiment Specification Entered:\nWhat to do: " + whatToDo + "\nQuantity: " + quantity + "\nSupply item: " + supplyItem + "\nTarget: " + target);
             System.out.print("Validate? (v)\n>");
             inputStr = reader.readLine().split(" ");
             if (inputStr[0].toUpperCase().equals("V")){
@@ -44,9 +48,9 @@ public class MakeComplexExperiment implements UIProcess {
                 break;
             }
         }
-        if(exited) System.out.println("business.models.Experiment Doable. \nMade business.models.Experiment " + experimentID);
+        if(exited) System.out.println("Experiment "+experimentID+" validated.");
         else {
-            System.out.println("business.models.Experiment " + experimentID + " was not validated, cancelling creation.");
+            System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
             return;
         }
 
