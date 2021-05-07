@@ -21,7 +21,11 @@ public class LinkerManager {
     public LinkerManager() {
         String supplyGetQuery = "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
         //experiment table joined with sampleexperiment table and reagent experiment table. Use leftjoin
-        String experimentGetQuery = "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from Experiment";
+        String experimentGetQuery = "SELECT  Experiment.ExperimentName, Experiment.Priority, Experiment.Complete, Experiment.ExperimentID, Experiment.ExperimentType, Experiment.Description,\n" +
+                "ReagentExperiment.Reagent, ReagentExperiment.Amount, ReagentExperiment.SampleId, SampleExperiment.Target, SampleExperiment.Location, SampleExperiment.Amount AS sampleAmount\n" +
+                "FROM Experiment LEFT JOIN SampleExperiment \n" +
+                "ON Experiment.ExperimentID = SampleExperiment.ExperimentID LEFT JOIN \n" +
+                "ReagentExperiment ON Experiment.ExperimentID = ReagentExperiment.ExperimentID";
         String capabilityGetQuery = "SELECT ID, Name, Type, Description, Status from Capabilities";
         String commandGetQuery = "SELECT CommandID, CommandName, Params, from Commands";
 
