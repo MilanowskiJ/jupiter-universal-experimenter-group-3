@@ -1,5 +1,5 @@
 # Milstone 2 Final Submission: Testing the System and Discussion of Design Patterns
-# Demo: https://rose-hulman.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=344cce5f-b88e-4dd5-94b5-ad21004e34cd
+## Demo: https://rose-hulman.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=344cce5f-b88e-4dd5-94b5-ad21004e34cd
 ## Running the System
   To run the system, execute JUMPSystem.java's main file. The system uses CLI and entering in any text (other than a valid command) will display a list of all the valid commadnds
   
