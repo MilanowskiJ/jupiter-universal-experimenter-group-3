@@ -50,7 +50,7 @@ Implementing the strategy pattern in this way keeps this portion of our system o
 
 
   
-## Observer Pattern Test case
-1.) 
+## Observer Pattern Satisfaction
+This system uses the observer design pattern to handle communication with the (simulated) UAV.  
 
 
