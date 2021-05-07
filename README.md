@@ -39,10 +39,12 @@ To see one place where the strategy pattern is being used, look at the UIProcess
   1.) Make new Java class that implements the Cmd interface
 
 
-  3.) Put new strategy in the new class's "execute" function (function for the Cmd interface)
+  2.) Put new strategy in the new class's "execute" function (function for the Cmd interface)
 
 
-  5.) Add instantiation of this strategy into the InputReader file (one line of code)
+  3.) Add instantiation of this strategy into the InputReader file (one line of code)
+
+
 
 Implementing the strategy pattern in this way keeps this portion of our system open to extension by adding new classes that implement the interface, but closed to modification because adding new strategies does not requrie modificiation to any existing code (outside of one line to instantiate it).
 
