@@ -11,7 +11,10 @@ import java.util.Queue;
 
 public class MakeComplexExperiment implements UIProcess {
     String experimentID;
-    List<String> commands = new ArrayList<>();
+    String whatToDo;
+    String quantity;
+    String supplyItem;
+    String target;
 
     @Override
     public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
@@ -24,35 +27,26 @@ public class MakeComplexExperiment implements UIProcess {
             System.out.println("Creating new complex experiment...");
             System.out.print("Please Enter Experiment Specification: ExperimentID\n>");
             experimentID = reader.readLine();
-            commands.add(experimentID);
 
-            while(true){
-                System.out.print("Add command to macro by entering its ID (or enter X to continue): \n>");
-                String readString = reader.readLine();
-                if(readString.toUpperCase().equals("X")) break;
-                else if(readString.length() >= 2 && readString.length() <= 4 && readString.charAt(0) == 'C'){
-                    commands.add(readString);
-                } else System.out.println(readString +" is not a valid command ID.");
-            }
+            System.out.print("Please Enter Experiment Specification: What to do (verb)\n>");
+            whatToDo = reader.readLine();
 
+            System.out.print("Please Enter Experiment Specification: Quantity\n>");
+            quantity = reader.readLine();
 
-            System.out.println("Experiment ID: " + commands.get(0));
-            int i = 1;
-            for(String command : commands){
-                if(command.equals(commands.get(0)))continue;
-                System.out.println("Step "+i+": "+command);
-                i++;
-            }
-            if(i == 1) {
-                System.out.println("Macro must have at least one command, aborting operation");
-                return;
-            }
+            System.out.print("Please Enter Experiment Specification: Supply Item \n>");
+            supplyItem = reader.readLine();
+
+            System.out.print("Please Enter Experiment Specification: Target \n>");
+            target = reader.readLine();
+
+            System.out.println("Experiment Specification Entered:\nWhat to do: " + whatToDo + "\nQuantity: " + quantity + "\nSupply item: " + supplyItem + "\nTarget: " + target);
             System.out.print("Validate? (v)\n>");
             inputStr = reader.readLine().split(" ");
             if (inputStr[0].toUpperCase().equals("V")){
                 exited = true;
                 break;
-            } else break;
+            }
         }
         if(exited) System.out.println("Experiment "+experimentID+" validated.");
         else {
@@ -60,7 +54,8 @@ public class MakeComplexExperiment implements UIProcess {
             return;
         }
 
-        BusinessProcessContainer newProcess = new BusinessProcessContainer("make complex", commands);
+        List<String> params = new ArrayList<>(Arrays.asList(experimentID, whatToDo, quantity, supplyItem, target));
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("make complex", params);
         queue.add(newProcess);
     }
 
