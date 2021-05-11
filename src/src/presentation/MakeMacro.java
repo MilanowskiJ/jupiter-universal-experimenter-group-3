@@ -60,12 +60,12 @@ public class MakeMacro implements UIProcess {
             return;
         }
 
-        BusinessProcessContainer newProcess = new BusinessProcessContainer("make macro", commands);
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("makeMacro", commands);
         queue.add(newProcess);
     }
 
     public String getType() {
-        return "make macro";
+        return "makeMacro";
 
     }
 

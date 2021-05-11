@@ -40,6 +40,10 @@ public class InputReader {
         return output;
     }
 
+    public String nextLine() throws IOException {
+        return reader.readLine();
+    }
+
 
 
 }
