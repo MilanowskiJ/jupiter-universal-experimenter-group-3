@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
 
-public class MakeComplexExperiment implements UIProcess {
-    String experimentID;
+public class MakeMacro implements UIProcess {
+    String MacroName;
     List<String> commands = new ArrayList<>();
 
     @Override
@@ -22,9 +22,9 @@ public class MakeComplexExperiment implements UIProcess {
 
 
             System.out.println("Creating new complex experiment...");
-            System.out.print("Please Enter Experiment Specification: ExperimentID\n>");
-            experimentID = reader.readLine();
-            commands.add(experimentID);
+            System.out.print("Please Enter Macro Specification: Macro name\n>");
+            MacroName = reader.readLine();
+            commands.add(MacroName);
 
             while(true){
                 System.out.print("Add command to macro by entering its ID (or enter X to continue): \n>");
@@ -36,7 +36,7 @@ public class MakeComplexExperiment implements UIProcess {
             }
 
 
-            System.out.println("Experiment ID: " + commands.get(0));
+            System.out.println("Macro Name: " + commands.get(0));
             int i = 1;
             for(String command : commands){
                 if(command.equals(commands.get(0)))continue;
@@ -54,18 +54,18 @@ public class MakeComplexExperiment implements UIProcess {
                 break;
             } else break;
         }
-        if(exited) System.out.println("Experiment "+experimentID+" validated.");
+        if(exited) System.out.println("Macro "+MacroName+" validated.");
         else {
-            System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
+            System.out.println("MacroName " + MacroName + " was not validated, cancelling creation.");
             return;
         }
 
-        BusinessProcessContainer newProcess = new BusinessProcessContainer("make complex", commands);
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("make macro", commands);
         queue.add(newProcess);
     }
 
     public String getType() {
-        return "make complex";
+        return "make macro";
 
     }
 

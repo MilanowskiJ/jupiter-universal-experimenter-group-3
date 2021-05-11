@@ -13,6 +13,7 @@ public class InputReader {
             "makeComplexExperiment\n"+
             "processReagentExperiment\n"+
             "processSampleExperiment\n"+
+            "makeMacro\n"+
             " exit\n";
 
     public InputReader(){
@@ -29,6 +30,7 @@ public class InputReader {
         else if(inputStr[0].equals("makeComplexExperiment")) output = new MakeComplexExperiment();
         else if(inputStr[0].equals("processReagentExperiment")) output = new ProcessReagentExperiment();
         else if(inputStr[0].equals("processSampleExperiment")) output = new ProcessSampleExperiment();
+        else if(inputStr[0].equals("makeMacro")) output = new MakeMacro();
         else if(inputStr[0].equals("exit")) output = new ExitConsole();
         else
         {

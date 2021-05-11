@@ -39,14 +39,16 @@ public class MakeSampleExperiment implements UIProcess {
             inputStr = reader.readLine().split(" ");
             if (inputStr[0].toUpperCase().equals("V")){
                 exited = true;
-                break;
             }
+            break;
+
         }
         if(exited) System.out.println("Experiment "+experimentID+" validated.");
         else {
             System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
             return;
         }
+
 
         List<String> params = new ArrayList<>(Arrays.asList(whatToSample, howMuchToSample, whereToSample, experimentID));
         BusinessProcessContainer newProcess = new BusinessProcessContainer("make sample", params);
