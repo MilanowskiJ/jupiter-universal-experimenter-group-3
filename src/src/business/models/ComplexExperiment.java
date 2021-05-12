@@ -32,11 +32,6 @@ public class ComplexExperiment extends Experiment {
 	}
 
 	@Override
-	public String getQuery() {
-		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from Experiment";
-	}
-
-	@Override
 	public String addQuery() {
 		return null;
 	}
@@ -61,10 +56,6 @@ public class ComplexExperiment extends Experiment {
 	@Override
 	public String getDatabaseID() {
 		return super.experimentID;
-	}
-
-	@Override
-	public void processResult(ResultSet result) throws SQLException {
 	}
 
 	public JSONObject process() {
