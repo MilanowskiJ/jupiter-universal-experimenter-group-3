@@ -81,26 +81,14 @@ public class JUMPSystem {
                 //0th index is macro name
                 //1 -> nth indices are commands to be added to the macro
 
-                //this should just put the macro and its commands into the database
-            }
-            else if(typeInfo[0].equals("processMacro")){
-
-                String toProcess = nextBusinessProcess.getParams().get(0); //name of macro to process
-
-                //placeholder code. TODO: Replace with getting the macro's commands from the database
-                List<String> commands = new ArrayList<>();
-                commands.add("C1");
-                commands.add("C2");
-                commands.add("C3");
-                commands.add("C4");
-
-                //end placeholder code
-
-                //commands = query commands for this macro from the database
 
                 List<String> params = new ArrayList<>();
-                for(String command : commands){
-                    //TODO: get needed params from the database
+                //0th index has the parameters for the 0th command
+
+                for(String command : macroParams){
+                    if(command.equals(macroParams.get(0))) continue;
+
+                    //TODO: get needed params from the database using command as key
                     String neededParams = "x,y,z";
                     if(neededParams.isEmpty()) {
                         params.add(null);
@@ -112,9 +100,12 @@ public class JUMPSystem {
 
                 }
 
-                System.out.println(params);
 
-                //TODO: pass params to json maker
+                //TODO: Work with the inputsg
+            }
+            else if(typeInfo[0].equals("processMacro")){
+
+
             }
             else continue;
         }
