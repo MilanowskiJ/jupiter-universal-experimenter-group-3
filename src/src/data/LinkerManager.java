@@ -12,6 +12,7 @@ public class LinkerManager {
     private GenericLinker<Capability> capabilityLinker;
     private GenericLinker<Experiment> experimentLinker;
     private GenericLinker<Command> commandLinker;
+    private GenericLinker<Macro> macroLinker;
 
     //@TODO: fill connectionUrl fields here
     private final String connectionUrl =
@@ -29,6 +30,7 @@ public class LinkerManager {
                 "ReagentExperiment ON Experiment.ExperimentID = ReagentExperiment.ExperimentID";
         String capabilityGetQuery = "SELECT ID, Name, Type, Description, Status from Capabilities";
         String commandGetQuery = "SELECT CommandID, CommandName, Params, from Commands";
+        String macroGetQuery = "";
 
         supplyLinker = new GenericLinker<>(connectionUrl,
                 supplyGetQuery,
@@ -86,6 +88,10 @@ public class LinkerManager {
                 (result -> new Command(result.getString("CommandID"),
                         result.getString("CommandName"),
                         result.getString("Params"))));
+
+        macroLinker = new GenericLinker<>(connectionUrl,
+                macroGetQuery,
+                (result -> new Macro()));
     }
 
     public Map<String, Supply> getSupplyModels() {return supplyLinker.getModels();}
@@ -126,6 +132,17 @@ public class LinkerManager {
     public boolean update(Command model) {return commandLinker.update(model);}
     public boolean delete(Command model) {return commandLinker.delete(model);}
     public boolean updateCommandGroup(Map<String, Command> models) {
+        for(String key: models.keySet()){
+            update(models.get(key));
+        }
+        return true;
+    }
+
+    public Map<String, Macro> getMacroModels() {return macroLinker.getModels();}
+    public boolean add(Macro model) {return macroLinker.add(model);}
+    public boolean update(Macro model) {return macroLinker.update(model);}
+    public boolean delete(Macro model) {return macroLinker.delete(model);}
+    public boolean updateMacroGroup(Map<String, Macro> models){
         for(String key: models.keySet()){
             update(models.get(key));
         }

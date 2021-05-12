@@ -31,11 +31,6 @@ public class SampleExperiment extends Experiment {
 	public void setWhere(String where) {this.where = where;}
 
 	@Override
-	public String getQuery() {
-		return "SELECT ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description from Experiment";
-	}
-
-	@Override
 	public String addQuery() {
 		return String.format("INSERT INTO Experiment (ExperimentName, Priority, Complete, ExperimentID, ExperimentType, Description) VALUES ('%s', '%s', '%s', '%s', '%s', '%s');" +
 						"INSERT INTO SampleExperiment (ExperimentID, Target, Amount, Location) VALUES ('%s', '%s', '%s', '%s')",
@@ -76,10 +71,6 @@ public class SampleExperiment extends Experiment {
 	@Override
 	public String getDatabaseID() {
 		return super.experimentID;
-	}
-
-	@Override
-	public void processResult(ResultSet result) throws SQLException {
 	}
 
 	@Override

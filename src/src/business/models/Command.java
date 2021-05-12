@@ -1,11 +1,12 @@
 package business.models;
 
 import business.models.DatabaseModel;
+import org.json.JSONObject;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Command implements DatabaseModel {
+public class Command implements DatabaseModel, Processable {
     private String ID;
     private String name;
     private String parameters;
@@ -14,11 +15,6 @@ public class Command implements DatabaseModel {
         this.ID = ID;
         this.name = name;
         this.parameters = parameters;
-    }
-
-    @Override
-    public String getQuery() {
-        return "SELECT CommandID, CommandName, Params, from Commands";
     }
 
     @Override
@@ -49,6 +45,13 @@ public class Command implements DatabaseModel {
     }
 
     @Override
-    public void processResult(ResultSet result) throws SQLException {
+    public JSONObject process() {
+        JSONObject commandJSON = new JSONObject();
+        commandJSON.put("command", ID);
+        if(parameters != null) {
+            commandJSON.put("param", "[" + parameters + "]");
+        }
+
+        return commandJSON;
     }
 }

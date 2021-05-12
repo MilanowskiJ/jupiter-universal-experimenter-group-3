@@ -68,11 +68,6 @@ public class Supply implements DatabaseModel {
 	}
 
 	@Override
-	public String getQuery() {
-		return "SELECT Name, QuantityAvailable, QuantityOriginally, Type, Unit from Supplies";
-	}
-
-	@Override
 	public String addQuery() {
 		return String.format("INSERT INTO Supplies (Name, QuantityAvailable, QuantityOriginally, Type, Unit) VALUES ('%s', %d, %d, '%s', '%s');",
 				this.getName(),
@@ -103,7 +98,4 @@ public class Supply implements DatabaseModel {
 		return name;
 	}
 
-	@Override
-	public void processResult(ResultSet result) throws SQLException {
-	}
 }
