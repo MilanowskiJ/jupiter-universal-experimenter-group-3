@@ -32,11 +32,6 @@ public class Capability implements DatabaseModel {
 	public void setStatus(String status) { this.status = status; }
 
 	@Override
-	public String getQuery() {
-		return "SELECT ID, Name, Type, Description, Status from Capabilities";
-	}
-
-	@Override
 	public String addQuery() {
 		return String.format("INSERT INTO Capabilities (ID, Name, Type, Description, Status) VALUES ('%s', '%s', '%s', '%s','%s');",
 				this.getID(),
@@ -67,7 +62,4 @@ public class Capability implements DatabaseModel {
 		return ID;
 	}
 
-	@Override
-	public void processResult(ResultSet result) throws SQLException {
-	}
 }
