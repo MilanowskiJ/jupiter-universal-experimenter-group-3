@@ -91,7 +91,7 @@ public class LinkerManager {
 
         macroLinker = new GenericLinker<>(connectionUrl,
                 macroGetQuery,
-                (result -> new Macro()));
+                (result -> new Macro(result.getString("MacroName"))));
     }
 
     public Map<String, Supply> getSupplyModels() {return supplyLinker.getModels();}

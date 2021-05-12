@@ -1,9 +1,6 @@
 package business;
 
-import business.models.Capability;
-import business.models.Experiment;
-import business.models.Payload;
-import business.models.Supply;
+import business.models.*;
 import data.CommunicationSubsystem;
 import data.LinkerManager;
 import org.json.JSONObject;
@@ -102,6 +99,8 @@ public class JUMPSystem {
 
 
                 //TODO: Work with the inputs
+                Macro newMacro = new Macro(macroParams.get(0));
+                newMacro.makeCommandList(macroParams,params);
             }
             else if(typeInfo[0].equals("processMacro")){
 

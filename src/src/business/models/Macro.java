@@ -5,13 +5,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Macro implements DatabaseModel, Processable{
-
+    String name;
     ArrayList<Command> commandList;
 
-    public Macro(){
+    public Macro(String name){
+        this.name = name;
         commandList = new ArrayList<>();
     }
 
@@ -47,5 +50,16 @@ public class Macro implements DatabaseModel, Processable{
         commands.put("experiment_commands", commandList);
 
         return commands;
+    }
+
+    public void makeCommandList(List<String> commandIDs, List<String> params) {
+        Iterator<String> c = commandIDs.iterator();
+        Iterator<String> p = params.iterator();
+        if(c.hasNext()) {
+            c.next();
+            while (c.hasNext() && p.hasNext()) {
+
+            }
+        }
     }
 }
