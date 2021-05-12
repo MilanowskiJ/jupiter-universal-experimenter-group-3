@@ -101,10 +101,12 @@ public class JUMPSystem {
                 }
 
 
-                //TODO: Work with the inputsg
+                //TODO: Work with the inputs
             }
             else if(typeInfo[0].equals("processMacro")){
 
+
+            } else if(typeInfo[0].equals("editMacro")){
 
             }
             else continue;
