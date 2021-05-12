@@ -13,6 +13,7 @@ public class InputReader {
             "makeComplexExperiment\n"+
             "processReagentExperiment\n"+
             "processSampleExperiment\n"+
+            "makeMacro\n"+
             " exit\n";
 
     public InputReader(){
@@ -22,20 +23,19 @@ public class InputReader {
     public UIProcess getNextCommand() throws IOException {
         System.out.print(">");
         String[] inputStr = reader.readLine().split(" ");
-        UIProcess output = null;
+        AbstractUIProcessFactory factory = new UIProcessFactory();
+        UIProcess output = factory.makeUIProcess(inputStr[0]);
 
-        if(inputStr[0].equals("makeReagentExperiment")) output = new MakeReagentExperiment();
-        else if(inputStr[0].equals("makeSampleExperiment")) output = new MakeSampleExperiment();
-        else if(inputStr[0].equals("makeComplexExperiment")) output = new MakeComplexExperiment();
-        else if(inputStr[0].equals("processReagentExperiment")) output = new ProcessReagentExperiment();
-        else if(inputStr[0].equals("processSampleExperiment")) output = new ProcessSampleExperiment();
-        else if(inputStr[0].equals("exit")) output = new ExitConsole();
-        else
-        {
+
+        if(output == null){
             System.out.println("Invalid command given. Valid commands are: " + this.commandList);
             output = getNextCommand();
         }
         return output;
+    }
+
+    public String nextLine() throws IOException {
+        return reader.readLine();
     }
 
 

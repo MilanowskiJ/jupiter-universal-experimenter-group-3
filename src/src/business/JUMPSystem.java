@@ -12,9 +12,7 @@ import presentation.UIProcess;
 
 
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
 
 public class JUMPSystem {
 
@@ -61,6 +59,7 @@ public class JUMPSystem {
 
             BusinessProcessContainer nextBusinessProcess = queue.poll();
             String[] typeInfo = nextBusinessProcess.getType().split(" ");
+
             if(typeInfo[0].equals("make")){
 
                 Experiment newExperiment = experimentCreator.makeNewExperiment(typeInfo[1], nextBusinessProcess.getParams());
@@ -76,6 +75,46 @@ public class JUMPSystem {
                 Payload payload = new Payload();
                 payload.add(processedExperiment);
                 CS.addPayload(payload.process());
+            }
+            else if(typeInfo[0].equals("makeMacro")){
+                List<String> macroParams = nextBusinessProcess.getParams();
+                //0th index is macro name
+                //1 -> nth indices are commands to be added to the macro
+
+                //this should just put the macro and its commands into the database
+            }
+            else if(typeInfo[0].equals("processMacro")){
+
+                String toProcess = nextBusinessProcess.getParams().get(0); //name of macro to process
+
+                //placeholder code. TODO: Replace with getting the macro's commands from the database
+                List<String> commands = new ArrayList<>();
+                commands.add("C1");
+                commands.add("C2");
+                commands.add("C3");
+                commands.add("C4");
+
+                //end placeholder code
+
+                //commands = query commands for this macro from the database
+
+                List<String> params = new ArrayList<>();
+                for(String command : commands){
+                    //TODO: get needed params from the database
+                    String neededParams = "x,y,z";
+                    if(neededParams.isEmpty()) {
+                        params.add(null);
+                        continue;
+                    }
+
+                    System.out.println("Enter comma delimited parameters for C1 (" +neededParams+ "): ");
+                    params.add(console.nextLine());
+
+                }
+
+                System.out.println(params);
+
+                //TODO: pass params to json maker
             }
             else continue;
         }

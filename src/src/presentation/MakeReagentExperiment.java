@@ -47,8 +47,9 @@ public class MakeReagentExperiment implements UIProcess {
             inputStr = reader.readLine().split(" ");
             if (inputStr[0].toUpperCase().equals("V")){
                 exited = true;
-                break;
             }
+            break;
+
         }
         if(exited) System.out.println("Experiment "+experimentID+" validated.");
         else {
