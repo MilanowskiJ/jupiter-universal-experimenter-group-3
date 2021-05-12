@@ -13,7 +13,7 @@ public class Command implements DatabaseModel, Processable {
 
     public Command(String ID, String name, String parameters) {
         this.ID = ID;
-        this.name = name;
+        this.name = (name == null) ? "" : name;
         this.parameters = parameters;
     }
 

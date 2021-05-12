@@ -55,10 +55,11 @@ public class Macro implements DatabaseModel, Processable{
     public void makeCommandList(List<String> commandIDs, List<String> params) {
         Iterator<String> c = commandIDs.iterator();
         Iterator<String> p = params.iterator();
+        Command temp;
         if(c.hasNext()) {
             c.next();
             while (c.hasNext() && p.hasNext()) {
-
+                temp = new Command(c.next(), "", p.next());
             }
         }
     }
