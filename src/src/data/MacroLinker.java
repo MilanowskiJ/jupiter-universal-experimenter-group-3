@@ -1,5 +1,6 @@
 package data;
 
+import business.models.Command;
 import business.models.Macro;
 
 import java.sql.*;
@@ -9,8 +10,8 @@ import java.util.Map;
 public class MacroLinker implements DatabaseLinker<Macro>{
     private String connectionUrl;
     private final String macroGetQuery =
-            "SELECT Snackros.[CommandID], [MacroName], [Order], Snackros.[Params], CommandName, Commands.Params " +
-                    "FROM [Snackros] JOIN Commands ON Snackros.CommandID = Commands.CommandID";
+            "SELECT Snackros.[CommandID], [MacroName], [Order], Snackros.[Params], CommandOrder, CommandName, Commands.Params as ParameterNames,  " +
+                    "FROM [Snackros] JOIN Commands ON Snackros.CommandID = Commands.CommandID ORDER BY CommandOrder ASC";
 
     public MacroLinker(String connectionUrl){
         this.connectionUrl = connectionUrl;
@@ -30,8 +31,14 @@ public class MacroLinker implements DatabaseLinker<Macro>{
                 String macroName = results.getString("MacroName");
                 if(modelList.containsKey(macroName)){
                     Macro temp = modelList.get(macroName);
+                    temp.addCommand(new Command(results.getString("CommandID"),
+                            results.getString("CommandName"),
+                            results.getString("ParameterNames")));
                 }else{
                     Macro temp = new Macro("macroName");
+                    temp.addCommand(new Command(results.getString("CommandID"),
+                            results.getString("CommandName"),
+                            results.getString("ParameterNames")));
                     modelList.put(temp.getDatabaseID(), temp);
                 }
             }

@@ -1,20 +1,27 @@
 package business.models;
 
-import business.models.DatabaseModel;
 import org.json.JSONObject;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class Command implements DatabaseModel, Processable {
     private String ID;
     private String name;
     private String parameters;
 
+    private String parameterValues;
+
     public Command(String ID, String name, String parameters) {
         this.ID = ID;
         this.name = (name == null) ? "" : name;
         this.parameters = parameters;
+        this.parameterValues = "";
+    }
+
+    public String getParameterValues() {
+        return parameterValues;
+    }
+
+    public void setParameterValues(String parameterValues) {
+        this.parameterValues = parameterValues;
     }
 
     @Override

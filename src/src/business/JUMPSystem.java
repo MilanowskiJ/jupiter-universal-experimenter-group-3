@@ -85,7 +85,7 @@ public class JUMPSystem {
                 Macro newMacro = new Macro(commands.get(0));
                 newMacro.makeCommandList(commands,params);
 
-                //TODO: pass that macro into database (and remove debugs)
+                linkerManager.add(newMacro);
             }
             else if(typeInfo[0].equals("makeComplex")){
                 List<String> commands = nextBusinessProcess.getParams();
@@ -93,6 +93,7 @@ public class JUMPSystem {
 
                 List<String> params = nextBusinessProcess.getParams2();
                 //params for commands(in order), nulls whenever no input needed
+
 
                 //TODO: put that info into a complex experiment object and push to db
 

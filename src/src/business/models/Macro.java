@@ -20,7 +20,19 @@ public class Macro implements DatabaseModel, Processable{
 
     @Override
     public String addQuery() {
-        return null;
+        StringBuilder query = new StringBuilder();
+
+        for (int index = 0; index < commandList.size(); index++) {
+            Command currentCommand = commandList.get(index);
+            query.append(String.format("INSERT INTO Snackros (CommandID, MacroName, CommandOrder, Params) VALUES ('%s', '%s', %d, '%s');",
+                    currentCommand.getDatabaseID(),
+                    name,
+                    index,
+                    currentCommand.getParameterValues()
+                    ));
+        }
+
+        return query.toString();
     }
 
     @Override
@@ -60,6 +72,7 @@ public class Macro implements DatabaseModel, Processable{
             c.next();
             while (c.hasNext() && p.hasNext()) {
                 temp = new Command(c.next(), "", p.next());
+                commandList.add(temp);
             }
         }
     }
