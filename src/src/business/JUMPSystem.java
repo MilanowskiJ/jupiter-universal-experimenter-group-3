@@ -87,8 +87,14 @@ public class JUMPSystem {
 
                 //TODO: pass that macro into database (and remove debugs)
             }
-            else if(typeInfo[0].equals("processMacro")){
+            else if(typeInfo[0].equals("makeComplex")){
+                List<String> commands = nextBusinessProcess.getParams();
+                //0th is command name, others are commands/macros (in order)
 
+                List<String> params = nextBusinessProcess.getParams2();
+                //params for commands(in order), nulls whenever no input needed
+
+                //TODO: put that info into a complex experiment object and push to db
 
             } else if(typeInfo[0].equals("editMacro")){
                 List<String> commands = nextBusinessProcess.getParams();
