@@ -24,6 +24,17 @@ public class MakeMacro implements UIProcess {
 
             //TODO: get this from the database
             Map<String, String> cmdToParam = null;
+            cmdToParam.put("C1", null);
+            cmdToParam.put("C2", "x,y,z");
+            cmdToParam.put("C3", null);
+            cmdToParam.put("C4", "SampleID");
+            cmdToParam.put("C5", "reagent,amount");
+            cmdToParam.put("C6", null);
+            cmdToParam.put("C7", "x,y,z");
+            cmdToParam.put("C8", null);
+            cmdToParam.put("C9", "C");
+            cmdToParam.put("C10", null);
+
             while(true){
                 System.out.print("Add command to macro by entering its ID (or enter X to continue): \n>");
                 String readString = reader.readLine();
@@ -36,6 +47,11 @@ public class MakeMacro implements UIProcess {
                 }
 
                 String paramType = cmdToParam.get(readString);
+                if(paramType == null){
+                    paramOutput.add(null);
+                    continue;
+                }
+
                 int expectedLen = paramType.split(",").length;
                 while(true){
                     System.out.println("Enter parameter(s) of type "+paramType+": \n>");

@@ -16,12 +16,12 @@ public class EditMacro implements UIProcess{
     public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
 
         System.out.println("Select a macro from the following list to edit: ");
-        Set<String> macros = this.printMacros();
+        Map<String, List<String>> macroToCmdList = this.printMacros();
         System.out.print(">");
         String macro;
         while(true){
             macro = reader.readLine();
-            if(macros.contains(macro))break;
+            if(macroToCmdList.containsKey(macro))break;
             else if(macro.equals("X")) return;
             else {
                 System.out.println(macro+" is not a valid macro, please select one from the list or enter 'X' to cancel");
@@ -29,9 +29,18 @@ public class EditMacro implements UIProcess{
             }
         }
 
-        //TODO: get macro commands params in order from database (just these 2)
-        Map<String, String> cmdToParams = null; //command to params list
-        Map<String, List<String>> macroToCmdList = null; //macro to ordered commands
+        //TODO: get macro commands params in order from database
+        Map<String, String> cmdToParams = new HashMap<>(); //command to params list
+        cmdToParams.put("C1", null);
+        cmdToParams.put("C2", "x,y,z");
+        cmdToParams.put("C3", null);
+        cmdToParams.put("C4", "SampleID");
+        cmdToParams.put("C5", "reagent,amount");
+        cmdToParams.put("C6", null);
+        cmdToParams.put("C7", "x,y,z");
+        cmdToParams.put("C8", null);
+        cmdToParams.put("C9", "C");
+        cmdToParams.put("C10", null);
 
 
         List<String> commandOutput = new ArrayList<>();
@@ -85,18 +94,21 @@ public class EditMacro implements UIProcess{
 
     }
 
-    private Set<String> printMacros(){
-        //TODO: This should call the database and add all the strings to this set
-        Map<String, Experiment> models = null;// LinkerManager.getInstance().getExperimentModels();
+    private Map<String, List<String>> printMacros(){
+        //TODO: get this from database (the lists should be ordered)
+        Map<String, List<String>> macroToCommandList = new HashMap<>();// LinkerManager.getInstance().getExperimentModels();
+        List<String> macro1List = new ArrayList<>(Arrays.asList("C1", "C2", "C3", "C4", "C5"));
+        List<String> macro2List = new ArrayList<>(Arrays.asList("C7", "C8", "C9", "C10", "C6"));
 
-        Set<String> output = new HashSet<>();
-        for(String macro : models.keySet()){
-            //TODO: change this print line to print macro names
-            System.out.println(models.get(macro).getExperimentID() + ": " + models.get(macro).getType());
-            output.add(macro);
+        macroToCommandList.put("MC1", macro1List);
+        macroToCommandList.put("MC2", macro2List);
+
+        for(String macro : macroToCommandList.keySet()){
+            //TODO: change this print line to print macro names (for jamari to do)
+            System.out.println(macro);
         }
 
-        return output;
+        return macroToCommandList;
 
     }
 }

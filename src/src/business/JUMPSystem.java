@@ -94,7 +94,8 @@ public class JUMPSystem {
                 List<String> params = nextBusinessProcess.getParams2();
                 //params for commands(in order), nulls whenever no input needed
 
-
+                System.out.println("commands: " + commands.toString());
+                System.out.println("params: " + params.toString());
                 //TODO: put that info into a complex experiment object and push to db
 
             } else if(typeInfo[0].equals("editMacro")){

@@ -15,8 +15,22 @@ public class MakeComplexExperiment implements UIProcess {
         List<String> paramOutput = new ArrayList<>();
 
         //TODO: get this map and set from the database
-        Map<String, String> cmdToParam = null;
-        Set<String> macroNames = null;
+        Map<String, String> cmdToParam = new HashMap<>();
+        Set<String> macroNames = new HashSet<>();
+        macroNames.add("MC1");
+        macroNames.add("MC2");
+
+        cmdToParam.put("C1", null);
+        cmdToParam.put("C2", "x,y,z");
+        cmdToParam.put("C3", null);
+        cmdToParam.put("C4", "SampleID");
+        cmdToParam.put("C5", "reagent,amount");
+        cmdToParam.put("C6", null);
+        cmdToParam.put("C7", "x,y,z");
+        cmdToParam.put("C8", null);
+        cmdToParam.put("C9", "C");
+        cmdToParam.put("C10", null);
+
         while(true){
 
             System.out.print("Add command or macro to complex experiment by entering its ID or name respectively (or enter X to continue): \n>");
@@ -36,8 +50,14 @@ public class MakeComplexExperiment implements UIProcess {
             }
 
             String paramType = cmdToParam.get(readString);
+            if(paramType == null){
+                paramOutput.add(null);
+                continue;
+            }
+
             int expectedLen = paramType.split(",").length;
             while(true){
+
                 System.out.println("Enter parameter(s) of type "+paramType+": \n>");
                 readString = reader.readLine();
                 if(expectedLen == readString.split(",").length){
@@ -47,12 +67,13 @@ public class MakeComplexExperiment implements UIProcess {
             }
 
         }
-        BusinessProcessContainer newProcess = new BusinessProcessContainer("make complex", commandOutput, paramOutput);
+
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("makeComplex", commandOutput, paramOutput);
         queue.add(newProcess);
     }
 
     public String getType() {
-        return "make complex";
+        return "makeComplex";
 
     }
 
