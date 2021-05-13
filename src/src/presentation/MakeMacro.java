@@ -23,7 +23,7 @@ public class MakeMacro implements UIProcess {
             commandOutput.add(MacroName);
 
             //TODO: get this from the database
-            Map<String, String> cmdToParam = null;
+            Map<String, String> cmdToParam = new HashMap<>();
             cmdToParam.put("C1", null);
             cmdToParam.put("C2", "x,y,z");
             cmdToParam.put("C3", null);
@@ -79,7 +79,7 @@ public class MakeMacro implements UIProcess {
             }
 
             System.out.print("Validate? (v)\n>");
-            if (reader.readLine().split(" ")[0].toUpperCase().equals("V")){
+            if (!reader.readLine().split(" ")[0].toUpperCase().equals("V")){
                 System.out.println("MacroName " + MacroName + " was not validated, cancelling creation.");
                 return;
         }

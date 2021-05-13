@@ -55,6 +55,8 @@ public class JUMPSystem {
             nextUIProcess.execute(console.reader, queue);
 
             BusinessProcessContainer nextBusinessProcess = queue.poll();
+            if(nextBusinessProcess == null) continue;
+
             String[] typeInfo = nextBusinessProcess.getType().split(" ");
 
             if(typeInfo[0].equals("make")){

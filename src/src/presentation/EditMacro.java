@@ -57,7 +57,7 @@ public class EditMacro implements UIProcess{
                 int expectedLen = paramToEdit.split(",").length;
                 String newParam;
                 while (true){
-                    System.out.println("Enter new parameter of type ( "+paramToEdit+") for command " + command + ": ");
+                    System.out.println("Enter new parameter of type ("+paramToEdit+") for command " + command + ": ");
                     newParam = reader.readLine();
                     if(newParam.split(",").length == expectedLen) break;
                     else System.out.println("Incorrect number of parameters passed for this input.");
@@ -80,8 +80,8 @@ public class EditMacro implements UIProcess{
         }
 
         System.out.print("Validate? (v)\n>");
-        if (reader.readLine().split(" ")[0].toUpperCase().equals("V")){
-            System.out.println("MacroName " + MacroName + " was not validated, cancelling creation.");
+        if (!reader.readLine().split(" ")[0].toUpperCase().equals("V")){
+            System.out.println("MacroName " + macro + " was not validated, cancelling creation.");
             return;
         }
 

@@ -14,6 +14,12 @@ public class MakeComplexExperiment implements UIProcess {
         List<String> commandOutput = new ArrayList<>();
         List<String> paramOutput = new ArrayList<>();
 
+        System.out.println("Creating new complex experiment...");
+        System.out.print("Please Enter Experiment Specification: Experiment name\n>");
+        String experimentID = reader.readLine();
+        commandOutput.add(experimentID);
+
+
         //TODO: get this map and set from the database
         Map<String, String> cmdToParam = new HashMap<>();
         Set<String> macroNames = new HashSet<>();
@@ -66,6 +72,23 @@ public class MakeComplexExperiment implements UIProcess {
                 } else System.out.println("Incorrect number of parameters passed for this input.");
             }
 
+        }
+
+        System.out.println("Experiment ID: " +commandOutput.get(0));
+        int cmdIndex = 1;
+
+        int cmdOutLen = commandOutput.size();
+        while(cmdIndex < cmdOutLen){
+            String command = commandOutput.get(cmdIndex);
+            String param = paramOutput.get(cmdIndex-1);
+            System.out.println("Command #" + cmdIndex + ": "+ command +" params: " + (param == null ? "N/A" : param));
+            cmdIndex++;
+        }
+
+        System.out.print("Validate? (v)\n>");
+        if (!reader.readLine().split(" ")[0].toUpperCase().equals("V")){
+            System.out.println("Experiment " + experimentID + " was not validated, cancelling creation.");
+            return;
         }
 
         BusinessProcessContainer newProcess = new BusinessProcessContainer("makeComplex", commandOutput, paramOutput);
