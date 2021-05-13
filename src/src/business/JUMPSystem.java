@@ -74,39 +74,42 @@ public class JUMPSystem {
                 CS.addPayload(payload.process());
             }
             else if(typeInfo[0].equals("makeMacro")){
-                List<String> macroParams = nextBusinessProcess.getParams();
-                //0th index is macro name
-                //1 -> nth indices are commands to be added to the macro
+                List<String> commands = nextBusinessProcess.getParams();
+                //0th is macro name, others are commands (in order)
 
+                List<String> params = nextBusinessProcess.getParams2();
+                //params for commands(in order)
 
-                List<String> params = new ArrayList<>();
-                //0th index has the parameters for the 0th command
+                System.out.println("Commands: "+commands.toString());
+                System.out.println("Params: "+params.toString());
+                Macro newMacro = new Macro(commands.get(0));
+                newMacro.makeCommandList(commands,params);
 
-                for(String command : macroParams){
-                    if(command.equals(macroParams.get(0))) continue;
-
-                    //TODO: get needed params from the database using command as key
-                    String neededParams = "x,y,z";
-                    if(neededParams.isEmpty()) {
-                        params.add(null);
-                        continue;
-                    }
-
-                    System.out.println("Enter comma delimited parameters for C1 (" +neededParams+ "): ");
-                    params.add(console.nextLine());
-
-                }
-
-
-                //TODO: Work with the inputs
-                Macro newMacro = new Macro(macroParams.get(0));
-                newMacro.makeCommandList(macroParams,params);
+                //TODO: pass that macro into database (and remove debugs)
             }
-            else if(typeInfo[0].equals("processMacro")){
+            else if(typeInfo[0].equals("makeComplex")){
+                List<String> commands = nextBusinessProcess.getParams();
+                //0th is command name, others are commands/macros (in order)
 
+                List<String> params = nextBusinessProcess.getParams2();
+                //params for commands(in order), nulls whenever no input needed
+
+                //TODO: put that info into a complex experiment object and push to db
 
             } else if(typeInfo[0].equals("editMacro")){
+                List<String> commands = nextBusinessProcess.getParams();
+                //0th is macro name, others are commands (in order)
 
+                List<String> params = nextBusinessProcess.getParams2();
+                //params for commands(in order)
+
+
+                System.out.println("Commands: "+commands.toString());
+                System.out.println("Params: "+params.toString());
+                Macro newMacro = new Macro(commands.get(0));
+                newMacro.makeCommandList(commands,params);
+
+                //TODO: pass that macro into database (and remove debugs)
             }
             else continue;
         }

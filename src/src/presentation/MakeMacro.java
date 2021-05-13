@@ -65,6 +65,7 @@ public class MakeMacro implements UIProcess {
             System.out.print("Validate? (v)\n>");
             if (reader.readLine().split(" ")[0].toUpperCase().equals("V")){
                 System.out.println("MacroName " + MacroName + " was not validated, cancelling creation.");
+                return;
         }
 
         BusinessProcessContainer newProcess = new BusinessProcessContainer("makeMacro", commandOutput, paramOutput);

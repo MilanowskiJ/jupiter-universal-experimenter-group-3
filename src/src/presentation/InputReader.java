@@ -14,6 +14,7 @@ public class InputReader {
             "processReagentExperiment\n"+
             "processSampleExperiment\n"+
             "makeMacro\n"+
+            "editMacro\n"+
             " exit\n";
 
     public InputReader(){
