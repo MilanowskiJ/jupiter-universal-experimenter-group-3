@@ -30,22 +30,32 @@ public class EditMacro implements UIProcess{
         }
 
         //TODO: get macro commands params in order from database (jamari write the query pls <3)
-        List<String> params = null; //ordered list of params
-        List<String> commands = null; //ordered lis tof commands
-        List<String> output = null;
-        int cmdIndex = 0;
-        for(String paramToEdit : params){
+        Map<String, String> cmdToParams = null; //command to params list
+        Map<String, List<String>> macroToCmdList = null; //macro to ordered commands
+        List<String> output = new ArrayList<>();
+        output.add(macro); //format: macroName, cmd, param, cmd, param, ....
+        List<String> commands = macroToCmdList.get(macro);
 
-            System.out.println("Enter new parameter of type ( "+paramToEdit+") for command " + commands.get(cmdIndex) + ": ");
-//            String newParam =
-//            output.add(commands.get(cmdIndex));
-//            output.add();
+        for(String command : commands){
+            String paramToEdit = cmdToParams.get(command);
+            output.add(command);
+            if(paramToEdit == null) output.add(null);
+            else{
+                int expectedLen = paramToEdit.split(",").length;
+                String newParam;
+                while (true){
+                    System.out.println("Enter new parameter of type ( "+paramToEdit+") for command " + command + ": ");
+                    newParam = reader.readLine();
+                    if(newParam.split(",").length == expectedLen) break;
+                    else System.out.println("Incorrect number of parameters passed for this input.");
+                }
+                output.add(newParam);
+
+            }
 
         }
 
-
-
-        BusinessProcessContainer newProcess = new BusinessProcessContainer("editMacro", Arrays.asList(macro));
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("editMacro", output);
         queue.add(newProcess);
     }
 
