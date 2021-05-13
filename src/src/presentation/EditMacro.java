@@ -32,14 +32,17 @@ public class EditMacro implements UIProcess{
         //TODO: get macro commands params in order from database (jamari write the query pls <3)
         Map<String, String> cmdToParams = null; //command to params list
         Map<String, List<String>> macroToCmdList = null; //macro to ordered commands
-        List<String> output = new ArrayList<>();
-        output.add(macro); //format: macroName, cmd, param, cmd, param, ....
+
+        List<String> commandOutput = new ArrayList<>();
+        List<String> paramOutput = new ArrayList<>();
+
+        commandOutput.add(macro); //format: macroName, cmd, param, cmd, param, ....
         List<String> commands = macroToCmdList.get(macro);
 
         for(String command : commands){
             String paramToEdit = cmdToParams.get(command);
-            output.add(command);
-            if(paramToEdit == null) output.add(null);
+            commandOutput.add(command);
+            if(paramToEdit == null) paramOutput.add(null);
             else{
                 int expectedLen = paramToEdit.split(",").length;
                 String newParam;
@@ -49,13 +52,13 @@ public class EditMacro implements UIProcess{
                     if(newParam.split(",").length == expectedLen) break;
                     else System.out.println("Incorrect number of parameters passed for this input.");
                 }
-                output.add(newParam);
+                paramOutput.add(newParam);
 
             }
 
         }
 
-        BusinessProcessContainer newProcess = new BusinessProcessContainer("editMacro", output);
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("editMacro", commandOutput, paramOutput);
         queue.add(newProcess);
     }
 

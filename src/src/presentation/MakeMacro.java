@@ -8,8 +8,8 @@ import java.util.*;
 
 public class MakeMacro implements UIProcess {
     String MacroName;
-    List<String> output = new ArrayList<>();
-
+    List<String> commandOutput = new ArrayList<>();
+    List<String> paramOutput = new ArrayList<>();
     @Override
     public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
         boolean exited = false;
@@ -20,7 +20,7 @@ public class MakeMacro implements UIProcess {
             System.out.println("Creating new macro...");
             System.out.print("Please Enter Macro Specification: Macro name\n>");
             MacroName = reader.readLine();
-            output.add(MacroName);
+            commandOutput.add(MacroName);
 
             //TODO: get this from the database
             Map<String, String> cmdToParam = null;
@@ -29,7 +29,7 @@ public class MakeMacro implements UIProcess {
                 String readString = reader.readLine();
                 if(readString.toUpperCase().equals("X")) break;
                 else if(cmdToParam.keySet().contains(readString)){
-                    output.add(readString);
+                    commandOutput.add(readString);
                 } else {
                     System.out.println(readString +" is not a valid command ID.");
                     continue;
@@ -41,38 +41,38 @@ public class MakeMacro implements UIProcess {
                     System.out.println("Enter parameter(s) of type "+paramType+": \n>");
                     readString = reader.readLine();
                     if(expectedLen == readString.split(",").length){
-                        output.add(readString);
+                        paramOutput.add(readString);
                         break;
                     } else System.out.println("Incorrect number of parameters passed for this input.");
                 }
             }
-
-        Iterator<String> outItr = output.listIterator();
-            System.out.println("Macro Name: " +outItr.next());
-            int i = 1;
-
-            while(outItr.hasNext()){
-                String command = outItr.next();
-                String param = outItr.next();
-                System.out.println("Command #" + i + ": "+ command +" params: " + (param == null ? "N/A" : param));
-                i++;
-            }
-            if(i == 1) {
+            if(paramOutput.isEmpty()) {
                 System.out.println("Macro must have at least one command, aborting operation");
                 return;
             }
+
+            System.out.println("Macro Name: " +commandOutput.get(0));
+            int cmdIndex = 1;
+
+            int cmdOutLen = commandOutput.size();
+            while(cmdIndex < cmdOutLen){
+                String command = commandOutput.get(cmdIndex);
+                String param = paramOutput.get(cmdIndex-1);
+                System.out.println("Command #" + cmdIndex + ": "+ command +" params: " + (param == null ? "N/A" : param));
+                cmdIndex++;
+            }
+
             System.out.print("Validate? (v)\n>");
             if (reader.readLine().split(" ")[0].toUpperCase().equals("V")){
                 System.out.println("MacroName " + MacroName + " was not validated, cancelling creation.");
         }
 
-        BusinessProcessContainer newProcess = new BusinessProcessContainer("makeMacro", output);
+        BusinessProcessContainer newProcess = new BusinessProcessContainer("makeMacro", commandOutput, paramOutput);
         queue.add(newProcess);
     }
 
     public String getType() {
         return "makeMacro";
-
     }
 
 
