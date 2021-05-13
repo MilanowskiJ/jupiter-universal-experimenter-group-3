@@ -15,7 +15,7 @@ public class Macro implements DatabaseModel, Processable{
 
     public Macro(String name){
         this.name = name;
-        commandList = new ArrayList<>();
+        commandList = new ArrayList<Command>();
     }
 
     @Override
@@ -35,15 +35,15 @@ public class Macro implements DatabaseModel, Processable{
 
     @Override
     public String getDatabaseID() {
-        return null;
+        return name;
     }
 
     @Override
     public JSONObject process() {
         JSONArray commandList = new JSONArray();
 
-        for(Command currentCommand: commandList){
-            commandList.put(currentCommand.process());
+        for(Object currentCommand: commandList){
+            commandList.put(((Command) currentCommand).process());
         }
 
         JSONObject commands = new JSONObject();
@@ -62,5 +62,9 @@ public class Macro implements DatabaseModel, Processable{
                 temp = new Command(c.next(), "", p.next());
             }
         }
+    }
+
+    public void addCommand(Command command){
+        commandList.add(command);
     }
 }

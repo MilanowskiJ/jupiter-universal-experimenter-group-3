@@ -12,7 +12,7 @@ public class LinkerManager {
     private GenericLinker<Capability> capabilityLinker;
     private GenericLinker<Experiment> experimentLinker;
     private GenericLinker<Command> commandLinker;
-    private GenericLinker<Macro> macroLinker;
+    private MacroLinker macroLinker;
 
     //@TODO: fill connectionUrl fields here
     private final String connectionUrl =
@@ -30,7 +30,6 @@ public class LinkerManager {
                 "ReagentExperiment ON Experiment.ExperimentID = ReagentExperiment.ExperimentID";
         String capabilityGetQuery = "SELECT ID, Name, Type, Description, Status from Capabilities";
         String commandGetQuery = "SELECT CommandID, CommandName, Params, from Commands";
-        String macroGetQuery = "";
 
         supplyLinker = new GenericLinker<>(connectionUrl,
                 supplyGetQuery,
@@ -89,9 +88,7 @@ public class LinkerManager {
                         result.getString("CommandName"),
                         result.getString("Params"))));
 
-        macroLinker = new GenericLinker<>(connectionUrl,
-                macroGetQuery,
-                (result -> new Macro(result.getString("MacroName"))));
+        macroLinker = new MacroLinker(connectionUrl);
     }
 
     public Map<String, Supply> getSupplyModels() {return supplyLinker.getModels();}
