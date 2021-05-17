@@ -71,7 +71,10 @@ public class Macro implements DatabaseModel, Processable{
         if(c.hasNext()) {
             c.next();
             while (c.hasNext() && p.hasNext()) {
-                temp = new Command(c.next(), "", p.next());
+                String stemp = p.next();
+                temp = new Command(c.next(), "", stemp);
+                if(stemp != null)
+                    temp.setParameterValues(stemp);
                 commandList.add(temp);
             }
         }

@@ -10,7 +10,7 @@ import java.util.Map;
 public class MacroLinker implements DatabaseLinker<Macro>{
     private String connectionUrl;
     private final String macroGetQuery =
-            "SELECT Snackros.[CommandID], [MacroName], [Order], Snackros.[Params], CommandOrder, CommandName, Commands.Params as ParameterNames,  " +
+            "SELECT Snackros.[CommandID], [MacroName], Snackros.[Params], CommandOrder, CommandName, Commands.Params as ParameterNames  " +
                     "FROM [Snackros] JOIN Commands ON Snackros.CommandID = Commands.CommandID ORDER BY CommandOrder ASC";
 
     public MacroLinker(String connectionUrl){

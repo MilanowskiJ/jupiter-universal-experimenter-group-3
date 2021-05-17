@@ -33,12 +33,14 @@ public class JUMPSystem {
         Map<String, Supply> inventory;
         Map<String, Capability> capabilities;
         Map<String, Experiment> experiments;
+        Map<String, Macro> macros;
 
         while(true){
             obs.update();
             inventory = linkerManager.getSupplyModels();
             capabilities = linkerManager.getCapabilityModels();
             experiments = linkerManager.getExperimentModels();
+            macros = linkerManager.getMacroModels();
 
             while (obs.hasNext()) {
                 JSONObject report = obs.next();
@@ -91,13 +93,23 @@ public class JUMPSystem {
             }
             else if(typeInfo[0].equals("makeComplex")){
                 List<String> commands = nextBusinessProcess.getParams();
-                //0th is command name, others are commands/macros (in order)
+                //0th is experiment name, others are commands/macros (in order)
 
                 List<String> params = nextBusinessProcess.getParams2();
                 //params for commands(in order), nulls whenever no input needed
 
                 System.out.println("commands: " + commands.toString());
                 System.out.println("params: " + params.toString());
+
+                //ComplexExperiment complexExperiment = new ComplexExperiment();
+
+                for(int i = 1; i < commands.size(); i++){
+                    if(macros.containsKey(commands.get(i))){
+                        //Macro temp =
+                    }else{
+
+                    }
+                }
                 //TODO: put that info into a complex experiment object and push to db
 
             } else if(typeInfo[0].equals("editMacro")){

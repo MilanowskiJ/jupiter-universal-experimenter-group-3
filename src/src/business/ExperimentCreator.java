@@ -52,12 +52,8 @@ public class ExperimentCreator {
         String quantity = params.get(2);
         String whatToDo = params.get(1);
         String experimentID = params.get(0);
-        ComplexExperiment output = new ComplexExperiment("business.models.Experiment " + experimentID, "M", experimentID, "F", "N/A");
+        ComplexExperiment output = new ComplexExperiment("Experiment " + experimentID, "M", experimentID, "F", "N/A");
 
-        output.setQuantity(quantity);
-        output.setTarget(target);
-        output.setSupplyItem(supplyItem);
-        output.setWhatToDo(whatToDo);
         return output;
     }
 }
