@@ -10,6 +10,7 @@ public class UIProcessFactory extends AbstractUIProcessFactory {
         else if(userInput.equals("processSampleExperiment")) return new ProcessSampleExperiment();
         else if(userInput.equals("makeMacro")) return new MakeMacro();
         else if(userInput.equals("editMacro")) return new EditMacro();
+        else if(userInput.equals("processPayload")) return new ProcessPayload();
         else if(userInput.equals("exit")) return new ExitConsole();
         else return null;
     }

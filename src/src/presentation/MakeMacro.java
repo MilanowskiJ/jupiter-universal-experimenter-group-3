@@ -39,6 +39,7 @@ public class MakeMacro implements UIProcess {
                 System.out.print("Add command to macro by entering its ID (or enter X to continue): \n>");
                 String readString = reader.readLine();
                 if(readString.toUpperCase().equals("X")) break;
+
                 else if(cmdToParam.keySet().contains(readString)){
                     commandOutput.add(readString);
                 } else {

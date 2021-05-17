@@ -115,6 +115,12 @@ public class JUMPSystem {
 
                 //TODO: pass that macro into database (and remove debugs)
             }
+            else if(typeInfo[0].equals("processPayload")){
+                List<String> params = nextBusinessProcess.getParams();
+                //0th is payload name, others are experiments to be added to the payload
+                //TODO: put all this into a payload object and print the JSON to command line
+                System.out.println(params.toString());
+            }
             else continue;
         }
         }
