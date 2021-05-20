@@ -1,38 +1,43 @@
-# Milstone 2 Final Submission: Testing the System and Discussion of Design Patterns
-## Demo: https://rose-hulman.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=344cce5f-b88e-4dd5-94b5-ad21004e34cd
+# Milstone 3 Final Submission: Testing the System and Discussion of Design Patterns
+## Milestone 2: https://github.com/MilanowskiJ/jupiter-universal-experimenter-group-3/tree/Milestone2
+## Demo: To be added
 ## Running the System
   To run the system, execute JUMPSystem.java's main file. The system uses CLI and entering in any text (other than a valid command) will display a list of all the valid commadnds
   
   A teams recording of a video demonstration of this system can be found here:
 
 
-## Testing UC1
-Start by entering one of the following commands:
+## Testing UC4
+Start by entering:
 
-    makeSampleExperiment
-  
-    makeReagentExperiment
-  
-    makeComplexExperiment
+    makeMacro
   
   Then follow the UI prompts to enter data into the system.
   
-## Testing UC2
+## Testing UC5 <<To be added, Jake?>>
+
+
+
+## Testing UC6 
 Start by entering:
 
-    processReagentExperiment
-    
-Then follow the system's prompts. 
-
-
-## Testing UC3 
-Start by entering:
-
-    processSampleExperiment
+    editMacro
     
 Then follow the system's prompts.    
     
     
+## Factory Pattern Satisfaction
+This design uses the factory pattern for handling the translation of text input into executables (this is a stripped down command pattern, without the undo/redo functionality). The creation of a new executable is as follows:
+  
+  1.) Scientist enters command input text to the input reader
+  2.) Input reader, which has the factory, passes the input from the user into the factory
+  3.) The factory processes the input and returns the appropriate executable (UIProcess)
+  4.) InputReader passes that executable to the JUMPSystem for execution
+
+This design makes use of an abstract superclass for the factory, so the InputReader is only dependent on the abstract superclass, not on the concrete factory.  This means that we could extend the system by adding a new way of handling inputs without having to modify existing code.
+  
+##Singleton pattern Satisfaction - Jake
+  
 ## Strategy Pattern Satsfaction
 To see one place where the strategy pattern is being used, look at the UIProcess interface in the presetation layer.  All commands being input into the system are implemented through the strategy pattern.  Running through one of the use cases shows the functionality of this strategy pattern implementation.  When adding a new strategy (command), a programmer would:
 
