@@ -1,6 +1,6 @@
 # Milstone 3 Final Submission: Testing the System and Discussion of Design Patterns
 ## Milestone 2: https://github.com/MilanowskiJ/jupiter-universal-experimenter-group-3/tree/Milestone2
-## Demo: To be added (?)
+## Demo: To be added (perhaps)
 ## Running the System
   To run the system, execute JUMPSystem.java's main file. The system uses CLI and entering in any text (other than a valid command) will display a list of all the valid commadnds
 
@@ -10,11 +10,20 @@ Start by entering:
 
     makeMacro
   
-  Then follow the UI prompts to enter data into the system.
+Then follow the UI prompts to enter data into the system.
   
-## Testing UC5 <<To be added, Jake?>>
+## Testing UC5 
 
+Start by entering:
 
+    makeComplexExperiment
+  
+Then follow the prompts to add a complex experiment; do this as many times as you'd like.
+After creating complex experiments, add them to a payload using:
+
+    processPayload
+    
+Then follow the prompts to create and process the payload. Note the JSON output at the end.
 
 ## Testing UC6 
 Start by entering:
