@@ -1,10 +1,8 @@
 # Milstone 3 Final Submission: Testing the System and Discussion of Design Patterns
 ## Milestone 2: https://github.com/MilanowskiJ/jupiter-universal-experimenter-group-3/tree/Milestone2
-## Demo: To be added
+## Demo: To be added (?)
 ## Running the System
   To run the system, execute JUMPSystem.java's main file. The system uses CLI and entering in any text (other than a valid command) will display a list of all the valid commadnds
-  
-  A teams recording of a video demonstration of this system can be found here:
 
 
 ## Testing UC4
