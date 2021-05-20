@@ -22,20 +22,31 @@ public class MakeMacro implements UIProcess {
             MacroName = reader.readLine();
             commandOutput.add(MacroName);
 
-            //TODO: get this from the database
+            //This is the list of commands provided in the spreadsheet
             Map<String, String> cmdToParam = new HashMap<>();
-            cmdToParam.put("C1", null);
+            cmdToParam.put("C1", "x,y,z");
             cmdToParam.put("C2", "x,y,z");
-            cmdToParam.put("C3", null);
-            cmdToParam.put("C4", "SampleID");
-            cmdToParam.put("C5", "reagent,amount");
-            cmdToParam.put("C6", null);
-            cmdToParam.put("C7", "x,y,z");
+            cmdToParam.put("C3", "x,y,z");
+            cmdToParam.put("C4", "C");
+            cmdToParam.put("C5", "SampleID");
+            cmdToParam.put("C6", "reagent,amount");
+            cmdToParam.put("C7", null);
             cmdToParam.put("C8", null);
-            cmdToParam.put("C9", "C");
-            cmdToParam.put("C10", null);
+            cmdToParam.put("C9", "tool");
+        cmdToParam.put("C10", "x,y,z");
+        cmdToParam.put("C11", null);
+        cmdToParam.put("C12", "x,y,z,time");
+        cmdToParam.put("C13", "x,y,z");
+        cmdToParam.put("C14", "x,y,z,time");
+        cmdToParam.put("C15", "x,y,z");
+        cmdToParam.put("C16", "sensor");
+        cmdToParam.put("C17", "x,y,z");
+        cmdToParam.put("C18", "mode");
+        cmdToParam.put("C19", null);
+        cmdToParam.put("C20", null);
 
-            while(true){
+
+        while(true){
                 System.out.print("Add command to macro by entering its ID (or enter X to continue): \n>");
                 String readString = reader.readLine();
                 if(readString.toUpperCase().equals("X")) break;
