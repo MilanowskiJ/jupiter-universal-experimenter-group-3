@@ -18,7 +18,7 @@ public class MacroLinker implements DatabaseLinker<Macro>{
     }
 
     @Override
-    public Map getModels() {
+    public Map<String, Macro> getModels() {
         HashMap<String, Macro> modelList = new HashMap<>();
         ResultSet results;
 
@@ -35,7 +35,7 @@ public class MacroLinker implements DatabaseLinker<Macro>{
                             results.getString("CommandName"),
                             results.getString("ParameterNames")));
                 }else{
-                    Macro temp = new Macro("macroName");
+                    Macro temp = new Macro(results.getString("MacroName"));
                     temp.addCommand(new Command(results.getString("CommandID"),
                             results.getString("CommandName"),
                             results.getString("ParameterNames")));

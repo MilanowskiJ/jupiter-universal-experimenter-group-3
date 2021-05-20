@@ -257,7 +257,7 @@ title __JUPITER-UNIVERSAL-EXPERIMENTER-GROUP-3's Class Diagram__\n
 
 
       namespace business {
-        class business.JUMPSystem {
+        class presentation.JUMPSystem {
             {static} + main()
         }
       }
@@ -460,16 +460,16 @@ title __JUPITER-UNIVERSAL-EXPERIMENTER-GROUP-3's Class Diagram__\n
   presentation.MakeSampleExperiment .up.|> presentation.UIProcess
   presentation.ProcessReagentExperiment .up.|> presentation.UIProcess
   presentation.ProcessSampleExperiment .up.|> presentation.UIProcess
-  business.JUMPSystem --> presentation.InputReader
-  business.JUMPSystem --> data.CommunicationSubsystem
-  business.JUMPSystem --> business.Observer
-  business.JUMPSystem --> presentation.UIProcess
-  business.JUMPSystem --> business.BusinessProcessContainer
-  business.JUMPSystem --> business.ExperimentCreator
-  business.JUMPSystem --> business.ExperimentChecker
-  business.JUMPSystem --> data.LinkerManager
-  business.JUMPSystem --> business.ReportParser
-  business.JUMPSystem --> business.models.Experiment
+  presentation.JUMPSystem --> presentation.InputReader
+  presentation.JUMPSystem --> data.CommunicationSubsystem
+  presentation.JUMPSystem --> business.Observer
+  presentation.JUMPSystem --> presentation.UIProcess
+  presentation.JUMPSystem --> business.BusinessProcessContainer
+  presentation.JUMPSystem --> business.ExperimentCreator
+  presentation.JUMPSystem --> business.ExperimentChecker
+  presentation.JUMPSystem --> data.LinkerManager
+  presentation.JUMPSystem --> business.ReportParser
+  presentation.JUMPSystem --> business.models.Experiment
   data.LinkerManager --> data.DatabaseLinker
   business.ExperimentCreator --> business.models.Experiment
 right footer

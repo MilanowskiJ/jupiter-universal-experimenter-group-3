@@ -29,7 +29,7 @@ public class LinkerManager {
                 "ON Experiment.ExperimentID = SampleExperiment.ExperimentID LEFT JOIN \n" +
                 "ReagentExperiment ON Experiment.ExperimentID = ReagentExperiment.ExperimentID";
         String capabilityGetQuery = "SELECT ID, Name, Type, Description, Status from Capabilities";
-        String commandGetQuery = "SELECT CommandID, CommandName, Params, from Commands";
+        String commandGetQuery = "SELECT CommandID, CommandName, Params from Commands";
 
         supplyLinker = new GenericLinker<>(connectionUrl,
                 supplyGetQuery,

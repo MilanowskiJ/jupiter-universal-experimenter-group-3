@@ -1,7 +1,9 @@
 package presentation;
 
 import business.BusinessProcessContainer;
+import business.models.Command;
 import business.models.Experiment;
+import business.models.Macro;
 import data.LinkerManager;
 
 import java.io.BufferedReader;
@@ -16,7 +18,7 @@ public class EditMacro implements UIProcess{
     public void execute(BufferedReader reader, Queue<BusinessProcessContainer> queue) throws IOException {
 
         System.out.println("Select a macro from the following list to edit: ");
-        Map<String, List<String>> macroToCmdList = this.printMacros();
+        Map<String, Macro> macroToCmdList = this.printMacros();
         System.out.print(">");
         String macro;
         while(true){
@@ -29,25 +31,24 @@ public class EditMacro implements UIProcess{
             }
         }
 
-        //TODO: get macro commands params in order from database
-        Map<String, String> cmdToParams = new HashMap<>(); //command to params list
-        cmdToParams.put("C1", null);
-        cmdToParams.put("C2", "x,y,z");
-        cmdToParams.put("C3", null);
-        cmdToParams.put("C4", "SampleID");
-        cmdToParams.put("C5", "reagent,amount");
-        cmdToParams.put("C6", null);
-        cmdToParams.put("C7", "x,y,z");
-        cmdToParams.put("C8", null);
-        cmdToParams.put("C9", "C");
-        cmdToParams.put("C10", null);
+        Macro currentMacro = macroToCmdList.get(macro);
 
+        Map<String, String> cmdToParams = new HashMap<>(); //command to params list
+
+        for(Command currentCommand: currentMacro.getCommandList()){
+            cmdToParams.put(currentCommand.getID(), currentCommand.getParameters());
+        }
 
         List<String> commandOutput = new ArrayList<>();
         List<String> paramOutput = new ArrayList<>();
 
         commandOutput.add(macro); //format: macroName, cmd, param, cmd, param, ....
-        List<String> commands = macroToCmdList.get(macro);
+
+        List<String> commands = new ArrayList<>();
+
+        for(Command currentCommand: macroToCmdList.get(macro).getCommandList()){
+            commands.add(currentCommand.getID());
+        }
 
         for(String command : commands){
             String paramToEdit = cmdToParams.get(command);
@@ -94,14 +95,8 @@ public class EditMacro implements UIProcess{
 
     }
 
-    private Map<String, List<String>> printMacros(){
-        //TODO: get this from database (the lists should be ordered)
-        Map<String, List<String>> macroToCommandList = new HashMap<>();// LinkerManager.getInstance().getExperimentModels();
-        List<String> macro1List = new ArrayList<>(Arrays.asList("C1", "C2", "C3", "C4", "C5"));
-        List<String> macro2List = new ArrayList<>(Arrays.asList("C7", "C8", "C9", "C10", "C6"));
-
-        macroToCommandList.put("MC1", macro1List);
-        macroToCommandList.put("MC2", macro2List);
+    private Map<String, Macro> printMacros(){
+        Map<String, Macro> macroToCommandList = LinkerManager.getInstance().getMacroModels();
 
         for(String macro : macroToCommandList.keySet()){
             //TODO: change this print line to print macro names (for jamari to do)

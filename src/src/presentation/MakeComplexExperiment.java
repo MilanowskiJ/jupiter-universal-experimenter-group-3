@@ -1,6 +1,8 @@
 package presentation;
 
 import business.BusinessProcessContainer;
+import business.models.Macro;
+import data.LinkerManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,12 +21,9 @@ public class MakeComplexExperiment implements UIProcess {
         String experimentID = reader.readLine();
         commandOutput.add(experimentID);
 
-
-        //TODO: get this map and set from the database
         Map<String, String> cmdToParam = new HashMap<>();
-        Set<String> macroNames = new HashSet<>();
-        macroNames.add("MC1");
-        macroNames.add("MC2");
+        Map<String, Macro> macros = LinkerManager.getInstance().getMacroModels();
+        Set<String> macroNames = macros.keySet();
 
         cmdToParam.put("C1", null);
         cmdToParam.put("C2", "x,y,z");

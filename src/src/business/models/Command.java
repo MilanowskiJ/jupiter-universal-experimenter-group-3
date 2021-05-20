@@ -2,18 +2,20 @@ package business.models;
 
 import org.json.JSONObject;
 
-public class Command implements DatabaseModel, Processable {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Command implements DatabaseModel, Processable, ComplexExperiment.ExperimentStepWrapper {
     private String ID;
+
     private String name;
     private String parameters;
-
     private String parameterValues;
-
     public Command(String ID, String name, String parameters) {
         this.ID = ID;
         this.name = (name == null) ? "" : name;
         this.parameters = parameters;
-        this.parameterValues = "";
+        this.parameterValues = null;
     }
 
     public String getParameterValues() {
@@ -22,6 +24,18 @@ public class Command implements DatabaseModel, Processable {
 
     public void setParameterValues(String parameterValues) {
         this.parameterValues = parameterValues;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public String getParameters() {
+        return parameters;
     }
 
     @Override
@@ -60,5 +74,22 @@ public class Command implements DatabaseModel, Processable {
         }
 
         return commandJSON;
+    }
+
+    @Override
+    public String getIDProcessor() {
+        return "'" + this.getDatabaseID() + "', 'NULL'";
+    }
+
+    @Override
+    public String getParamValues() {
+        return this.parameterValues;
+    }
+
+    @Override
+    public List<JSONObject> processStep() {
+        List<JSONObject> list = new ArrayList();
+        list.add(this.process());
+        return list;
     }
 }

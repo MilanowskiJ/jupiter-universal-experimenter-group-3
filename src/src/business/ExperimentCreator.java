@@ -23,7 +23,7 @@ public class ExperimentCreator {
         String whereToSample = params.get(2);
         String howMuchToSample = params.get(1);
         String whatToSample = params.get(0);
-        SampleExperiment output = new SampleExperiment("Experiment"+experimentID, "M", experimentID, "F", "N/A");
+        SampleExperiment output = new SampleExperiment("Experiment"+experimentID, "M", experimentID, "N", "N/A");
 
         output.setWhere(whereToSample);
         output.setAmount(Integer.parseInt(howMuchToSample));
@@ -37,7 +37,7 @@ public class ExperimentCreator {
         String reagentQuantity = params.get(2);
         String sampleToApplyTo = params.get(1);
         String reagent = params.get(0);
-        ReagentExperiment output = new ReagentExperiment("E" + experimentID, "M", experimentID, "F", "N/A");
+        ReagentExperiment output = new ReagentExperiment("E" + experimentID, "M", experimentID, "N", "N/A");
         output.setAmount(Integer.parseInt(reagentQuantity));
         output.setReagent(reagent);
         output.setSampleID(sampleToApplyTo);
@@ -52,7 +52,7 @@ public class ExperimentCreator {
         String quantity = params.get(2);
         String whatToDo = params.get(1);
         String experimentID = params.get(0);
-        ComplexExperiment output = new ComplexExperiment("Experiment " + experimentID, "M", experimentID, "F", "N/A");
+        ComplexExperiment output = new ComplexExperiment("Experiment " + experimentID, "M", experimentID, "N", "N/A");
 
         return output;
     }

@@ -1,5 +1,6 @@
-package business;
+package presentation;
 
+import business.*;
 import business.models.*;
 import data.CommunicationSubsystem;
 import data.LinkerManager;
@@ -34,6 +35,7 @@ public class JUMPSystem {
         Map<String, Capability> capabilities;
         Map<String, Experiment> experiments;
         Map<String, Macro> macros;
+        Map<String, Command> commandList;
 
         while(true){
             obs.update();
@@ -41,6 +43,7 @@ public class JUMPSystem {
             capabilities = linkerManager.getCapabilityModels();
             experiments = linkerManager.getExperimentModels();
             macros = linkerManager.getMacroModels();
+            commandList = linkerManager.getCommandModels();
 
             while (obs.hasNext()) {
                 JSONObject report = obs.next();
@@ -101,17 +104,21 @@ public class JUMPSystem {
                 System.out.println("commands: " + commands.toString());
                 System.out.println("params: " + params.toString());
 
-                //ComplexExperiment complexExperiment = new ComplexExperiment();
+                ComplexExperiment complexExperiment = new ComplexExperiment(commands.get(0), "M", commands.get(0), "N", "N/A");
 
                 for(int i = 1; i < commands.size(); i++){
                     if(macros.containsKey(commands.get(i))){
-                        //Macro temp =
+                        Macro temp = macros.get(commands.get(i));
+                        complexExperiment.addExperimentStep(temp);
                     }else{
-
+                        Command oldCommand = commandList.get(commands.get(i));
+                        Command newCommand = new Command(oldCommand.getID(), oldCommand.getName(), oldCommand.getParameters());
+                        newCommand.setParameterValues(params.get(i-1));
+                        complexExperiment.addExperimentStep(newCommand);
                     }
                 }
-                //TODO: put that info into a complex experiment object and push to db
 
+                linkerManager.add(complexExperiment);
             } else if(typeInfo[0].equals("editMacro")){
                 List<String> commands = nextBusinessProcess.getParams();
                 //0th is macro name, others are commands (in order)
@@ -119,19 +126,21 @@ public class JUMPSystem {
                 List<String> params = nextBusinessProcess.getParams2();
                 //params for commands(in order)
 
-
-                System.out.println("Commands: "+commands.toString());
-                System.out.println("Params: "+params.toString());
                 Macro newMacro = new Macro(commands.get(0));
                 newMacro.makeCommandList(commands,params);
 
-                //TODO: pass that macro into database (and remove debugs)
+                linkerManager.update(newMacro);
             }
             else if(typeInfo[0].equals("processPayload")){
                 List<String> params = nextBusinessProcess.getParams();
                 //0th is payload name, others are experiments to be added to the payload
-                //TODO: put all this into a payload object and print the JSON to command line
-                System.out.println(params.toString());
+                Payload payload = new Payload();
+                for(int i = 1; i < params.size(); i++){
+                    payload.add(experiments.get(params.get(i)).process());
+                }
+
+                System.out.println(params.get(0).toString() + ": ");
+                System.out.println(payload.process().toString());
             }
             else continue;
         }

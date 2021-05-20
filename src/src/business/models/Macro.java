@@ -9,13 +9,18 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Macro implements DatabaseModel, Processable{
+public class Macro implements DatabaseModel, Processable, ComplexExperiment.ExperimentStepWrapper{
     String name;
+
     ArrayList<Command> commandList;
 
     public Macro(String name){
         this.name = name;
         commandList = new ArrayList<Command>();
+    }
+
+    public ArrayList<Command> getCommandList() {
+        return commandList;
     }
 
     @Override
@@ -37,12 +42,13 @@ public class Macro implements DatabaseModel, Processable{
 
     @Override
     public String updateQuery() {
-        return null;
+        return this.deleteQuery() + this.addQuery();
     }
 
     @Override
     public String deleteQuery() {
-        return null;
+        return String.format("DELETE FROM Snackros WHERE MacroName = '%s';",
+                this.getDatabaseID());
     }
 
     @Override
@@ -82,5 +88,24 @@ public class Macro implements DatabaseModel, Processable{
 
     public void addCommand(Command command){
         commandList.add(command);
+    }
+
+    @Override
+    public String getIDProcessor() {
+        return "'NULL', '" + this.getDatabaseID() +"'";
+    }
+
+    @Override
+    public String getParamValues() {
+        return null;
+    }
+
+    @Override
+    public List<JSONObject> processStep() {
+        List<JSONObject> list = new ArrayList<>();
+        for(Object currentObject: this.process().getJSONArray("experiment_commands")){
+            list.add((JSONObject) currentObject);
+        }
+        return list;
     }
 }

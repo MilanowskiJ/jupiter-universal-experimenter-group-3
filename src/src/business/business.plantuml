@@ -64,7 +64,7 @@ title __BUSINESS's Class Diagram__\n
   
 
   namespace business {
-    class business.JUMPSystem {
+    class presentation.JUMPSystem {
         {static} + main()
     }
   }
